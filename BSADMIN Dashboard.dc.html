@@ -164,14 +164,53 @@ main[data-theme="light"]{--c-c9c5bc:#45494F;--c-hl:transparent;--c-ring:transpar
       <h1 style="margin:0;font-size:26px;font-weight:600;letter-spacing:-0.025em">Dobrý den, Super Admine</h1>
     </div>
     <div style="display:flex;flex-wrap:wrap;align-items:center;gap:8px">
-      <div style="display:flex;padding:3px;border-radius:4px 10px 10px 10px;corner-shape:squircle;background:var(--c-12161b,#12161B);border:1px solid var(--c-236-232-222-0-07,rgba(236,232,222,0.07));box-shadow:{{ shCtl }};transition:box-shadow .35s ease;">
+      <div style="display:flex;padding:3px;border-radius:4px 10px 10px 10px;corner-shape:squircle;background:var(--c-12161b,#12161B);border:1px solid var(--c-236-232-222-0-07,rgba(236,232,222,0.07));box-shadow:{{ shCtl }};transition:box-shadow .35s ease;align-items:center">
+        <span style="display:flex;padding:0 6px 0 8px;color:var(--c-8e939a,#8E939A)"><bs-icon name="calendar" level="1" size="15"></bs-icon></span>
         <sc-for list="{{ periods }}" as="p" hint-placeholder-count="7">
           <button onClick="{{ p.select }}" style="all:unset;cursor:pointer;height:28px;line-height:28px;padding:0 11px;border-radius:7px;font-size:12px;font-weight:500;color:{{ p.color }};background:{{ p.bg }};box-shadow:{{ p.sh }}" style-hover="color:var(--c-f4f1ea,#F4F1EA)">{{ p.label }}</button>
         </sc-for>
       </div>
-      <div style="display:flex;align-items:center;gap:8px;height:36px;padding:0 12px;border-radius:4px 10px 10px 10px;corner-shape:squircle;background:var(--c-12161b,#12161B);border:1px solid var(--c-236-232-222-0-07,rgba(236,232,222,0.07));box-shadow:{{ shCtl }};transition:box-shadow .35s ease;;font-size:12px;color:var(--c-d9d5cc,#D9D5CC)">
-        <bs-icon name="calendar" level="3" size="14" color="#8E939A"></bs-icon>
-        <span>31. 8. 2026</span><span style="color:var(--c-6e747c,#6E747C)">–</span><span>6. 9. 2026</span>
+      <div style="position:relative">
+        <button onClick="{{ hp.toggle }}" style="all:unset;cursor:pointer;display:flex;align-items:center;gap:8px;height:36px;padding:0 10px 0 12px;border-radius:4px 10px 10px 10px;corner-shape:squircle;background:var(--c-12161b,#12161B);border:1px solid {{ hp.chipBorder }};box-shadow:{{ shCtl }};transition:border-color .2s, box-shadow .35s ease;font-size:12px;font-weight:500;color:var(--c-f4f1ea,#F4F1EA)" style-hover="border-color:var(--c-236-232-222-0-24,rgba(236,232,222,0.24))">
+          <bs-icon name="calendar" level="1" size="14" style="color:var(--c-8e939a,#8E939A)"></bs-icon><span style="white-space:nowrap">{{ hp.label }}</span><bs-icon name="chevron-down" level="1" size="13" style="color:var(--c-8e939a,#8E939A)"></bs-icon>
+        </button>
+      <sc-if value="{{ hp.open }}" hint-placeholder-val="{{ false }}">
+        <div onClick="{{ hp.cancel }}" style="position:fixed;inset:0;z-index:40;background:rgba(10,12,15,0.35);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px)"></div>
+        <div style="position:fixed;top:{{ hp.fy }};left:{{ hp.fx }};z-index:41;width:{{ hp.fw }};max-width:calc(100vw - 32px);max-height:calc(100vh - 100px);overflow-y:auto;display:flex;background:var(--c-161a20,#161A20);border:1px solid var(--c-236-232-222-0-12,rgba(236,232,222,0.12));border-radius:8px 24px 24px 24px;corner-shape:squircle;box-shadow:0 2px 6px var(--c-0-0-0-0-35,rgba(0,0,0,0.35)), 0 28px 64px -18px var(--c-0-0-0-0-8,rgba(0,0,0,0.8));overflow:hidden">
+          <div style="width:156px;flex-shrink:0;display:flex;flex-direction:column;gap:2px;padding:12px 8px;background:var(--c-12161b,#12161B);border-right:1px solid var(--c-236-232-222-0-07,rgba(236,232,222,0.07))">
+            <span style="font-size:10.5px;font-weight:500;color:var(--c-6e747c,#6E747C);letter-spacing:0.06em;text-transform:uppercase;padding:2px 8px 8px">Rychlý výběr</span>
+            <sc-for list="{{ hp.presets }}" as="pr" hint-placeholder-count="8">
+              <button onClick="{{ pr.select }}" style="all:unset;cursor:pointer;display:flex;align-items:center;justify-content:space-between;gap:6px;height:30px;padding:0 10px;border-radius:8px;font-size:12.5px;font-weight:500;color:{{ pr.color }};background:{{ pr.bg }}" style-hover="background:var(--c-1f252d,#1F252D)">{{ pr.label }}<sc-if value="{{ pr.on }}" hint-placeholder-val="{{ false }}"><bs-icon name="check" level="1" size="13" color="#FF6259"></bs-icon></sc-if></button>
+            </sc-for>
+          </div>
+          <div style="flex:1;min-width:0;display:flex;flex-direction:column">
+            <div style="position:relative;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px;padding:14px 18px 16px">
+              <button onClick="{{ hp.prev }}" aria-label="Předchozí měsíc" style="all:unset;cursor:pointer;position:absolute;left:12px;top:10px;width:28px;height:28px;border-radius:8px;display:flex;align-items:center;justify-content:center;color:var(--c-a7abb2,#A7ABB2)" style-hover="background:var(--c-232931,#232931);color:var(--c-f4f1ea,#F4F1EA)"><bs-icon name="chevron-right" level="1" size="15" style="transform:rotate(180deg)"></bs-icon></button>
+              <button onClick="{{ hp.next }}" aria-label="Další měsíc" style="all:unset;cursor:pointer;position:absolute;right:12px;top:10px;width:28px;height:28px;border-radius:8px;display:flex;align-items:center;justify-content:center;color:var(--c-a7abb2,#A7ABB2)" style-hover="background:var(--c-232931,#232931);color:var(--c-f4f1ea,#F4F1EA)"><bs-icon name="chevron-right" level="1" size="15"></bs-icon></button>
+              <sc-for list="{{ hp.months }}" as="mo" hint-placeholder-count="2">
+                <div style="display:flex;flex-direction:column;gap:8px;min-width:0">
+                  <span style="height:28px;line-height:28px;text-align:center;font-size:13px;font-weight:600;letter-spacing:-0.01em">{{ mo.title }}</span>
+                  <div style="display:grid;grid-template-columns:repeat(7,minmax(0,1fr))">
+                    <sc-for list="{{ days }}" as="wd" hint-placeholder-count="7"><span style="text-align:center;font-size:10.5px;font-weight:500;color:var(--c-6e747c,#6E747C);padding-bottom:4px">{{ wd }}</span></sc-for>
+                  </div>
+                  <div style="display:grid;grid-template-columns:repeat(7,minmax(0,1fr));row-gap:2px" onMouseLeave="{{ hp.leave }}">
+                    <sc-for list="{{ mo.cells }}" as="c" hint-placeholder-count="35">
+                      <button onClick="{{ c.click }}" onMouseEnter="{{ c.enter }}" style="all:unset;cursor:{{ c.cursor }};height:32px;display:flex;align-items:center;justify-content:center;font-size:12.5px;font-weight:{{ c.fw }};color:{{ c.color }};background:{{ c.bg }};border-radius:{{ c.r }};box-shadow:{{ c.ring }};transition:background .12s">{{ c.label }}</button>
+                    </sc-for>
+                  </div>
+                </div>
+              </sc-for>
+            </div>
+            <div style="margin-top:auto;display:flex;flex-wrap:wrap;align-items:center;gap:10px;padding:12px 16px;border-top:1px solid var(--c-236-232-222-0-07,rgba(236,232,222,0.07));background:var(--c-12161b,#12161B)">
+              <span style="display:flex;align-items:center;gap:8px;font-size:12.5px;font-weight:500;color:var(--c-f4f1ea,#F4F1EA)"><bs-icon name="calendar-week" level="3" size="14" color="#8E939A"></bs-icon>{{ hp.draft }}</span>
+              <span style="font-size:12px;color:var(--c-8e939a,#8E939A)">{{ hp.count }}</span>
+              <span style="flex:1"></span>
+              <button onClick="{{ hp.cancel }}" style="all:unset;cursor:pointer;height:32px;padding:0 12px;border-radius:9px;font-size:12px;font-weight:500;color:var(--c-d9d5cc,#D9D5CC)" style-hover="background:var(--c-1f252d,#1F252D);color:var(--c-f4f1ea,#F4F1EA)">Zrušit</button>
+              <button onClick="{{ hp.apply }}" style="all:unset;cursor:{{ hp.applyCursor }};height:32px;padding:0 14px;border-radius:9px;background:{{ hp.applyBg }};color:#FBF9F4;font-size:12px;font-weight:600;box-shadow:{{ shCta }}">Použít</button>
+            </div>
+          </div>
+        </div>
+      </sc-if>
       </div>
       <button onClick="{{ toggleVat }}" style="all:unset;cursor:pointer;display:flex;align-items:center;gap:8px;height:36px;padding:0 12px;border-radius:4px 10px 10px 10px;corner-shape:squircle;background:var(--c-12161b,#12161B);border:1px solid var(--c-236-232-222-0-07,rgba(236,232,222,0.07));box-shadow:{{ shCtl }};transition:box-shadow .35s ease;;font-size:12px;color:var(--c-d9d5cc,#D9D5CC)">
         <span style="width:26px;height:16px;border-radius:9px;background:{{ vatTrack }};position:relative;transition:background .15s"><span style="position:absolute;top:2px;left:{{ vatKnob }};width:12px;height:12px;border-radius:50%;background:#FBF9F4;transition:left .15s"></span></span><bs-icon name="percentage" level="3" size="13" color="#8E939A"></bs-icon>s DPH
@@ -192,7 +231,7 @@ main[data-theme="light"]{--c-c9c5bc:#45494F;--c-hl:transparent;--c-ring:transpar
       <div style="display:flex;flex-wrap:wrap;align-items:flex-start;justify-content:space-between;gap:12px">
         <div style="display:flex;align-items:center;gap:12px;flex:1 1 220px;min-width:0"><span draggable="true" onDragStart="{{ cds0 }}" onDragEnd="{{ cde }}" title="Přetáhněte pro přesun karty" style="display:flex;flex-shrink:0;color:var(--c-6e747c,#6E747C);margin-left:-8px;cursor:grab" style-hover="color:var(--c-f4f1ea,#F4F1EA)"><bs-icon name="grip-vertical" level="1" size="16"></bs-icon></span><sc-if value="{{ lv3 }}" hint-placeholder-val="{{ true }}"><span style="display:flex;align-items:center;justify-content:center;color:var(--c-8e939a,#8E939A);flex-shrink:0"><bs-icon name="chart-line" level="3" size="30" style="margin-top:0"></bs-icon></span></sc-if><div style="display:flex;flex-direction:column;gap:3px;min-width:0">
           <h2 style="margin:0;font-size:18px;font-weight:600;letter-spacing:-0.015em">Objednávky celkem</h2>
-          <span style="font-size:12px;color:var(--c-8e939a,#8E939A)">{{ chartSubtitle }}</span>
+          <span style="font-size:12px;color:var(--c-8e939a,#8E939A)">{{ chartSubtitle }}<span style="color:{{ vatColor }};font-weight:{{ vatFw }}">{{ vatText }}</span> · <span style="color:{{ stornoColor }};font-weight:{{ stornoFw }}">{{ stornoText }}</span></span>
         </div></div>
         <div style="display:flex;padding:3px;border-radius:4px 9px 9px 9px;corner-shape:squircle;background:var(--c-0d1014,#0D1014);border:1px solid var(--c-236-232-222-0-06,rgba(236,232,222,0.06))">
           <sc-for list="{{ metrics }}" as="m" hint-placeholder-count="3">
@@ -357,7 +396,7 @@ main[data-theme="light"]{--c-c9c5bc:#45494F;--c-hl:transparent;--c-ring:transpar
           <bs-icon name="calendar" level="2" size="14" color="#8E939A"></bs-icon><span style="white-space:nowrap">{{ dp.label }}</span><bs-icon name="chevron-down" level="1" size="13" color="#8E939A"></bs-icon>
         </button>
         <sc-if value="{{ dp.open }}" hint-placeholder-val="{{ false }}">
-          <div onClick="{{ dp.cancel }}" style="position:fixed;inset:0;z-index:40"></div>
+          <div onClick="{{ dp.cancel }}" style="position:fixed;inset:0;z-index:40;background:rgba(10,12,15,0.35);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px)"></div>
           <div style="position:absolute;top:calc(100% + 8px);right:22px;z-index:41;width:660px;max-width:calc(100vw - 48px);display:flex;background:var(--c-161a20,#161A20);border:1px solid var(--c-236-232-222-0-12,rgba(236,232,222,0.12));border-radius:8px 24px 24px 24px;corner-shape:squircle;box-shadow:0 2px 6px var(--c-0-0-0-0-35,rgba(0,0,0,0.35)), 0 28px 64px -18px var(--c-0-0-0-0-8,rgba(0,0,0,0.8));overflow:hidden">
             <div style="width:156px;flex-shrink:0;display:flex;flex-direction:column;gap:2px;padding:12px 8px;background:var(--c-12161b,#12161B);border-right:1px solid var(--c-236-232-222-0-07,rgba(236,232,222,0.07))">
               <span style="font-size:10.5px;font-weight:500;color:var(--c-6e747c,#6E747C);letter-spacing:0.06em;text-transform:uppercase;padding:2px 8px 8px">Rychlý výběr</span>
@@ -891,9 +930,9 @@ const fD=n=>{const a=DD(n);return a.d+". "+(a.m+1)+". "+a.y;};
 const fR=(a,b)=>{if(a===b)return fD(a);const A=DD(a),B=DD(b);return A.y===B.y?A.d+". "+(A.m+1)+". – "+fD(b):fD(a)+" – "+fD(b);};
 const MONTHS=["Leden","Únor","Březen","Duben","Květen","Červen","Červenec","Srpen","Září","Říjen","Listopad","Prosinec"];
 const nDays=n=>n+(n===1?" den":n<5?" dny":" dní");
-const rangeFor=k=>{const t=DD(TODAY),mon=TODAY-t.w;switch(k){case"Včera":return[TODAY-1,TODAY-1];case"Dnes":return[TODAY,TODAY];case"Tento týden":return[mon,mon+6];case"Minulý týden":return[mon-7,mon-1];case"Tento kvartál":{const q=Math.floor(t.m/3)*3;return[DAY(t.y,q,1),DAY(t.y,q+3,0)];}case"Tento rok":return[DAY(t.y,0,1),DAY(t.y,11,31)];case"Posledních 30 dní":return[TODAY-29,TODAY];case"Minulý měsíc":return[DAY(t.y,t.m-1,1),DAY(t.y,t.m,0)];}return null;};
-const SP_LIST=["Včera","Dnes","Tento týden","Minulý týden","Tento kvartál","Tento rok","Vlastní"];
-const DP_PRESETS=["Dnes","Včera","Tento týden","Minulý týden","Posledních 30 dní","Minulý měsíc","Tento kvartál","Tento rok"];
+const rangeFor=k=>{const t=DD(TODAY),mon=TODAY-t.w;switch(k){case"Včera":return[TODAY-1,TODAY-1];case"Dnes":return[TODAY,TODAY];case"Tento týden":return[mon,mon+6];case"Minulý týden":return[mon-7,mon-1];case"Tento kvartál":{const q=Math.floor(t.m/3)*3;return[DAY(t.y,q,1),DAY(t.y,q+3,0)];}case"Tento rok":return[DAY(t.y,0,1),DAY(t.y,11,31)];case"Posledních 30 dní":return[TODAY-29,TODAY];case"Minulý měsíc":return[DAY(t.y,t.m-1,1),DAY(t.y,t.m,0)];case"Tento měsíc":return[DAY(t.y,t.m,1),DAY(t.y,t.m+1,0)];}return null;};
+const SP_LIST=["Včera","Dnes","Tento týden","Minulý týden","Tento měsíc","Minulý měsíc","Tento kvartál","Tento rok","Vlastní"];
+const DP_PRESETS=["Dnes","Včera","Tento týden","Minulý týden","Posledních 30 dní","Tento měsíc","Minulý měsíc","Tento kvartál","Tento rok"];
 const DAYS=["Po","Út","St","Čt","Pá","So","Ne"];
 const DAYS_LONG=["Pondělí 31. 8.","Úterý 1. 9.","Středa 2. 9.","Čtvrtek 3. 9.","Pátek 4. 9.","Sobota 5. 9.","Neděle 6. 9."];
 const SCEN={
@@ -1014,6 +1053,29 @@ class Component extends DCLogic {
   resetMv(k){const c=this.state.mv[k];if(!c)return;this.setState({mv:{...this.state.mv,[k]:{...c,w:null,hgt:null}}},()=>this.saveMv());}
   resetHeight(i){const hs=[...this.state.heights];hs[i]=null;this.setState({heights:hs},()=>this.saveLayout());}
   savePres(o){this.setState(o,()=>{try{localStorage.setItem("bsadmin-pres",JSON.stringify({scen:this.state.scen,open:this.state.presOpen,icons:this.state.iconLevel,istyle:this.state.iconStyle,chart:this.state.chartV,elev:this.state.elev}))}catch(e){}});}
+  dpFor(K,ra,rb,onApply){const st=this.state,set=o=>this.setState(o);
+        const open=e=>{const a=DD(ra);let pos=null;const t=e&&e.currentTarget;if(t&&t.getBoundingClientRect){const r=t.getBoundingClientRect(),W=Math.min(660,window.innerWidth-32);pos={left:Math.max(16,Math.min(r.left,window.innerWidth-W-16)),top:r.bottom+8,w:W};}set({[K+"Pos"]:pos,[K+"Open"]:true,[K+"A"]:ra,[K+"B"]:rb,[K+"Hover"]:null,[K+"View"]:{y:a.y,m:a.m}});};
+        const view=st[K+"View"]||(()=>{const d=DD(ra);return {y:d.y,m:d.m};})(),nx=(y,m,k)=>{const d=new Date(Date.UTC(y,m+k,1));return {y:d.getUTCFullYear(),m:d.getUTCMonth()};};
+        const A=st[K+"A"],B=st[K+"B"]!=null?st[K+"B"]:(A!=null&&st[K+"Hover"]!=null?st[K+"Hover"]:null);
+        const lo=A==null?null:(B==null?A:Math.min(A,B)),hi=A==null?null:(B==null?A:Math.max(A,B));
+        const pick=n=>{if(st[K+"A"]==null||st[K+"B"]!=null)set({[K+"A"]:n,[K+"B"]:null,[K+"Hover"]:null});else if(n<st[K+"A"])set({[K+"A"]:n,[K+"B"]:st[K+"A"],[K+"Hover"]:null});else set({[K+"B"]:n,[K+"Hover"]:null});};
+        const mk=(y,m)=>{const first=DAY(y,m,1),last=DAY(y,m+1,0),cells=[];for(let i=0;i<DD(first).w;i++)cells.push({label:"",cursor:"default",fw:"400",color:"transparent",bg:"transparent",r:"0",ring:"none"});
+          for(let n=first;n<=last;n++){const w=DD(n).w,inR=lo!=null&&n>=lo&&n<=hi,edge=lo!=null&&(n===lo||n===hi);
+            cells.push({label:DD(n).d,cursor:"pointer",click:()=>pick(n),enter:()=>{if(st[K+"A"]!=null&&st[K+"B"]==null&&st[K+"Hover"]!==n)set({[K+"Hover"]:n});},
+              fw:edge?"600":n===TODAY?"600":"400",color:edge?"#FBF9F4":inR?"var(--c-f4f1ea,#F4F1EA)":n>TODAY?"var(--c-6e747c,#6E747C)":w>=5?"var(--c-a7abb2,#A7ABB2)":"var(--c-e8e4db,#E8E4DB)",
+              bg:edge?"#E5372F":inR?"rgba(229,55,47,0.16)":"transparent",
+              r:edge?(lo===hi?"9px":n===lo?"9px 0 0 9px":"0 9px 9px 0"):inR?"0":"9px",
+              ring:n===TODAY&&!edge?"inset 0 0 0 1px var(--c-236-232-222-0-35,rgba(236,232,222,0.35))":"none"});}
+          return {title:MONTHS[m]+" "+y,cells};};
+        const v2=nx(view.y,view.m,1);
+                const apply=()=>{if(lo==null)return;const r=onApply(lo,hi);set({...r,[K+"Open"]:false});};
+        return {open:st[K+"Open"],openFn:open,fx:st[K+"Pos"]?st[K+"Pos"].left+"px":"16px",fy:st[K+"Pos"]?st[K+"Pos"].top+"px":"80px",fw:st[K+"Pos"]?st[K+"Pos"].w+"px":"660px",label:fR(ra,rb),toggle:st[K+"Open"]?()=>set({[K+"Open"]:false}):open,cancel:()=>set({[K+"Open"]:false}),apply,
+            chipBorder:st[K+"Open"]?"rgba(229,55,47,0.55)":"var(--c-236-232-222-0-1,rgba(236,232,222,0.1))",
+            prev:()=>set({[K+"View"]:nx(view.y,view.m,-1)}),next:()=>set({[K+"View"]:nx(view.y,view.m,1)}),leave:()=>{if(st[K+"Hover"]!=null)set({[K+"Hover"]:null});},
+            months:[mk(view.y,view.m),mk(v2.y,v2.m)],
+            draft:lo==null?"Vyberte začátek":(st[K+"B"]==null&&st[K+"Hover"]==null?fD(lo)+" – vyberte konec":fR(lo,hi)),count:lo==null?"":nDays(hi-lo+1),
+            applyBg:lo==null?"var(--c-3a2a2a,#3A2A2A)":"#E5372F",applyCursor:lo==null?"not-allowed":"pointer",
+            presets:DP_PRESETS.map(k=>{const r=rangeFor(k),on=lo===r[0]&&hi===r[1];return {label:k,on,select:()=>{const a=DD(r[0]);set({[K+"A"]:r[0],[K+"B"]:r[1],[K+"Hover"]:null,[K+"View"]:{y:a.y,m:a.m}});},color:on?"var(--c-f4f1ea,#F4F1EA)":"var(--c-a7abb2,#A7ABB2)",bg:on?"var(--c-232931,#232931)":"transparent"};})};}
   renderVals(){
     const st=this.state, set=o=>this.setState(o);
     const S=SCEN[st.scen]||SCEN.pokles;const [tc,tp,ty]=S.t[st.metric];
@@ -1079,30 +1141,10 @@ class Component extends DCLogic {
           hoverX:h>=0?(xs(h)/VW*100)+"%":"0%",wallTop:((BY-WH)/VH*100)+"%",wallH100:(WH/VH*100)+"%",
           colL:((X0-(X1-X0)/12)/VW*100)+"%",colR:(100-(X1+(X1-X0)/12)/VW*100)+"%"};})(),
       ...(()=>{const totO=SHOPS.reduce((a,s)=>a+Math.round(s[1]*SF),0),totV=SHOPS.reduce((a,s)=>a+s[2]*SF,0);
-        const openDp=()=>{const a=DD(ra);set({dpOpen:true,dpA:ra,dpB:rb,dpHover:null,dpView:{y:a.y,m:a.m}});};
-        const view=st.dpView,nx=(y,m,k)=>{const d=new Date(Date.UTC(y,m+k,1));return {y:d.getUTCFullYear(),m:d.getUTCMonth()};};
-        const A=st.dpA,B=st.dpB!=null?st.dpB:(A!=null&&st.dpHover!=null?st.dpHover:null);
-        const lo=A==null?null:(B==null?A:Math.min(A,B)),hi=A==null?null:(B==null?A:Math.max(A,B));
-        const pick=n=>{if(st.dpA==null||st.dpB!=null)set({dpA:n,dpB:null,dpHover:null});else if(n<st.dpA)set({dpA:n,dpB:st.dpA,dpHover:null});else set({dpB:n,dpHover:null});};
-        const mk=(y,m)=>{const first=DAY(y,m,1),last=DAY(y,m+1,0),cells=[];for(let i=0;i<DD(first).w;i++)cells.push({label:"",cursor:"default",fw:"400",color:"transparent",bg:"transparent",r:"0",ring:"none"});
-          for(let n=first;n<=last;n++){const w=DD(n).w,inR=lo!=null&&n>=lo&&n<=hi,edge=lo!=null&&(n===lo||n===hi);
-            cells.push({label:DD(n).d,cursor:"pointer",click:()=>pick(n),enter:()=>{if(st.dpA!=null&&st.dpB==null&&st.dpHover!==n)set({dpHover:n});},
-              fw:edge?"600":n===TODAY?"600":"400",color:edge?"#FBF9F4":inR?"var(--c-f4f1ea,#F4F1EA)":n>TODAY?"var(--c-6e747c,#6E747C)":w>=5?"var(--c-a7abb2,#A7ABB2)":"var(--c-e8e4db,#E8E4DB)",
-              bg:edge?"#E5372F":inR?"rgba(229,55,47,0.16)":"transparent",
-              r:edge?(lo===hi?"9px":n===lo?"9px 0 0 9px":"0 9px 9px 0"):inR?"0":"9px",
-              ring:n===TODAY&&!edge?"inset 0 0 0 1px var(--c-236-232-222-0-35,rgba(236,232,222,0.35))":"none"});}
-          return {title:MONTHS[m]+" "+y,cells};};
-        const v2=nx(view.y,view.m,1);
-        const apply=()=>{if(lo==null)return;const match=SP_LIST.find(k=>{const r=rangeFor(k);return r&&r[0]===lo&&r[1]===hi;});set(match?{shopPeriod:match,dpOpen:false}:{shopPeriod:"Vlastní",shopRange:[lo,hi],dpOpen:false});};
+        const dp=this.dpFor("dp",ra,rb,(lo,hi)=>{const match=SP_LIST.find(k=>{const r=rangeFor(k);return r&&r[0]===lo&&r[1]===hi;});return match?{shopPeriod:match}:{shopPeriod:"Vlastní",shopRange:[lo,hi]};}),openDp=dp.openFn;
         return {shopTot:{orders:fmt(totO),value:fmt(totV)+" Kč",avg:fmt(totO?totV/totO:0)+" Kč"},
           shopPeriods:SP_LIST.map(k=>{const on=st.shopPeriod===k;return {label:k,select:k==="Vlastní"?openDp:()=>set({shopPeriod:k,dpOpen:false}),color:on?"var(--c-f4f1ea,#F4F1EA)":"var(--c-8e939a,#8E939A)",bg:on?"var(--c-262c35,#262C35)":"transparent",sh:on?EV.seg:"none"};}),
-          dp:{open:st.dpOpen,label:fR(ra,rb),toggle:st.dpOpen?()=>set({dpOpen:false}):openDp,cancel:()=>set({dpOpen:false}),apply,
-            chipBorder:st.dpOpen?"rgba(229,55,47,0.55)":"var(--c-236-232-222-0-1,rgba(236,232,222,0.1))",
-            prev:()=>set({dpView:nx(view.y,view.m,-1)}),next:()=>set({dpView:nx(view.y,view.m,1)}),leave:()=>{if(st.dpHover!=null)set({dpHover:null});},
-            months:[mk(view.y,view.m),mk(v2.y,v2.m)],
-            draft:lo==null?"Vyberte začátek":(st.dpB==null&&st.dpHover==null?fD(lo)+" – vyberte konec":fR(lo,hi)),count:lo==null?"":nDays(hi-lo+1),
-            applyBg:lo==null?"var(--c-3a2a2a,#3A2A2A)":"#E5372F",applyCursor:lo==null?"not-allowed":"pointer",
-            presets:DP_PRESETS.map(k=>{const r=rangeFor(k),on=lo===r[0]&&hi===r[1];return {label:k,on,select:()=>{const a=DD(r[0]);set({dpA:r[0],dpB:r[1],dpHover:null,dpView:{y:a.y,m:a.m}});},color:on?"var(--c-f4f1ea,#F4F1EA)":"var(--c-a7abb2,#A7ABB2)",bg:on?"var(--c-232931,#232931)":"transparent"};})}};})(),
+          dp};})(),
       ...(()=>{const d=new Date(st.now),y=d.getFullYear(),m=d.getMonth(),dd=d.getDate(),dw=d.getDay(),sec=d.getSeconds();
         const p2=n=>String(n).padStart(2,"0");
         const doy=Math.round((Date.UTC(y,m,dd)-Date.UTC(y,0,1))/864e5)+1,diy=((y%4===0&&y%100!==0)||y%400===0)?366:365;
@@ -1120,7 +1162,10 @@ class Component extends DCLogic {
       lv3:st.iconLevel>=3,lvLow:st.iconLevel<3,
       iconLevels:[[1,"I1","Bez ikon"],[2,"I2","Jen CTA"],[3,"I3","Bohaté"]].map(([v,c,l])=>({code:c,label:l,select:()=>this.savePres({iconLevel:v}),bg:st.iconLevel===v?"var(--c-262c35,#262C35)":"transparent",color:st.iconLevel===v?"var(--c-ff6259,#FF6259)":"var(--c-d9d5cc,#D9D5CC)"})),
       iconStyles:[["outline","Outline"],["filled","Solid"]].map(([v,l])=>({v,label:l,select:()=>this.savePres({iconStyle:v}),bg:st.iconStyle===v?"var(--c-262c35,#262C35)":"transparent",color:st.iconStyle===v?"var(--c-f4f1ea,#F4F1EA)":"var(--c-8e939a,#8E939A)"})),
-      periods:tabBtn(["Včera","Dnes","Tento týden","Minulý týden","Tento kvartál","Tento rok","Vlastní"].map(x=>[x,x]),st.period,"period"),
+      ...(()=>{const [ha,hb]=st.period==="Vlastní"&&st.hRange?st.hRange:(rangeFor(st.period)||rangeFor("Tento týden"));
+        const hp=this.dpFor("hp",ha,hb,(lo,hi)=>{const match=SP_LIST.find(k=>{const r=rangeFor(k);return r&&r[0]===lo&&r[1]===hi;});return match?{period:match}:{period:"Vlastní",hRange:[lo,hi]};});
+        const ps=tabBtn(SP_LIST.map(x=>[x,x]),st.period,"period");ps.forEach(p=>{if(p.label==="Vlastní")p.select=hp.openFn;else{const f=p.select;p.select=()=>{f();set({hpOpen:false});};}});
+        return {periods:ps,hp};})(),
       toggleVat:()=>set({vat:!vatOn}),toggleStorno:()=>set({storno:!stOn}),
       ...(()=>{const dk=st.dragK,nd=!!dk,hv=st.newsHover,LS=this.layoutSpans(),side=e=>{const r=e.currentTarget.getBoundingClientRect();return (e.clientX-r.left)/r.width>0.5;};
         const mk=(k,p)=>{const inG=!!st.mv[k];return {[p+"Side"]:!inG,[p+"Grid"]:inG,[p+"Ord"]:inG?(st.mv.stack&&(st.mv.stack.anchor===k||st.mv.stack.other===k)?((k===st.mv.stack.anchor)===st.mv.stack.below?1:2):this.effO(k)):0,[p+"Span"]:LS[k],[p+"SrcOp"]:dk===k?0.45:1,
@@ -1156,7 +1201,7 @@ class Component extends DCLogic {
       vatTrack:vatOn?"#E5372F":"var(--c-2a3038,#2A3038)",vatKnob:vatOn?"12px":"2px",
       stornoTrack:stOn?"#E5372F":"var(--c-2a3038,#2A3038)",stornoKnob:stOn?"12px":"2px",
       metrics:tabBtn([["pocet","Počet"],["hodnota","Hodnota"],["prum","Průměr"]],st.metric,"metric").map((m,i)=>({...m,icon:["numbers","cash-banknote","circle-half-2"][i]})),
-      chartSubtitle:({hodnota:"Hodnota",pocet:"Počet objednávek",prum:"Průměrná objednávka"})[st.metric]+(vatOn?" · s DPH":" · bez DPH")+(stOn?" · včetně storen":" · bez storen"),
+      chartSubtitle:({hodnota:"Hodnota",pocet:"Počet objednávek",prum:"Průměrná objednávka"})[st.metric]+" · ",vatText:vatOn?"s DPH":"bez DPH",vatColor:vatOn?"var(--c-ff6259,#FF6259)":"inherit",vatFw:vatOn?"600":"inherit",stornoText:stOn?"včetně storen":"bez storen",stornoColor:stOn?"var(--c-ff6259,#FF6259)":"inherit",stornoFw:stOn?"600":"inherit",
       curTotal:fmtU(M.cur,M.unit),cmpTotal:fmtU(cmpTot,M.unit),cmpLabel,cmpShort:st.cmp==="year"?"Loni":"Porovnání",cmpRange,hasCmp,
       deltaText:pct(delta),deltaIcon:({neg:"trending-down",pos:"trending-up",neu:"minus"})[tone(delta)],deltaBg:TONE[tone(delta)].bg,deltaColor:TONE[tone(delta)].fg,
       seriesColor:hasCmp?TONE[tone(delta)].line:"#E5372F",
