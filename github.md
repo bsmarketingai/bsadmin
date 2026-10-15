@@ -11,7 +11,8 @@ date: 2026-10-08T11:10:47Z
 ## Screen map
 | Screen | Repo files |
 |---|---|
-| BSADMIN Dashboard | BSADMIN Dashboard.dc.html, icons.js, icons/outline/*.svg, icons/filled/*.svg, assets/bsadmin-logo.png |
+| BSADMIN Dashboard 2.0 | bsadmin-dashboard-2-0.dc.html, icons.js, icons/outline/*.svg, icons/filled/*.svg, assets/bsadmin-logo.png |
+| BSADMIN Dashboard 2.1 (light) | bsadmin-dashboard-2-1.dc.html (odvozeno z 2.0) |
 
 ## Sync history
 Původní záznam z repa (zdroj ikon):
