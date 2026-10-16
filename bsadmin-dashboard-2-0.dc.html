@@ -10,7 +10,7 @@
 <helmet>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
-<script src="./icons.js"></script>
+<script src="./icons.js?v=3"></script>
 <style>
 html,body{margin:0;background:#0A0C0F;color:#F4F1EA;font-family:'Geist',system-ui,sans-serif;-webkit-font-smoothing:antialiased}
 *{box-sizing:border-box}
@@ -386,53 +386,6 @@ main[data-theme="light"],aside[data-theme="light"]{--c-logo-d:none;--c-logo-l:bl
         </div>
       </div>
 
-      <div style="position:relative;display:flex;flex-wrap:wrap;align-items:center;gap:8px;padding:0 22px">
-        <div style="display:flex;flex-wrap:wrap;padding:3px;border-radius:4px 10px 10px 10px;corner-shape:squircle;background:var(--c-0d1014,#0D1014);border:1px solid var(--c-236-232-222-0-06,rgba(236,232,222,0.06))">
-          <sc-for list="{{ shopPeriods }}" as="sp" hint-placeholder-count="7">
-            <button onClick="{{ sp.select }}" style="all:unset;cursor:pointer;height:26px;line-height:26px;padding:0 10px;border-radius:7px;font-size:12px;font-weight:500;color:{{ sp.color }};background:{{ sp.bg }};box-shadow:{{ sp.sh }}" style-hover="color:var(--c-f4f1ea,#F4F1EA)">{{ sp.label }}</button>
-          </sc-for>
-        </div>
-        <button onClick="{{ dp.toggle }}" style="all:unset;cursor:pointer;display:flex;align-items:center;gap:8px;height:32px;padding:0 10px 0 12px;border-radius:4px 9px 9px 9px;corner-shape:squircle;background:var(--c-161a20,#161A20);border:1px solid {{ dp.chipBorder }};font-size:12px;font-weight:500;color:var(--c-f4f1ea,#F4F1EA);box-shadow:{{ shCtl }};transition:border-color .2s" style-hover="border-color:var(--c-236-232-222-0-24,rgba(236,232,222,0.24))">
-          <bs-icon name="calendar" level="2" size="14" color="#8E939A"></bs-icon><span style="white-space:nowrap">{{ dp.label }}</span><bs-icon name="chevron-down" level="1" size="13" color="#8E939A"></bs-icon>
-        </button>
-        <sc-if value="{{ dp.open }}" hint-placeholder-val="{{ false }}">
-          <div onClick="{{ dp.cancel }}" style="position:fixed;inset:0;z-index:40;background:rgba(10,12,15,0.35);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px)"></div>
-          <div style="position:absolute;top:calc(100% + 8px);right:22px;z-index:41;width:660px;max-width:calc(100vw - 48px);display:flex;background:var(--c-161a20,#161A20);border:1px solid var(--c-236-232-222-0-12,rgba(236,232,222,0.12));border-radius:8px 24px 24px 24px;corner-shape:squircle;box-shadow:0 2px 6px var(--c-0-0-0-0-35,rgba(0,0,0,0.35)), 0 28px 64px -18px var(--c-0-0-0-0-8,rgba(0,0,0,0.8));overflow:hidden">
-            <div style="width:156px;flex-shrink:0;display:flex;flex-direction:column;gap:2px;padding:12px 8px;background:var(--c-12161b,#12161B);border-right:1px solid var(--c-236-232-222-0-07,rgba(236,232,222,0.07))">
-              <span style="font-size:10.5px;font-weight:500;color:var(--c-6e747c,#6E747C);letter-spacing:0.06em;text-transform:uppercase;padding:2px 8px 8px">Rychlý výběr</span>
-              <sc-for list="{{ dp.presets }}" as="pr" hint-placeholder-count="8">
-                <button onClick="{{ pr.select }}" style="all:unset;cursor:pointer;display:flex;align-items:center;justify-content:space-between;gap:6px;height:30px;padding:0 10px;border-radius:8px;font-size:12.5px;font-weight:500;color:{{ pr.color }};background:{{ pr.bg }}" style-hover="background:var(--c-1f252d,#1F252D)">{{ pr.label }}<sc-if value="{{ pr.on }}" hint-placeholder-val="{{ false }}"><bs-icon name="check" level="1" size="13" color="#FF6259"></bs-icon></sc-if></button>
-              </sc-for>
-            </div>
-            <div style="flex:1;min-width:0;display:flex;flex-direction:column">
-              <div style="position:relative;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px;padding:14px 18px 16px">
-                <button onClick="{{ dp.prev }}" aria-label="Předchozí měsíc" style="all:unset;cursor:pointer;position:absolute;left:12px;top:10px;width:28px;height:28px;border-radius:8px;display:flex;align-items:center;justify-content:center;color:var(--c-a7abb2,#A7ABB2)" style-hover="background:var(--c-232931,#232931);color:var(--c-f4f1ea,#F4F1EA)"><bs-icon name="chevron-right" level="1" size="15" style="transform:rotate(180deg)"></bs-icon></button>
-                <button onClick="{{ dp.next }}" aria-label="Další měsíc" style="all:unset;cursor:pointer;position:absolute;right:12px;top:10px;width:28px;height:28px;border-radius:8px;display:flex;align-items:center;justify-content:center;color:var(--c-a7abb2,#A7ABB2)" style-hover="background:var(--c-232931,#232931);color:var(--c-f4f1ea,#F4F1EA)"><bs-icon name="chevron-right" level="1" size="15"></bs-icon></button>
-                <sc-for list="{{ dp.months }}" as="mo" hint-placeholder-count="2">
-                  <div style="display:flex;flex-direction:column;gap:8px;min-width:0">
-                    <span style="height:28px;line-height:28px;text-align:center;font-size:13px;font-weight:600;letter-spacing:-0.01em">{{ mo.title }}</span>
-                    <div style="display:grid;grid-template-columns:repeat(7,minmax(0,1fr))">
-                      <sc-for list="{{ days }}" as="wd" hint-placeholder-count="7"><span style="text-align:center;font-size:10.5px;font-weight:500;color:var(--c-6e747c,#6E747C);padding-bottom:4px">{{ wd }}</span></sc-for>
-                    </div>
-                    <div style="display:grid;grid-template-columns:repeat(7,minmax(0,1fr));row-gap:2px" onMouseLeave="{{ dp.leave }}">
-                      <sc-for list="{{ mo.cells }}" as="c" hint-placeholder-count="35">
-                        <button onClick="{{ c.click }}" onMouseEnter="{{ c.enter }}" style="all:unset;cursor:{{ c.cursor }};height:32px;display:flex;align-items:center;justify-content:center;font-size:12.5px;font-weight:{{ c.fw }};color:{{ c.color }};background:{{ c.bg }};border-radius:{{ c.r }};box-shadow:{{ c.ring }};transition:background .12s">{{ c.label }}</button>
-                      </sc-for>
-                    </div>
-                  </div>
-                </sc-for>
-              </div>
-              <div style="margin-top:auto;display:flex;flex-wrap:wrap;align-items:center;gap:10px;padding:12px 16px;border-top:1px solid var(--c-236-232-222-0-07,rgba(236,232,222,0.07));background:var(--c-12161b,#12161B)">
-                <span style="display:flex;align-items:center;gap:8px;font-size:12.5px;font-weight:500;color:var(--c-f4f1ea,#F4F1EA)"><bs-icon name="calendar-week" level="3" size="14" color="#8E939A"></bs-icon>{{ dp.draft }}</span>
-                <span style="font-size:12px;color:var(--c-8e939a,#8E939A)">{{ dp.count }}</span>
-                <span style="flex:1"></span>
-                <button onClick="{{ dp.cancel }}" style="all:unset;cursor:pointer;height:32px;padding:0 12px;border-radius:9px;font-size:12px;font-weight:500;color:var(--c-d9d5cc,#D9D5CC)" style-hover="background:var(--c-1f252d,#1F252D);color:var(--c-f4f1ea,#F4F1EA)">Zrušit</button>
-                <button onClick="{{ dp.apply }}" style="all:unset;cursor:{{ dp.applyCursor }};height:32px;padding:0 14px;border-radius:9px;background:{{ dp.applyBg }};color:#FBF9F4;font-size:12px;font-weight:600;box-shadow:{{ shCta }}">Použít</button>
-              </div>
-            </div>
-          </div>
-        </sc-if>
-      </div>
 
       <sc-if value="{{ viewRows }}" hint-placeholder-val="{{ true }}">
       <div style="display:grid;grid-template-columns:minmax(0,1.6fr) 64px minmax(0,1.2fr) 76px;gap:12px;padding:0 22px 8px;border-bottom:1px solid var(--c-236-232-222-0-06,rgba(236,232,222,0.06));font-size:11px;color:var(--c-6e747c,#6E747C);font-weight:500">
