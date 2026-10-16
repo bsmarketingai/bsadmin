@@ -14,70 +14,70 @@
 <style>
 html,body{margin:0;background:#0A0C0F;color:#F4F1EA;font-family:'Geist',system-ui,sans-serif;-webkit-font-smoothing:antialiased}
 *{box-sizing:border-box}
-a{color:#F4F1EA;text-decoration:none}
+a{color:var(--c-f4f1ea,#F4F1EA);text-decoration:none}
 a:hover{color:#FF6259}
-main[data-theme="light"]{--c-c9c5bc:#45494F;--c-hl:transparent;--c-ring:transparent;--c-g2shadow:#6B5E4E;--c-g2shadow-op:0.16;--c-6e747c:#767B82;--c-12161b:#FFFFFF;--c-236-232-222-0-07:rgba(28,32,38,0.098);--c-f4f1ea:#15181C;--c-d9d5cc:#30343A;--c-8e939a:#5E636A;--c-0d1014:#ECE9E2;--c-236-232-222-0-06:rgba(28,32,38,0.084);--c-a7abb2:#4B5057;--c-236-232-222-0-05:rgba(28,32,38,0.07);--c-236-232-222-0-025:rgba(28,32,38,0.035);--c-236-232-222-0-18:rgba(28,32,38,0.252);--c-1f252d:#ECE9E2;--c-236-232-222-0-1:rgba(28,32,38,0.14);--c-0-0-0-0-45:rgba(40,34,26,0.135);--c-11151a:#F5F3EE;--c-151a20:#FAF8F4;--c-236-232-222-0-3:rgba(28,32,38,0.42);--c-0-0-0-0-5:rgba(40,34,26,0.15);--c-4e545c:#A3A7AD;--c-18-22-27-0-85:rgba(255,255,255,0.85);--c-232931:#E7E3DB;--c-0-0-0-0-4:rgba(40,34,26,0.12);--c-181d23:#F5F2EC;--c-161a20:#FFFFFF;--c-236-232-222-0-24:rgba(28,32,38,0.336);--c-236-232-222-0-12:rgba(28,32,38,0.168);--c-0-0-0-0-35:rgba(40,34,26,0.105);--c-0-0-0-0-8:rgba(40,34,26,0.24);--c-ff6259:#D42F27;--c-1a1f26:#EFECE6;--c-236-232-222-0-2:rgba(28,32,38,0.28);--c-236-232-222-0-14:rgba(28,32,38,0.196);--c-2a3038:#D3CFC6;--c-f04a40:#D63A31;--c-70-192-127-0-1:rgba(27,135,80,0.1);--c-7fd3a4:#1B8750;--c-0f1317:#F7F5F0;--c-ff8a83:#B8261F;--c-236-232-222-0-09:rgba(28,32,38,0.126);--c-70-192-127-0-13:rgba(27,135,80,0.13);--c-236-232-222-0-08:rgba(28,32,38,0.112);--c-0-0-0-0-28:rgba(40,34,26,0.084);--c-0-0-0-0-22:rgba(40,34,26,0.066);--c-0-0-0-0-3:rgba(40,34,26,0.09);--c-0-0-0-0-25:rgba(40,34,26,0.075);--c-236-232-222-0-03:rgba(28,32,38,0.042);--c-0-0-0-0-55:rgba(40,34,26,0.165);--c-0-0-0-0-7:rgba(40,34,26,0.21);--c-0-0-0-0-18:rgba(40,34,26,0.054);--c-236-232-222-0-045:rgba(28,32,38,0.063);--c-0-0-0-0-6:rgba(40,34,26,0.18);--c-236-232-222-0-04:rgba(28,32,38,0.056);--c-262c35:#FFFFFF;--c-0a0c0f:#F3F1EC;--c-e8e4db:#23272C;--c-236-232-222-0-35:rgba(28,32,38,0.49);--c-3a2a2a:#F2D6D4;--c-236-232-222-0-16:rgba(28,32,38,0.224);--c-2e343c:#CFCAC0;--c-236-232-222-0-25:rgba(28,32,38,0.35)}
+main[data-theme="light"],aside[data-theme="light"]{--c-logo-d:none;--c-logo-l:block;--c-c9c5bc:#45494F;--c-hl:transparent;--c-ring:transparent;--c-g2shadow:#6B5E4E;--c-g2shadow-op:0.16;--c-6e747c:#767B82;--c-12161b:#FFFFFF;--c-236-232-222-0-07:rgba(28,32,38,0.098);--c-f4f1ea:#15181C;--c-d9d5cc:#30343A;--c-8e939a:#5E636A;--c-0d1014:#ECE9E2;--c-236-232-222-0-06:rgba(28,32,38,0.084);--c-a7abb2:#4B5057;--c-236-232-222-0-05:rgba(28,32,38,0.07);--c-236-232-222-0-025:rgba(28,32,38,0.035);--c-236-232-222-0-18:rgba(28,32,38,0.252);--c-1f252d:#ECE9E2;--c-236-232-222-0-1:rgba(28,32,38,0.14);--c-0-0-0-0-45:rgba(40,34,26,0.135);--c-11151a:#F5F3EE;--c-151a20:#FAF8F4;--c-236-232-222-0-3:rgba(28,32,38,0.42);--c-0-0-0-0-5:rgba(40,34,26,0.15);--c-4e545c:#A3A7AD;--c-18-22-27-0-85:rgba(255,255,255,0.85);--c-232931:#E7E3DB;--c-0-0-0-0-4:rgba(40,34,26,0.12);--c-181d23:#F5F2EC;--c-161a20:#FFFFFF;--c-236-232-222-0-24:rgba(28,32,38,0.336);--c-236-232-222-0-12:rgba(28,32,38,0.168);--c-0-0-0-0-35:rgba(40,34,26,0.105);--c-0-0-0-0-8:rgba(40,34,26,0.24);--c-ff6259:#D42F27;--c-1a1f26:#EFECE6;--c-236-232-222-0-2:rgba(28,32,38,0.28);--c-236-232-222-0-14:rgba(28,32,38,0.196);--c-2a3038:#D3CFC6;--c-f04a40:#D63A31;--c-70-192-127-0-1:rgba(27,135,80,0.1);--c-7fd3a4:#1B8750;--c-0f1317:#F5F3EE;--c-ff8a83:#B8261F;--c-236-232-222-0-09:rgba(28,32,38,0.126);--c-70-192-127-0-13:rgba(27,135,80,0.13);--c-236-232-222-0-08:rgba(28,32,38,0.112);--c-0-0-0-0-28:rgba(40,34,26,0.084);--c-0-0-0-0-22:rgba(40,34,26,0.066);--c-0-0-0-0-3:rgba(40,34,26,0.09);--c-0-0-0-0-25:rgba(40,34,26,0.075);--c-236-232-222-0-03:rgba(28,32,38,0.042);--c-0-0-0-0-55:rgba(40,34,26,0.165);--c-0-0-0-0-7:rgba(40,34,26,0.21);--c-0-0-0-0-18:rgba(40,34,26,0.054);--c-236-232-222-0-045:rgba(28,32,38,0.063);--c-0-0-0-0-6:rgba(40,34,26,0.18);--c-236-232-222-0-04:rgba(28,32,38,0.056);--c-262c35:#FFFFFF;--c-0a0c0f:#F3F1EC;--c-e8e4db:#23272C;--c-236-232-222-0-35:rgba(28,32,38,0.49);--c-3a2a2a:#F2D6D4;--c-236-232-222-0-16:rgba(28,32,38,0.224);--c-2e343c:#CFCAC0;--c-236-232-222-0-25:rgba(28,32,38,0.35)}
 ::-webkit-scrollbar{width:8px;height:8px}
 ::-webkit-scrollbar-thumb{background:rgba(236,232,222,0.1);border-radius:8px}
 ::-webkit-scrollbar-track{background:transparent}
 </style>
 </helmet>
-<div style="display:flex;min-height:100vh;background:#0A0C0F;font-variant-numeric:tabular-nums">
+<div style="display:flex;min-height:calc(100vh - var(--tabs-h, 0px));background:#0A0C0F;font-variant-numeric:tabular-nums">
 
 <!-- SIDEBAR -->
-<aside onDragOver="{{ sideDov }}" onDrop="{{ sideDrop }}" style="width:296px;flex-shrink:0;position:sticky;top:0;height:100vh;overflow-y:auto;background:#0D1014;border-right:1px solid rgba(236,232,222,0.06);display:flex;flex-direction:column;gap:28px;padding:22px 18px 22px">
+<aside data-theme="{{ themeName }}" onDragOver="{{ sideDov }}" onDrop="{{ sideDrop }}" style="width:296px;flex-shrink:0;position:sticky;top:var(--tabs-h, 0px);height:calc(100vh - var(--tabs-h, 0px));overflow-y:auto;background:var(--c-0d1014,#0D1014);border-right:1px solid var(--c-236-232-222-0-06,rgba(236,232,222,0.06));display:flex;flex-direction:column;gap:28px;padding:22px 18px 22px">
   <div style="display:flex;align-items:center;padding:0 0 0 0">
-    <img src="assets/bsadmin-logo.png" alt="bsadmin – bsshop" style="height:40px;width:auto;display:block;margin-left:4px">
+    <img src="assets/bsadmin-logo.png" alt="bsadmin – bsshop" style="height:40px;width:auto;display:var(--c-logo-d,block);margin-left:4px"><img src="assets/bsadmin-logo-light.png" alt="bsadmin – bsshop" style="height:40px;width:auto;display:var(--c-logo-l,none);margin-left:4px">
   </div>
 
   <div style="position:relative;background:linear-gradient(180deg,rgba(229,55,47,0.14),rgba(229,55,47,0.05));border:1px solid rgba(229,55,47,0.32);border-radius:8px 24px 24px 24px;corner-shape:squircle;padding:16px;display:flex;flex-direction:column;gap:12px;box-shadow:{{ shSub }};transition:box-shadow .35s ease;">
     <div style="display:flex;align-items:center;justify-content:space-between">
-      <span style="display:flex;align-items:center;gap:6px;font-size:10.5px;font-weight:600;color:#FF6259;letter-spacing:0.04em;text-transform:uppercase;white-space:nowrap"><bs-icon name="building" level="1" size="14" style="display:flex"></bs-icon>Účetní jednotka</span>
-      <button style="all:unset;cursor:pointer;display:flex;align-items:center;gap:5px;font-size:11px;font-weight:500;color:#F4F1EA;padding:3px 9px;border-radius:4px 6px 6px 6px;corner-shape:squircle;background:rgba(229,55,47,0.18);border:1px solid rgba(229,55,47,0.4)" style-hover="background:rgba(229,55,47,0.3)"><bs-icon name="arrows-exchange" level="2" size="12" style="display:flex"></bs-icon><span style="line-height:1;text-box:trim-both cap alphabetic;padding:3px 0">Změnit</span></button>
+      <span style="display:flex;align-items:center;gap:6px;font-size:10.5px;font-weight:600;color:var(--c-ff6259,#FF6259);letter-spacing:0.04em;text-transform:uppercase;white-space:nowrap"><bs-icon name="building" level="1" size="14" style="display:flex"></bs-icon>Účetní jednotka</span>
+      <button style="all:unset;cursor:pointer;display:flex;align-items:center;gap:5px;font-size:11px;font-weight:500;color:var(--c-f4f1ea,#F4F1EA);padding:3px 9px;border-radius:4px 6px 6px 6px;corner-shape:squircle;background:rgba(229,55,47,0.18);border:1px solid rgba(229,55,47,0.4)" style-hover="background:rgba(229,55,47,0.3)"><bs-icon name="arrows-exchange" level="2" size="12" style="display:flex"></bs-icon><span style="line-height:1;text-box:trim-both cap alphabetic;padding:3px 0">Změnit</span></button>
     </div>
     <div style="display:flex;flex-direction:column;gap:3px">
-      <span style="font-size:19px;font-weight:600;letter-spacing:-0.015em;color:#F4F1EA;margin-bottom:3px">STREFA s.r.o.</span>
-      <span style="display:flex;align-items:center;gap:6px;font-size:12px;color:#A7ABB2;line-height:1.5"><bs-icon name="map-pin" level="3" size="13" color="#6E747C"></bs-icon>V Aleji 151, 541 01 Trutnov</span>
-      <span style="display:flex;align-items:center;gap:6px;font-size:11px;color:#6E747C;font-family:'Geist Mono',monospace"><bs-icon name="id" level="3" size="13"></bs-icon>IČ 28780965 · DIČ CZ28780965</span>
+      <span style="font-size:19px;font-weight:600;letter-spacing:-0.015em;color:var(--c-f4f1ea,#F4F1EA);margin-bottom:3px">STREFA s.r.o.</span>
+      <span style="display:flex;align-items:center;gap:6px;font-size:12px;color:var(--c-a7abb2,#A7ABB2);line-height:1.5"><bs-icon name="map-pin" level="3" size="13" color="var(--c-6e747c,#6E747C)"></bs-icon>V Aleji 151, 541 01 Trutnov</span>
+      <span style="display:flex;align-items:center;gap:6px;font-size:11px;color:var(--c-6e747c,#6E747C);font-family:'Geist Mono',monospace"><bs-icon name="id" level="3" size="13"></bs-icon>IČ 28780965 · DIČ CZ28780965</span>
     </div>
-    <div style="height:1px;background:rgba(236,232,222,0.06)"></div>
+    <div style="height:1px;background:var(--c-236-232-222-0-06,rgba(236,232,222,0.06))"></div>
     <div style="display:flex;align-items:center;gap:10px">
-      <div style="width:26px;height:26px;border-radius:50%;background:#232931;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:600;color:#D9D5CC">SA</div>
+      <div style="width:26px;height:26px;border-radius:50%;background:var(--c-232931,#232931);display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:600;color:var(--c-d9d5cc,#D9D5CC)">SA</div>
       <div style="display:flex;flex-direction:column;line-height:1.25">
         <span style="font-size:13px;font-weight:500">Super Admin</span>
-        <span style="font-size:11px;color:#6E747C">Přihlášený uživatel</span>
+        <span style="font-size:11px;color:var(--c-6e747c,#6E747C)">Přihlášený uživatel</span>
       </div>
     </div>
   </div>
 
-  <div style="display:flex;flex-direction:column;gap:12px;padding:24px 4px 0;border-top:1px solid rgba(236,232,222,0.08)">
-    <span style="display:flex;align-items:center;gap:6px;font-size:11px;font-weight:600;color:#A7ABB2;letter-spacing:0.06em;text-transform:uppercase"><bs-icon name="help-circle" level="3" size="13"></bs-icon>Podpora</span>
+  <div style="display:flex;flex-direction:column;gap:12px;padding:24px 4px 0;border-top:1px solid var(--c-236-232-222-0-08,rgba(236,232,222,0.08))">
+    <span style="display:flex;align-items:center;gap:6px;font-size:11px;font-weight:600;color:var(--c-a7abb2,#A7ABB2);letter-spacing:0.06em;text-transform:uppercase"><bs-icon name="help-circle" level="3" size="13"></bs-icon>Podpora</span>
     <div style="display:flex;flex-direction:column;gap:2px">
-      <a href="tel:+420499944955" style="display:flex;align-items:center;gap:8px;font-size:16px;font-weight:600;letter-spacing:-0.01em"><bs-icon name="phone" level="3" size="16" color="#FF6259"></bs-icon>+420 499 944 955</a>
-      <span style="display:flex;align-items:center;gap:8px;font-size:12px;color:#8E939A"><bs-icon name="clock" level="3" size="14"></bs-icon>Po–Pá 8:00–16:00</span>
-      <a href="mailto:podpora@bsshop.cz" style="display:flex;align-items:center;gap:8px;font-size:13px;color:#D9D5CC;margin-top:4px"><bs-icon name="mail" level="3" size="14" color="#8E939A"></bs-icon>podpora@bsshop.cz</a>
+      <a href="tel:+420499944955" style="display:flex;align-items:center;gap:8px;font-size:16px;font-weight:600;letter-spacing:-0.01em"><bs-icon name="phone" level="3" size="16" color="var(--c-ff6259,#FF6259)"></bs-icon>+420 499 944 955</a>
+      <span style="display:flex;align-items:center;gap:8px;font-size:12px;color:var(--c-8e939a,#8E939A)"><bs-icon name="clock" level="3" size="14"></bs-icon>Po–Pá 8:00–16:00</span>
+      <a href="mailto:podpora@bsshop.cz" style="display:flex;align-items:center;gap:8px;font-size:13px;color:var(--c-d9d5cc,#D9D5CC);margin-top:4px"><bs-icon name="mail" level="3" size="14" color="var(--c-8e939a,#8E939A)"></bs-icon>podpora@bsshop.cz</a>
     </div>
-    <button style="all:unset;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:8px;height:38px;border-radius:10px;background:#E5372F;color:#FBF9F4;font-size:13px;font-weight:600;box-shadow:{{ shCta }};transition:box-shadow .35s ease;" style-hover="background:#F04A40"><bs-icon name="headset" level="2" size="16"></bs-icon>Zákaznické centrum</button>
+    <button style="all:unset;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:8px;height:38px;border-radius:10px;background:#E5372F;color:#FBF9F4;font-size:13px;font-weight:600;box-shadow:{{ shCta }};transition:box-shadow .35s ease;" style-hover="background:var(--c-f04a40,#F04A40)"><bs-icon name="headset" level="2" size="16"></bs-icon>Zákaznické centrum</button>
     <div style="display:flex;gap:6px">
-      <a href="#" aria-label="Instagram" style="flex:1;height:34px;border-radius:4px 9px 9px 9px;corner-shape:squircle;border:1px solid rgba(236,232,222,0.08);display:flex;align-items:center;justify-content:center;color:#A7ABB2" style-hover="color:#F4F1EA;background:#161A20"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="5"></rect><circle cx="12" cy="12" r="4"></circle><circle cx="17.5" cy="6.5" r="0.8" fill="currentColor"></circle></svg></a>
-      <a href="#" aria-label="Facebook" style="flex:1;height:34px;border-radius:4px 9px 9px 9px;corner-shape:squircle;border:1px solid rgba(236,232,222,0.08);display:flex;align-items:center;justify-content:center;color:#A7ABB2" style-hover="color:#F4F1EA;background:#161A20"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M15 3h-2.5A3.5 3.5 0 0 0 9 6.5V10H6.5v3.5H9V21h3.5v-7.5H15l.5-3.5h-3V7a1 1 0 0 1 1-1H15z"></path></svg></a>
-      <a href="#" aria-label="LinkedIn" style="flex:1;height:34px;border-radius:4px 9px 9px 9px;corner-shape:squircle;border:1px solid rgba(236,232,222,0.08);display:flex;align-items:center;justify-content:center;color:#A7ABB2" style-hover="color:#F4F1EA;background:#161A20"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="3"></rect><path d="M8 10v7M8 7v.01M12 17v-4a2 2 0 0 1 4 0v4M12 10v7"></path></svg></a>
+      <a href="#" aria-label="Instagram" style="flex:1;height:34px;border-radius:4px 9px 9px 9px;corner-shape:squircle;border:1px solid var(--c-236-232-222-0-08,rgba(236,232,222,0.08));display:flex;align-items:center;justify-content:center;color:var(--c-a7abb2,#A7ABB2)" style-hover="color:var(--c-f4f1ea,#F4F1EA);background:var(--c-161a20,#161A20)"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="5"></rect><circle cx="12" cy="12" r="4"></circle><circle cx="17.5" cy="6.5" r="0.8" fill="currentColor"></circle></svg></a>
+      <a href="#" aria-label="Facebook" style="flex:1;height:34px;border-radius:4px 9px 9px 9px;corner-shape:squircle;border:1px solid var(--c-236-232-222-0-08,rgba(236,232,222,0.08));display:flex;align-items:center;justify-content:center;color:var(--c-a7abb2,#A7ABB2)" style-hover="color:var(--c-f4f1ea,#F4F1EA);background:var(--c-161a20,#161A20)"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M15 3h-2.5A3.5 3.5 0 0 0 9 6.5V10H6.5v3.5H9V21h3.5v-7.5H15l.5-3.5h-3V7a1 1 0 0 1 1-1H15z"></path></svg></a>
+      <a href="#" aria-label="LinkedIn" style="flex:1;height:34px;border-radius:4px 9px 9px 9px;corner-shape:squircle;border:1px solid var(--c-236-232-222-0-08,rgba(236,232,222,0.08));display:flex;align-items:center;justify-content:center;color:var(--c-a7abb2,#A7ABB2)" style-hover="color:var(--c-f4f1ea,#F4F1EA);background:var(--c-161a20,#161A20)"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="3"></rect><path d="M8 10v7M8 7v.01M12 17v-4a2 2 0 0 1 4 0v4M12 10v7"></path></svg></a>
     </div>
   </div>
 
   <sc-if value="{{ newsSide }}" hint-placeholder-val="{{ true }}">
-  <div style="display:flex;flex-direction:column;gap:12px;border-top:1px solid rgba(236,232,222,0.08);padding-top:24px;opacity:{{ newsSrcOp }};transition:opacity .2s">
+  <div style="display:flex;flex-direction:column;gap:12px;border-top:1px solid var(--c-236-232-222-0-08,rgba(236,232,222,0.08));padding-top:24px;opacity:{{ newsSrcOp }};transition:opacity .2s">
     <div draggable="true" onDragStart="{{ newsDragStart }}" onDragEnd="{{ newsDragEnd }}" title="Přetáhněte na dashboard mezi karty" style="display:flex;align-items:center;gap:8px;padding:0 4px;cursor:grab">
-      <span style="display:flex;color:#6E747C;margin-left:-4px"><bs-icon name="grip-vertical" level="1" size="14"></bs-icon></span>
-      <span style="display:flex;align-items:center;gap:6px;font-size:11px;font-weight:600;color:#A7ABB2;letter-spacing:0.06em;text-transform:uppercase"><bs-icon name="news" level="3" size="13"></bs-icon>Novinky</span>
-      <span style="display:flex;align-items:center;gap:4px;height:18px;padding:0 7px;border-radius:9px;background:rgba(229,55,47,0.14);color:#FF6259;font-size:10.5px;font-weight:600"><bs-icon name="bell-ringing" level="3" size="11"></bs-icon>1 nová</span>
-      <a href="#" style="margin-left:auto;font-size:11.5px;color:#8E939A">Všechny</a>
+      <span style="display:flex;color:var(--c-6e747c,#6E747C);margin-left:-4px"><bs-icon name="grip-vertical" level="1" size="14"></bs-icon></span>
+      <span style="display:flex;align-items:center;gap:6px;font-size:11px;font-weight:600;color:var(--c-a7abb2,#A7ABB2);letter-spacing:0.06em;text-transform:uppercase"><bs-icon name="news" level="3" size="13"></bs-icon>Novinky</span>
+      <span style="display:flex;align-items:center;gap:4px;height:18px;padding:0 7px;border-radius:9px;background:rgba(229,55,47,0.14);color:var(--c-ff6259,#FF6259);font-size:10.5px;font-weight:600"><bs-icon name="bell-ringing" level="3" size="11"></bs-icon>1 nová</span>
+      <a href="#" style="margin-left:auto;font-size:11.5px;color:var(--c-8e939a,#8E939A)">Všechny</a>
     </div>
 
     <div style="display:flex;flex-direction:column;gap:4px">
       <sc-for list="{{ newsItems }}" as="n" hint-placeholder-count="3">
-        <div onClick="{{ n.select }}" style="position:relative;overflow:hidden;border-radius:8px 24px 24px 24px;corner-shape:squircle;padding:{{ n.pad }};margin:{{ n.margin }};background:#0D1014;border:1px solid {{ n.border }};cursor:{{ n.cursor }};box-shadow:{{ n.sh }};color:#F4F1EA;transition:padding .6s cubic-bezier(.22,.8,.24,1), margin .6s cubic-bezier(.22,.8,.24,1), border-color .6s cubic-bezier(.22,.8,.24,1), background .3s" style-hover="background:#12161B">
-          <div style="position:absolute;inset:0;pointer-events:none;background:radial-gradient(140% 90% at 0% 0%, rgba(229,55,47,0.22) 0%, rgba(229,55,47,0) 55%), #12161B;opacity:{{ n.glowOp }};transition:opacity .6s cubic-bezier(.22,.8,.24,1)"></div>
+        <div onClick="{{ n.select }}" style="position:relative;overflow:hidden;border-radius:8px 24px 24px 24px;corner-shape:squircle;padding:{{ n.pad }};margin:{{ n.margin }};background:var(--c-0d1014,#0D1014);border:1px solid {{ n.border }};cursor:{{ n.cursor }};box-shadow:{{ n.sh }};color:var(--c-f4f1ea,#F4F1EA);transition:padding .6s cubic-bezier(.22,.8,.24,1), margin .6s cubic-bezier(.22,.8,.24,1), border-color .6s cubic-bezier(.22,.8,.24,1), background .3s" style-hover="background:var(--c-12161b,#12161B)">
+          <div style="position:absolute;inset:0;pointer-events:none;background:radial-gradient(140% 90% at 0% 0%, rgba(229,55,47,0.22) 0%, rgba(229,55,47,0) 55%), var(--c-12161b,#12161B);opacity:{{ n.glowOp }};transition:opacity .6s cubic-bezier(.22,.8,.24,1)"></div>
           <div style="position:relative;display:flex;align-items:center;gap:12px">
             <span style="width:{{ n.tile }};height:{{ n.tile }};flex-shrink:0;border-radius:{{ n.tileR }};background:#F4F1EA;color:#0A0C0F;display:flex;align-items:center;justify-content:center;overflow:hidden;font-size:{{ n.tileFs }};font-weight:700;letter-spacing:-0.03em;box-shadow:inset 0 0 0 1px rgba(10,12,15,0.06);transition:all .6s cubic-bezier(.22,.8,.24,1)">
               <sc-if value="{{ n.isCf }}" hint-placeholder-val="{{ false }}"><img src="https://www.google.com/s2/favicons?sz=128&amp;domain=cloudflare.com" alt="" style="width:66%;height:66%;object-fit:contain;display:block"></sc-if>
@@ -98,10 +98,10 @@ main[data-theme="light"]{--c-c9c5bc:#45494F;--c-hl:transparent;--c-ring:transpar
           <div style="position:relative;display:grid;grid-template-rows:{{ n.rows }};transition:grid-template-rows .6s cubic-bezier(.22,.8,.24,1)">
             <div style="min-height:0;overflow:hidden">
               <div style="display:flex;flex-direction:column;gap:14px;padding-top:14px;opacity:{{ n.bodyOp }};transform:translateY({{ n.bodyTy }});transition:opacity .45s ease {{ n.bodyDelay }}, transform .6s cubic-bezier(.22,.8,.24,1) {{ n.bodyDelay }}">
-                <p style="margin:0;font-size:12.5px;line-height:1.55;color:#C9C5BC;text-wrap:pretty">{{ n.desc }}</p>
-                <button title="Brzy dostupné" style="all:unset;cursor:pointer;display:flex;align-items:center;justify-content:space-between;padding-top:12px;border-top:1px solid rgba(236,232,222,0.08);color:#F4F1EA;transition:color .25s, border-color .25s" style-hover="color:#FF6259;border-top-color:rgba(229,55,47,0.45)">
+                <p style="margin:0;font-size:12.5px;line-height:1.55;color:var(--c-c9c5bc,#C9C5BC);text-wrap:pretty">{{ n.desc }}</p>
+                <button title="Brzy dostupné" style="all:unset;cursor:pointer;display:flex;align-items:center;justify-content:space-between;padding-top:12px;border-top:1px solid var(--c-236-232-222-0-08,rgba(236,232,222,0.08));color:var(--c-f4f1ea,#F4F1EA);transition:color .25s, border-color .25s" style-hover="color:var(--c-ff6259,#FF6259);border-top-color:rgba(229,55,47,0.45)">
                   <span style="font-size:12px;font-weight:500">Přečíst celou novinku</span>
-                  <span style="width:26px;height:26px;box-sizing:border-box;border-radius:50%;border:1px solid currentColor;background:rgba(236,232,222,0.04);display:flex;align-items:center;justify-content:center"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M7 17L17 7M9 7h8v8"></path></svg></span>
+                  <span style="width:26px;height:26px;box-sizing:border-box;border-radius:50%;border:1px solid currentColor;background:var(--c-236-232-222-0-04,rgba(236,232,222,0.04));display:flex;align-items:center;justify-content:center"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M7 17L17 7M9 7h8v8"></path></svg></span>
                 </button>
               </div>
             </div>
@@ -112,24 +112,24 @@ main[data-theme="light"]{--c-c9c5bc:#45494F;--c-hl:transparent;--c-ring:transpar
   </div>
   </sc-if>
   <sc-if value="{{ newsSideDrop }}" hint-placeholder-val="{{ false }}">
-    <div style="display:flex;align-items:center;justify-content:center;gap:8px;min-height:88px;border-radius:8px 24px 24px 24px;corner-shape:squircle;border:1.5px dashed {{ sideDropBorder }};background:{{ sideDropBg }};color:#D9D5CC;font-size:12.5px;font-weight:500;transition:all .2s"><bs-icon name="layout-sidebar-left-collapse" level="1" size="15"></bs-icon>Pusťte zpět do panelu</div>
+    <div style="display:flex;align-items:center;justify-content:center;gap:8px;min-height:88px;border-radius:8px 24px 24px 24px;corner-shape:squircle;border:1.5px dashed {{ sideDropBorder }};background:{{ sideDropBg }};color:var(--c-d9d5cc,#D9D5CC);font-size:12.5px;font-weight:500;transition:all .2s"><bs-icon name="layout-sidebar-left-collapse" level="1" size="15"></bs-icon>Pusťte zpět do panelu</div>
   </sc-if>
 
   <sc-if value="{{ qSide }}" hint-placeholder-val="{{ true }}">
-  <div style="display:flex;flex-direction:column;gap:12px;border-top:1px solid rgba(236,232,222,0.08);padding-top:24px;opacity:{{ qSrcOp }};transition:opacity .2s">
+  <div style="display:flex;flex-direction:column;gap:12px;border-top:1px solid var(--c-236-232-222-0-08,rgba(236,232,222,0.08));padding-top:24px;opacity:{{ qSrcOp }};transition:opacity .2s">
     <div draggable="true" onDragStart="{{ qDragStart }}" onDragEnd="{{ qDragEnd }}" title="Přetáhněte na dashboard mezi karty" style="display:flex;align-items:center;gap:8px;padding:0 4px;cursor:grab">
-      <span style="display:flex;color:#6E747C;margin-left:-4px"><bs-icon name="grip-vertical" level="1" size="14"></bs-icon></span>
-      <span style="display:flex;align-items:center;gap:6px;font-size:11px;font-weight:600;color:#A7ABB2;letter-spacing:0.06em;text-transform:uppercase"><bs-icon name="server" level="3" size="13"></bs-icon>Služba a fronty úloh</span>
+      <span style="display:flex;color:var(--c-6e747c,#6E747C);margin-left:-4px"><bs-icon name="grip-vertical" level="1" size="14"></bs-icon></span>
+      <span style="display:flex;align-items:center;gap:6px;font-size:11px;font-weight:600;color:var(--c-a7abb2,#A7ABB2);letter-spacing:0.06em;text-transform:uppercase"><bs-icon name="server" level="3" size="13"></bs-icon>Služba a fronty úloh</span>
     </div>
-    <div style="border:1px solid rgba(236,232,222,0.07);border-radius:8px 24px 24px 24px;corner-shape:squircle;overflow:hidden;background:#0F1317;box-shadow:{{ shSub }};transition:box-shadow .35s ease;">
+    <div style="border:1px solid var(--c-236-232-222-0-07,rgba(236,232,222,0.07));border-radius:8px 24px 24px 24px;corner-shape:squircle;overflow:hidden;background:var(--c-0f1317,#0F1317);box-shadow:{{ shSub }};transition:box-shadow .35s ease;">
       <sc-for list="{{ queues }}" as="q" hint-placeholder-count="4">
-        <div style="display:flex;align-items:center;justify-content:space-between;padding:10px 12px;border-bottom:1px solid rgba(236,232,222,0.05)">
+        <div style="display:flex;align-items:center;justify-content:space-between;padding:10px 12px;border-bottom:1px solid var(--c-236-232-222-0-05,rgba(236,232,222,0.05))">
           <span style="display:flex;align-items:center;gap:8px;font-size:13px"><bs-icon name="{{ q.icon }}" level="3" size="14" color="{{ q.icColor }}"></bs-icon>{{ q.name }}</span>
           <sc-if value="{{ q.ok }}" hint-placeholder-val="{{ true }}">
-            <span style="display:flex;align-items:center;gap:6px;font-size:12px;color:#7FD3A4"><span style="width:6px;height:6px;border-radius:50%;background:#46C07F;box-shadow:0 0 0 3px rgba(70,192,127,0.15)"></span>{{ q.state }}</span>
+            <span style="display:flex;align-items:center;gap:6px;font-size:12px;color:var(--c-7fd3a4,#7FD3A4)"><span style="width:6px;height:6px;border-radius:50%;background:#46C07F;box-shadow:0 0 0 3px rgba(70,192,127,0.15)"></span>{{ q.state }}</span>
           </sc-if>
           <sc-if value="{{ q.bad }}" hint-placeholder-val="{{ false }}">
-            <span style="display:flex;align-items:center;gap:6px;font-size:12px;color:#FF6259;font-weight:500"><span style="width:6px;height:6px;border-radius:50%;background:#E5372F;box-shadow:0 0 0 3px rgba(229,55,47,0.2)"></span>{{ q.state }}</span>
+            <span style="display:flex;align-items:center;gap:6px;font-size:12px;color:var(--c-ff6259,#FF6259);font-weight:500"><span style="width:6px;height:6px;border-radius:50%;background:#E5372F;box-shadow:0 0 0 3px rgba(229,55,47,0.2)"></span>{{ q.state }}</span>
           </sc-if>
         </div>
       </sc-for>
@@ -137,20 +137,20 @@ main[data-theme="light"]{--c-c9c5bc:#45494F;--c-hl:transparent;--c-ring:transpar
   </div>
   </sc-if>
   <sc-if value="{{ qSideDrop }}" hint-placeholder-val="{{ false }}">
-    <div style="display:flex;align-items:center;justify-content:center;gap:8px;min-height:88px;border-radius:8px 24px 24px 24px;corner-shape:squircle;border:1.5px dashed {{ sideDropBorder }};background:{{ sideDropBg }};color:#D9D5CC;font-size:12.5px;font-weight:500;transition:all .2s"><bs-icon name="layout-sidebar-left-collapse" level="1" size="15"></bs-icon>Pusťte zpět do panelu</div>
+    <div style="display:flex;align-items:center;justify-content:center;gap:8px;min-height:88px;border-radius:8px 24px 24px 24px;corner-shape:squircle;border:1.5px dashed {{ sideDropBorder }};background:{{ sideDropBg }};color:var(--c-d9d5cc,#D9D5CC);font-size:12.5px;font-weight:500;transition:all .2s"><bs-icon name="layout-sidebar-left-collapse" level="1" size="15"></bs-icon>Pusťte zpět do panelu</div>
   </sc-if>
 
-  <div style="display:flex;flex-direction:column;gap:10px;padding:24px 4px 0;margin-top:auto;border-top:1px solid rgba(236,232,222,0.08)">
-    <span style="display:flex;align-items:center;gap:6px;font-size:11px;font-weight:600;color:#A7ABB2;letter-spacing:0.06em;text-transform:uppercase"><bs-icon name="info-circle" level="3" size="13"></bs-icon>Systém</span>
+  <div style="display:flex;flex-direction:column;gap:10px;padding:24px 4px 0;margin-top:auto;border-top:1px solid var(--c-236-232-222-0-08,rgba(236,232,222,0.08))">
+    <span style="display:flex;align-items:center;gap:6px;font-size:11px;font-weight:600;color:var(--c-a7abb2,#A7ABB2);letter-spacing:0.06em;text-transform:uppercase"><bs-icon name="info-circle" level="3" size="13"></bs-icon>Systém</span>
     <sc-for list="{{ system }}" as="s" hint-placeholder-count="5">
       <div style="display:flex;justify-content:space-between;gap:10px;font-size:12px">
-        <span style="display:flex;align-items:center;gap:6px;color:#8E939A"><bs-icon name="{{ s.icon }}" level="3" size="13" color="#6E747C"></bs-icon>{{ s.k }}</span>
-        <span style="color:#D9D5CC;font-family:'Geist Mono',monospace;font-size:11px;text-align:right">{{ s.v }}</span>
+        <span style="display:flex;align-items:center;gap:6px;color:var(--c-8e939a,#8E939A)"><bs-icon name="{{ s.icon }}" level="3" size="13" color="var(--c-6e747c,#6E747C)"></bs-icon>{{ s.k }}</span>
+        <span style="color:var(--c-d9d5cc,#D9D5CC);font-family:'Geist Mono',monospace;font-size:11px;text-align:right">{{ s.v }}</span>
       </div>
     </sc-for>
     <div style="display:flex;gap:8px;align-items:flex-start;margin-top:4px;padding:8px 10px;border-radius:8px;background:rgba(70,192,127,0.07)">
-      <sc-if value="{{ lvLow }}" hint-placeholder-val="{{ false }}"><span style="width:6px;height:6px;border-radius:50%;background:#46C07F;margin-top:5px;flex-shrink:0"></span></sc-if><sc-if value="{{ lv3 }}" hint-placeholder-val="{{ true }}"><bs-icon name="shield-check" level="3" size="14" color="#7FD3A4"></bs-icon></sc-if>
-      <span style="font-size:11px;color:#A7ABB2;line-height:1.45">Stáří databáze Pohoda <span style="font-family:'Geist Mono',monospace">StwPhCZ_28419600</span> je v požadovaném intervalu.</span>
+      <sc-if value="{{ lvLow }}" hint-placeholder-val="{{ false }}"><span style="width:6px;height:6px;border-radius:50%;background:#46C07F;margin-top:5px;flex-shrink:0"></span></sc-if><sc-if value="{{ lv3 }}" hint-placeholder-val="{{ true }}"><bs-icon name="shield-check" level="3" size="14" color="var(--c-7fd3a4,#7FD3A4)"></bs-icon></sc-if>
+      <span style="font-size:11px;color:var(--c-a7abb2,#A7ABB2);line-height:1.45">Stáří databáze Pohoda <span style="font-family:'Geist Mono',monospace">StwPhCZ_28419600</span> je v požadovaném intervalu.</span>
     </div>
   </div>
 </aside>
@@ -1197,7 +1197,7 @@ class Component extends DCLogic {
           o["ddrop"+i]=e=>{const k=this.state.dragK;if(!k)return;e.preventDefault();e.stopPropagation();if(k[0]==="c"){if(k!=="c"+i)this.moveCard(+k[1],i,side(e));else this.setState({dragK:null,newsHover:null});return;}this.place(k,(i+1)*10+(side(e)?5:-5),i);};}
         return o;})(),
       tipOff:()=>this.setState({tip:null}),tipNewsOn:()=>this.setState({tip:"news"}),tipNews:st.tip==="news",tipQOn:()=>this.setState({tip:"q"}),tipQ:st.tip==="q",
-      themeName:this.theme(),themeOpts:[["dark","moon","Tmavý"],["light","sun","Světlý"]].map(([v,i,l])=>({icon:i,label:l,select:()=>this.setState({theme:v}),bg:this.theme()===v?"#262C35":"transparent",color:this.theme()===v?"#FF6259":"#8E939A"})),toggleTheme:()=>this.setState({theme:this.theme()==="light"?"dark":"light"}),themeTrack:this.theme()==="light"?"#E5372F":"var(--c-2a3038,#2A3038)",themeKnob:this.theme()==="light"?"12px":"2px",themeMoon:this.theme()==="dark"?"#E5372F":"var(--c-6e747c,#6E747C)",themeSun:this.theme()==="light"?"#E5372F":"var(--c-6e747c,#6E747C)",
+      themeName:this.theme(),themeOpts:[["dark","moon","Tmavý"],["light","sun","Světlý"]].map(([v,i,l])=>({icon:i,label:l,select:()=>{this.props.onThemeChange?this.props.onThemeChange(v):this.setState({theme:v});},bg:this.theme()===v?"#262C35":"transparent",color:this.theme()===v?"#FF6259":"#8E939A"})),toggleTheme:()=>{const v=this.theme()==="light"?"dark":"light";this.props.onThemeChange?this.props.onThemeChange(v):this.setState({theme:v});},themeTrack:this.theme()==="light"?"#E5372F":"var(--c-2a3038,#2A3038)",themeKnob:this.theme()==="light"?"12px":"2px",themeMoon:this.theme()==="dark"?"#E5372F":"var(--c-6e747c,#6E747C)",themeSun:this.theme()==="light"?"#E5372F":"var(--c-6e747c,#6E747C)",
       vatTrack:vatOn?"#E5372F":"var(--c-2a3038,#2A3038)",vatKnob:vatOn?"12px":"2px",
       stornoTrack:stOn?"#E5372F":"var(--c-2a3038,#2A3038)",stornoKnob:stOn?"12px":"2px",
       metrics:tabBtn([["pocet","Počet"],["hodnota","Hodnota"],["prum","Průměr"]],st.metric,"metric").map((m,i)=>({...m,icon:["numbers","cash-banknote","circle-half-2"][i]})),

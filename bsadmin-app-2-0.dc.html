@@ -1,0 +1,1033 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
+<script src="./icons.js"></script>
+<style>
+:root{--tabs-h:70px}
+html,body{margin:0;background:#0A0C0F;font-family:'Geist',system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+*{box-sizing:border-box}
+a{color:inherit;text-decoration:none}
+a:hover{color:#FF6259}
+[data-zt] *{scrollbar-width:auto;scrollbar-color:auto}
+[data-zt] ::-webkit-scrollbar{width:14px;height:14px;background:var(--z-head,#161A20)}
+[data-zt] ::-webkit-scrollbar-track{background:var(--z-head,#161A20);border-radius:0}
+[data-zt] ::-webkit-scrollbar-thumb{background:var(--z-line3,#3A414B);border-radius:0;border:1px solid var(--z-head,#161A20)}
+[data-zt] ::-webkit-scrollbar-thumb:hover{background:var(--z-mut,#8E939A)}
+[data-zt] ::-webkit-scrollbar-button:single-button{display:block;width:14px;height:14px;background-color:var(--z-head,#161A20);background-repeat:no-repeat;background-position:center;border-radius:0}
+[data-zt] ::-webkit-scrollbar-button:single-button:hover{background-color:var(--z-btnh,#1F252D)}
+[data-zt] ::-webkit-scrollbar-button:single-button:vertical:decrement{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8'%3E%3Cpolygon points='4,2 7,6 1,6' fill='%238E939A'/%3E%3C/svg%3E")}
+[data-zt] ::-webkit-scrollbar-button:single-button:vertical:increment{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8'%3E%3Cpolygon points='1,2 7,2 4,6' fill='%238E939A'/%3E%3C/svg%3E")}
+[data-zt] ::-webkit-scrollbar-button:single-button:horizontal:decrement{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8'%3E%3Cpolygon points='2,4 6,1 6,7' fill='%238E939A'/%3E%3C/svg%3E")}
+[data-zt] ::-webkit-scrollbar-button:single-button:horizontal:increment{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8'%3E%3Cpolygon points='2,1 6,4 2,7' fill='%238E939A'/%3E%3C/svg%3E")}
+[data-zt] ::-webkit-scrollbar-corner{background:var(--z-head,#161A20)}
+[data-zt] [data-fresh],[data-zt] [data-fresh] *{scrollbar-width:thin;scrollbar-color:var(--f-bd2,rgba(236,232,222,0.12)) transparent}
+[data-fresh] input::placeholder,[data-fresh] textarea::placeholder{color:var(--f-mut2,#6E747C)}
+[data-zt="light"]{--f-bg:#F3F1EC;--f-card:#FFFFFF;--f-sunk:#F5F3EE;--f-hov:#F3F0EA;--f-chip:#EFECE6;--f-bd:rgba(28,32,38,0.098);--f-bd2:rgba(28,32,38,0.168);--f-bd3:rgba(28,32,38,0.28);--f-tx:#15181C;--f-tx2:#30343A;--f-mut:#5E636A;--f-mut2:#767B82;--f-red:#D42F27;--f-grn:#1B8750;--f-amb:#B0500A;--f-seg:#FFFFFF;--f-zebra:rgba(28,32,38,0.028);--f-av:#E7E3DB;--f-sh:0 1px 2px rgba(40,34,26,0.06),0 10px 28px -14px rgba(40,34,26,0.18)}
+[data-zt="light"]{--z-bg:#E6E3DC;--z-panel:#FAF8F4;--z-head:#F0EDE6;--z-in:#FFFFFF;--z-inb:#6E675C;--z-pb:#D6D0C4;--z-pbb:#6E675C;--z-pbs:rgba(40,34,26,.25);--z-pbt:#15181C;--z-btn:#F0EDE6;--z-btnh:#E3DED4;--z-line:#C9C3B7;--z-line3:#A39C90;--z-grid:#E6E2DA;--z-text:#15181C;--z-text2:#3F434A;--z-mut:#62676E;--z-dis:#A3A7AD;--z-lab:#B0500A;--z-labd:#9A6534;--z-red:#C8261E;--z-green:#1B7A48;--z-var:#FBEFC0;--z-mst:#C6E3CB;--z-sel:#F0C0B9;--z-ro:#EEEBE4;--z-tabbar:#D3CEC3;--z-tabh:#E4E0D7;--z-tabi:#CFC9BD;--z-tabh:#C3BCAE;--z-fold:#A97A12;--z-info:#2563C9;--z-infoh:#1D50A6;--z-tb:#FFFFFF;--z-tbl:#A39C90;--z-btnb:#A39C90;--z-btnb2:#8E897F;--z-btn2:#E6E2DA;--z-btnh2:#D9D4CA}
+[data-zt] [data-fo]{--z-bg:#0A0C0F;--z-card:#12161B;--z-panel:#12161B;--z-head:#161A20;--z-in:#0D1014;--z-inb:rgba(236,232,222,0.14);--z-pb:#232931;--z-pbt:#F4F1EA;--z-btn:#161A20;--z-btnh:#1F252D;--z-line:rgba(236,232,222,0.08);--z-line3:rgba(236,232,222,0.18);--z-grid:rgba(236,232,222,0.05);--z-text:#F4F1EA;--z-text2:#C9C5BC;--z-mut:#8E939A;--z-dis:#4E545C;--z-lab:#F0A24A;--z-labd:#B08A5E;--z-red:#FF6259;--z-green:#7FD3A4;--z-var:#2A2617;--z-mst:#15301F;--z-sel:#3D1F1D;--z-ro:#151A20;--z-fold:#D9A53C;--z-info:#5B9BF0;--z-infoh:#7DB0F5;--z-tb:#0F1317;--z-tbl:rgba(236,232,222,0.1)}
+[data-zt="light"] [data-fo]{--z-bg:#F3F1EC;--z-card:#FFFFFF;--z-panel:#FFFFFF;--z-head:#F7F5F0;--z-in:#FFFFFF;--z-inb:rgba(28,32,38,0.2);--z-pb:#ECE9E2;--z-pbt:#15181C;--z-btn:#F7F5F0;--z-btnh:#ECE9E2;--z-line:rgba(28,32,38,0.1);--z-line3:rgba(28,32,38,0.24);--z-grid:rgba(28,32,38,0.06);--z-text:#15181C;--z-text2:#3F434A;--z-mut:#5E636A;--z-dis:#A3A7AD;--z-lab:#B0500A;--z-labd:#9A6534;--z-red:#D42F27;--z-green:#1B7A48;--z-var:#FBF1CF;--z-mst:#D9EEDC;--z-sel:#F6D3CE;--z-ro:#F3F0EA;--z-fold:#A97A12;--z-info:#2563C9;--z-infoh:#1D50A6;--z-tb:#F7F5F0;--z-tbl:rgba(28,32,38,0.12)}
+</style>
+</helmet>
+<div data-zt="{{ theme }}" style="min-height:100vh;background:var(--z-bg,#0A0C0F);color:var(--z-text,#F4F1EA);font-family:'Geist',system-ui,sans-serif;font-size:12px;font-variant-numeric:tabular-nums">
+
+  <div style="position:sticky;top:0;z-index:60">
+  <div style="height:30px;display:flex;align-items:stretch;gap:0;padding:0 6px;background:#FAF8F4;border-bottom:1px solid #E3DED4;overflow-x:auto;scrollbar-width:none;font-size:12.5px">
+    <sc-for list="{{ menu }}" as="m" hint-placeholder-count="16">
+      <button onClick="{{ m.go }}" style="all:unset;cursor:pointer;display:flex;align-items:center;padding:0 10px;white-space:nowrap;color:{{ m.c }};border-radius:6px;margin:3px 0" style-hover="background:#ECE9E2;color:#15181C">{{ m.label }}</button>
+    </sc-for>
+    <span style="flex:1"></span>
+    <span title="Na eshop je napojeno více účetních jednotek" style="align-self:center;flex-shrink:0;display:flex;align-items:center;gap:6px;height:20px;padding:0 9px;border-radius:10px;background:#E5372F;color:#FBF9F4;font-size:11.5px;font-weight:600;white-space:nowrap"><bs-icon name="alert-triangle" level="1" size="12"></bs-icon>Více účetních jednotek napojených na eshop</span>
+  </div>
+  <nav style="height:40px;display:flex;align-items:stretch;gap:4px;padding:4px 4px 0;background:#FAF8F4;box-shadow:inset 0 -1px 0 var(--z-line,#2A3038);overflow-x:auto;scrollbar-width:none">
+    <sc-for list="{{ tabs }}" as="t" hint-placeholder-count="7">
+      <div onClick="{{ t.go }}" onMouseEnter="{{ t.enter }}" onMouseLeave="{{ t.leave }}" title="{{ t.title }}" style="flex-shrink:0;display:flex;align-items:center;gap:8px;padding:0 8px 0 14px;position:relative;z-index:1;border:1px solid {{ t.bd }};border-bottom:1px solid {{ t.bb }};border-radius:6px 6px 0 0;background:{{ t.bg }};color:{{ t.color }};box-shadow:{{ t.sh }};font-size:13px;font-weight:{{ t.fw }};white-space:nowrap;cursor:{{ t.cursor }};user-select:none;transition:background .12s,color .12s">
+        <bs-icon variant="filled" name="{{ t.icon }}" level="1" size="15" style="display:flex;color:{{ t.ic }}"></bs-icon>
+        <span>{{ t.label }}</span>
+        <sc-if value="{{ t.closable }}" hint-placeholder-val="{{ true }}">
+          <span onClick="{{ t.close }}" title="Zavřít záložku" style="width:20px;height:20px;display:flex;align-items:center;justify-content:center;border-radius:4px;color:{{ t.xc }}" style-hover="background:var(--z-btnh,#1F252D);color:var(--z-red,#FF6259)"><bs-icon variant="filled" name="x" level="1" size="12" style="display:flex"></bs-icon></span>
+        </sc-if>
+        <sc-if value="{{ t.noClose }}" hint-placeholder-val="{{ false }}"><span style="width:6px"></span></sc-if>
+      </div>
+    </sc-for>
+    <div style="flex:1"></div>
+    <div style="flex-shrink:0;display:flex;align-items:center;gap:8px;padding:0 10px 0 12px;margin-bottom:4px;border-radius:6px;background:#F0EDE6;border:1px solid #C9C3B7">
+      <span style="color:#62676E;font-size:11.5px">Režim</span>
+      <div style="display:flex;border:1px solid #C9C3B7;border-radius:4px;overflow:hidden">
+        <sc-for list="{{ themeOpts }}" as="o" hint-placeholder-count="2">
+          <button onClick="{{ o.select }}" style="all:unset;cursor:pointer;display:flex;align-items:center;gap:6px;height:24px;padding:0 10px;font-size:12px;font-weight:500;background:{{ o.bg }};color:{{ o.color }}" style-hover="color:#15181C"><bs-icon variant="filled" name="{{ o.icon }}" level="1" size="13" style="display:flex"></bs-icon>{{ o.label }}</button>
+        </sc-for>
+      </div>
+    </div>
+  </nav>
+  </div>
+
+  <div style="display:{{ uvodDisp }}">
+    <dc-import name="bsadmin-dashboard-2-0" theme="{{ theme }}" on-theme-change="{{ setTheme }}" hint-size="100%,calc(100vh - var(--tabs-h,70px))"></dc-import>
+  </div>
+
+  <div data-screen-label="Zásoby" style="display:{{ zasDisp }};height:calc(100vh - var(--tabs-h,70px));overflow:auto">
+  <div style="display:grid;height:100%;min-width:1400px;min-height:820px;grid-template-columns:{{ asideW }} minmax(0,1fr);gap:4px;padding:4px">
+
+    <aside style="position:relative;display:flex;flex-direction:column;min-height:0;min-width:0;border:1px solid var(--z-line,#2A3038);background:var(--z-panel,#11151A)">
+      <div style="display:flex;flex-wrap:wrap;border-bottom:1px solid var(--z-line,#2A3038);background:var(--z-head,#161A20)">
+        <sc-for list="{{ langs }}" as="l" hint-placeholder-count="9">
+          <button onClick="{{ l.select }}" style="all:unset;cursor:pointer;height:26px;padding:0 8px;display:flex;align-items:center;gap:5px;font-size:11.5px;font-weight:600;letter-spacing:.02em;border-right:1px solid var(--z-line,#2A3038);color:{{ l.color }};background:{{ l.bg }};box-shadow:{{ l.sh }}" style-hover="color:var(--z-text,#F4F1EA)"><span style="width:16px;height:16px;flex-shrink:0;background:{{ l.flagBg }};opacity:{{ l.op }}"></span>{{ l.code }}</button>
+        </sc-for>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:6px;padding:8px;background:var(--z-panel,#11151A)">
+        <div style="display:flex;align-items:center;gap:14px">
+          <span style="font-weight:600;width:52px">Zobrazit:</span>
+          <sc-for list="{{ zobrOpts }}" as="o" hint-placeholder-count="2">
+            <span onClick="{{ o.select }}" style="display:flex;align-items:center;gap:6px;cursor:pointer"><span style="width:13px;height:13px;border-radius:50%;border:1px solid var(--z-line3,#3A414B);background:var(--z-in,#0D1014);display:flex;align-items:center;justify-content:center"><span style="width:5px;height:5px;border-radius:50%;background:{{ o.dot }}"></span></span>{{ o.label }}</span>
+          </sc-for>
+        </div>
+        <div style="display:flex;align-items:center;gap:6px">
+          <span style="width:52px;color:var(--z-text2,#C9C5BC)">Filtr:</span>
+          <div style="flex:1;height:24px;display:flex;align-items:center;gap:6px;padding:0 6px;border:1px solid var(--z-inb,#7E8996);background:var(--z-in,#2A313B);color:var(--z-mut,#8E939A)"><bs-icon name="search" level="1" size="12" style="display:flex"></bs-icon></div>
+          <button style="all:unset;cursor:pointer;width:22px;height:22px;display:flex;align-items:center;justify-content:center;border:1px solid transparent;background:var(--z-pb,#3A434F);color:var(--z-pbt,#FFFFFF);font-weight:500" style-hover="background:#E5372F;color:#FFFFFF"><bs-icon name="dots" level="1" size="12" style="display:flex"></bs-icon></button>
+        </div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:4px">
+          <button style="all:unset;cursor:pointer;height:22px;display:flex;align-items:center;justify-content:center;border:1px solid transparent;background:var(--z-pb,#3A434F);color:var(--z-pbt,#FFFFFF);font-weight:500" style-hover="background:#E5372F;color:#FFFFFF">Zobrazit editor kategorií</button>
+          <button style="all:unset;cursor:pointer;height:22px;display:flex;align-items:center;justify-content:center;gap:6px;border:1px solid transparent;background:var(--z-pb,#3A434F);color:var(--z-pbt,#FFFFFF);font-weight:500" style-hover="background:#E5372F;color:#FFFFFF"><bs-icon name="refresh" level="1" size="12" style="display:flex"></bs-icon>Aktualizovat</button>
+        </div>
+      </div>
+      <div style="display:flex;flex-direction:column;border-top:1px solid var(--z-line,#2A3038);border-bottom:1px solid var(--z-line,#2A3038);background:var(--z-head,#161A20)">
+        <span style="height:24px;display:flex;align-items:center;padding:0 8px;font-weight:600;border-bottom:1px solid var(--z-grid,#1C2128)">Název kategorie</span>
+        <span style="height:20px;display:flex;align-items:center;padding:0 8px;font-family:'Geist Mono',monospace;font-size:10px;color:var(--z-mut,#8E939A)">abc</span>
+      </div>
+      <div style="flex:1;min-height:0;overflow-y:scroll;overflow-x:auto;padding:4px 0">
+        <sc-for list="{{ tree }}" as="n" hint-placeholder-count="20">
+          <div onClick="{{ n.select }}" style="height:20px;display:flex;align-items:center;gap:4px;padding-left:{{ n.pad }};padding-right:8px;white-space:nowrap;cursor:pointer;background:{{ n.bg }};color:{{ n.color }};font-weight:{{ n.fw }}" style-hover="box-shadow:inset 0 0 0 1px var(--z-line3,#3A414B)">
+            <span onClick="{{ n.toggle }}" style="width:14px;height:14px;display:flex;align-items:center;justify-content:center;visibility:{{ n.chevVis }};transform:rotate({{ n.rot }});transition:transform .12s;color:var(--z-mut,#8E939A)"><bs-icon name="chevron-right" level="1" size="11" style="display:flex"></bs-icon></span>
+            <bs-icon name="{{ n.icon }}" level="1" size="14" style="display:flex;color:{{ n.ic }}"></bs-icon>
+            <span style="overflow:hidden;text-overflow:ellipsis">{{ n.label }}</span>
+          </div>
+        </sc-for>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:6px;padding:8px;border-top:1px solid var(--z-line,#2A3038)">
+        <span onClick="{{ ck.eshop.t }}" style="display:flex;align-items:center;gap:6px;cursor:pointer;user-select:none;font-weight:600"><span style="width:13px;height:13px;flex-shrink:0;border:1px solid {{ ck.eshop.bd }};background:{{ ck.eshop.bg }};display:flex;align-items:center;justify-content:center;color:#FFFFFF"><sc-if value="{{ ck.eshop.on }}" hint-placeholder-val="{{ false }}"><bs-icon name="check" level="1" size="11" style="display:flex"></bs-icon></sc-if></span>Nahrávat na eshop</span>
+        <span onClick="{{ ck.skryta.t }}" style="display:flex;align-items:center;gap:6px;cursor:pointer;user-select:none"><span style="width:13px;height:13px;flex-shrink:0;border:1px solid {{ ck.skryta.bd }};background:{{ ck.skryta.bg }};display:flex;align-items:center;justify-content:center;color:#FFFFFF"><sc-if value="{{ ck.skryta.on }}" hint-placeholder-val="{{ false }}"><bs-icon name="check" level="1" size="11" style="display:flex"></bs-icon></sc-if></span>Skrytá</span>
+      </div>
+      <div onMouseDown="{{ startDrag }}" title="Táhnutím změníte šířku" style="position:absolute;top:0;right:-5px;bottom:0;width:8px;z-index:5;cursor:col-resize;background:{{ dragBg }}" style-hover="background:linear-gradient(90deg,transparent 3px,#E5372F 3px,#E5372F 5px,transparent 5px)"></div>
+    </aside>
+
+    <div style="display:grid;grid-template-rows:auto minmax(0,1fr) 372px;gap:4px;min-width:0;min-height:0">
+
+      <div style="display:grid;grid-template-columns:minmax(0,1fr) minmax(300px,380px);gap:4px">
+        <section style="position:relative;margin-top:8px;border:1px solid var(--z-line,#2A3038);padding:14px 8px 8px;display:flex;flex-direction:column;gap:5px">
+          <span style="position:absolute;top:-8px;left:8px;padding:0 5px;line-height:15px;font-size:12px;font-weight:600;white-space:nowrap;color:var(--z-mut,#8E939A);background:var(--z-bg,#0A0C0F)">Filtr</span>
+          <div style="display:grid;grid-template-columns:180px auto 1fr;gap:5px 14px;align-items:center">
+            <span style="color:var(--z-text2,#C9C5BC)">EAN</span>
+            <span onClick="{{ ck.jenHl.t }}" style="display:flex;align-items:center;gap:6px;cursor:pointer;user-select:none;white-space:nowrap"><span style="width:13px;height:13px;flex-shrink:0;border:1px solid {{ ck.jenHl.bd }};background:{{ ck.jenHl.bg }};display:flex;align-items:center;justify-content:center;color:#FFFFFF"><sc-if value="{{ ck.jenHl.on }}" hint-placeholder-val="{{ false }}"><bs-icon name="check" level="1" size="11" style="display:flex"></bs-icon></sc-if></span>Jen položky z hlavní kategorie</span>
+            <div style="display:flex;flex-wrap:wrap;gap:4px">
+              <button style="all:unset;cursor:pointer;height:22px;padding:0 10px;display:flex;align-items:center;white-space:nowrap;border:1px solid transparent;background:var(--z-pb,#3A434F);color:var(--z-pbt,#FFFFFF);font-weight:500" style-hover="background:#E5372F;color:#FFFFFF">Master/Varianty</button>
+              <button style="all:unset;cursor:pointer;height:22px;padding:0 8px 0 10px;display:flex;align-items:center;gap:6px;white-space:nowrap;border:1px solid transparent;background:var(--z-pb,#3A434F);color:var(--z-pbt,#FFFFFF);font-weight:500" style-hover="background:#E5372F;color:#FFFFFF">Import příznaky<bs-icon name="chevron-down" level="1" size="11" style="display:flex"></bs-icon></button>
+            </div>
+            <label style="height:22px;display:flex;align-items:center;gap:6px;padding:0 6px;border:1px solid var(--z-inb,#7E8996);background:var(--z-in,#2A313B);color:var(--z-mut,#8E939A)"><bs-icon name="search" level="1" size="12" style="display:flex"></bs-icon><input value="{{ q }}" onInput="{{ onQ }}" placeholder="EAN, kód, název…" style="all:unset;flex:1;min-width:0;font-size:12px;color:var(--z-text,#F4F1EA)"></label>
+            <span onClick="{{ ck.invert.t }}" style="display:flex;align-items:center;gap:6px;cursor:pointer;user-select:none"><span style="width:13px;height:13px;flex-shrink:0;border:1px solid {{ ck.invert.bd }};background:{{ ck.invert.bg }};display:flex;align-items:center;justify-content:center;color:#FFFFFF"><sc-if value="{{ ck.invert.on }}" hint-placeholder-val="{{ false }}"><bs-icon name="check" level="1" size="11" style="display:flex"></bs-icon></sc-if></span>invertovat</span>
+            <div style="display:flex;flex-wrap:wrap;gap:4px">
+              <button style="all:unset;cursor:pointer;height:22px;padding:0 10px;display:flex;align-items:center;white-space:nowrap;border:1px solid transparent;background:var(--z-pb,#3A434F);color:var(--z-pbt,#FFFFFF);font-weight:500" style-hover="background:#E5372F;color:#FFFFFF">Editovat filtr</button>
+              <button style="all:unset;cursor:default;height:22px;padding:0 10px;display:flex;align-items:center;white-space:nowrap;border:1px solid var(--z-line,#2A3038);color:var(--z-dis,#4E545C)">Zpět</button>
+              <button onClick="{{ clearQ }}" style="all:unset;cursor:pointer;height:22px;padding:0 10px;display:flex;align-items:center;white-space:nowrap;border:1px solid var(--z-line,#2A3038);color:{{ clearColor }}" style-hover="background:var(--z-btnh,#1F252D)">Zrušit filtr</button>
+              <button style="all:unset;cursor:pointer;height:22px;padding:0 8px 0 10px;display:flex;align-items:center;gap:6px;white-space:nowrap;border:1px solid transparent;background:var(--z-pb,#3A434F);color:var(--z-pbt,#FFFFFF);font-weight:500" style-hover="background:#E5372F;color:#FFFFFF">Vlastní příznaky<bs-icon name="chevron-down" level="1" size="11" style="display:flex"></bs-icon></button>
+            </div>
+            <div style="height:22px;display:flex;align-items:center;justify-content:flex-end;padding:0 6px;border:1px solid var(--z-inb,#7E8996);background:var(--z-in,#2A313B);color:var(--z-mut,#8E939A)"><bs-icon name="chevron-down" level="1" size="11" style="display:flex"></bs-icon></div>
+            <div style="display:flex;flex-wrap:wrap;gap:4px">
+              <button style="all:unset;cursor:pointer;height:22px;padding:0 10px;display:flex;align-items:center;white-space:nowrap;border:1px solid transparent;background:var(--z-pb,#3A434F);color:var(--z-pbt,#FFFFFF);font-weight:500" style-hover="background:#E5372F;color:#FFFFFF">SQL filtr</button>
+              <button style="all:unset;cursor:pointer;height:22px;padding:0 10px;display:flex;align-items:center;white-space:nowrap;border:1px solid transparent;background:var(--z-pb,#3A434F);color:var(--z-pbt,#FFFFFF);font-weight:500" style-hover="background:#E5372F;color:#FFFFFF">Uložené filtry</button>
+            </div>
+            <span></span>
+          </div>
+        </section>
+        <section style="position:relative;margin-top:8px;border:1px solid var(--z-line,#2A3038);padding:14px 8px 8px;display:flex;flex-direction:column;gap:4px;min-width:0">
+          <span style="position:absolute;top:-8px;left:8px;padding:0 5px;line-height:15px;font-size:12px;font-weight:600;white-space:nowrap;color:var(--z-mut,#8E939A);background:var(--z-bg,#0A0C0F)">Přehled</span>
+          <div style="display:flex;gap:6px;white-space:nowrap;overflow:hidden"><span style="color:var(--z-text2,#C9C5BC)">Kategorie:</span><b style="overflow:hidden;text-overflow:ellipsis">{{ catPath }}</b></div>
+          <div style="display:flex;gap:18px"><span style="display:flex;gap:6px"><span style="color:var(--z-text2,#C9C5BC)">Počet položek:</span><b>{{ cntLabel }}</b></span><span style="display:flex;gap:6px"><span style="color:var(--z-text2,#C9C5BC)">Počet podkategorií:</span><b>73</b></span></div>
+          <div style="display:flex;gap:6px;white-space:nowrap;overflow:hidden"><span style="color:var(--z-text2,#C9C5BC)">Umístění:</span><b style="overflow:hidden;text-overflow:ellipsis">{{ placePath }}</b></div>
+          <button style="all:unset;cursor:pointer;align-self:flex-start;height:22px;width:170px;display:flex;align-items:center;justify-content:center;margin-top:2px;border:1px solid transparent;background:var(--z-pb,#3A434F);color:var(--z-pbt,#FFFFFF);font-weight:500" style-hover="background:#E5372F;color:#FFFFFF">{{ selKind }}</button>
+        </section>
+      </div>
+
+      <section style="border:1px solid var(--z-line,#2A3038);background:var(--z-panel,#11151A);overflow:auto;min-height:0">
+        <table style="border-collapse:separate;border-spacing:0;table-layout:fixed;width:max-content;font-size:12px">
+          <thead>
+            <tr>
+              <th style="position:sticky;top:0;left:0;z-index:3;width:52px;height:24px;background:var(--z-head,#161A20);border-right:1px solid var(--z-line,#2A3038);border-bottom:1px solid var(--z-grid,#1C2128)"></th>
+              <sc-for list="{{ cols }}" as="c" hint-placeholder-count="19">
+                <th style="position:sticky;top:0;z-index:2;width:{{ c.w }};height:24px;padding:0 6px;text-align:left;font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;background:var(--z-head,#161A20);border-right:1px solid var(--z-grid,#1C2128);border-bottom:1px solid var(--z-grid,#1C2128)">{{ c.title }}</th>
+              </sc-for>
+            </tr>
+            <tr>
+              <th style="position:sticky;top:24px;left:0;z-index:3;height:20px;background:var(--z-head,#161A20);border-right:1px solid var(--z-line,#2A3038);border-bottom:1px solid var(--z-line,#2A3038);color:var(--z-mut,#8E939A)"><span style="display:flex;justify-content:center"><bs-icon name="filter" level="1" size="12" style="display:flex"></bs-icon></span></th>
+              <sc-for list="{{ cols }}" as="c" hint-placeholder-count="19">
+                <th style="position:sticky;top:24px;z-index:2;height:20px;padding:0 6px;text-align:left;font-weight:400;font-family:'Geist Mono',monospace;font-size:10px;color:var(--z-mut,#8E939A);background:var(--z-head,#161A20);border-right:1px solid var(--z-grid,#1C2128);border-bottom:1px solid var(--z-line,#2A3038)">{{ c.flt }}</th>
+              </sc-for>
+            </tr>
+          </thead>
+          <tbody>
+            <sc-for list="{{ rows }}" as="r" hint-placeholder-count="18">
+              <tr onClick="{{ r.select }}" onMouseEnter="{{ r.enter }}" onMouseLeave="{{ r.leave }}" style="background:{{ r.bg }};cursor:default">
+                <td style="position:sticky;left:0;z-index:1;height:21px;padding:0 6px;text-align:right;white-space:nowrap;background:var(--z-head,#161A20);color:{{ r.numColor }};font-weight:{{ r.numFw }};border-right:1px solid var(--z-line,#2A3038);border-bottom:1px solid var(--z-grid,#1C2128);box-shadow:{{ r.numSh }}">{{ r.num }}</td>
+                <sc-for list="{{ r.cells }}" as="c" hint-placeholder-count="12">
+                  <td style="height:21px;padding:0 6px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;text-align:{{ c.al }};font-family:{{ c.ff }};background:{{ c.bg }};color:{{ c.c }};border-right:1px solid var(--z-grid,#1C2128);border-bottom:1px solid var(--z-grid,#1C2128)">{{ c.v }}</td>
+                </sc-for>
+              </tr>
+            </sc-for>
+          </tbody>
+        </table>
+        <sc-if value="{{ noRows }}" hint-placeholder-val="{{ false }}"><div style="padding:16px 12px;color:var(--z-mut,#8E939A)">Filtru neodpovídá žádná položka.</div></sc-if>
+      </section>
+
+      <div style="display:grid;grid-template-columns:40px minmax(0,1fr);gap:4px;min-height:0">
+        <section style="position:relative;margin-top:8px;display:flex;flex-direction:column;align-items:center;gap:3px;padding:12px 0 4px">
+          <span style="position:absolute;top:-8px;left:3px;padding:0 2px;line-height:15px;font-size:12px;font-weight:600;white-space:nowrap;color:var(--z-mut,#8E939A);background:var(--z-bg,#0A0C0F)">Akce</span>
+          <sc-for list="{{ akce }}" as="a" hint-placeholder-count="8">
+            <button title="{{ a.title }}" style="all:unset;cursor:pointer;width:30px;height:26px;display:flex;align-items:center;justify-content:center;border:1px solid var(--z-line,#2A3038);background:var(--z-btn,#161A20);color:{{ a.color }}" style-hover="background:var(--z-btnh,#1F252D)"><bs-icon name="{{ a.icon }}" variant="filled" level="1" size="{{ a.size }}" style="display:flex"></bs-icon></button>
+          </sc-for>
+        </section>
+
+        <div style="display:flex;flex-direction:column;min-width:0;min-height:0">
+          <div style="display:flex;height:26px;margin-bottom:-1px;position:relative;z-index:1;white-space:nowrap">
+            <span style="display:flex;align-items:center;padding:0 14px;border:1px solid var(--z-tbl,#3A414B);border-bottom-color:var(--z-tb,#1A2028);background:var(--z-tb,#1A2028);box-shadow:inset 0 2px 0 #E5372F;font-weight:600">Hlavní</span>
+            <span style="display:flex;align-items:center;padding:0 14px;border:1px solid var(--z-line,#2A3038);border-left:0;background:var(--z-head,#161A20);color:var(--z-lab,#F0A24A);font-weight:600;cursor:pointer" style-hover="background:var(--z-btnh,#1F252D)">E1 parametry</span>
+            <span style="display:flex;align-items:center;padding:0 14px;border:1px solid var(--z-line,#2A3038);border-left:0;background:var(--z-head,#161A20);color:var(--z-text2,#C9C5BC);cursor:pointer" style-hover="background:var(--z-btnh,#1F252D)">Příznaky</span>
+            <span style="display:flex;align-items:center;padding:0 14px;border:1px solid var(--z-line,#2A3038);border-left:0;background:var(--z-head,#161A20);color:var(--z-lab,#F0A24A);font-weight:600;cursor:pointer" style-hover="background:var(--z-btnh,#1F252D)">Internetové parametry</span>
+            <span style="display:flex;align-items:center;padding:0 14px;border:1px solid var(--z-line,#2A3038);border-left:0;background:var(--z-head,#161A20);color:var(--z-text2,#C9C5BC);cursor:pointer" style-hover="background:var(--z-btnh,#1F252D)">Množstevní slevy</span>
+          </div>
+          <div style="flex:1;min-height:0;display:grid;grid-template-columns:minmax(380px,1fr) minmax(340px,1fr) minmax(240px,300px);gap:6px;padding:6px;border:1px solid var(--z-tbl,#3A414B);background:var(--z-tb,#1A2028)">
+
+            <section style="position:relative;margin-top:8px;border:1px solid var(--z-line,#2A3038);display:flex;flex-direction:column;min-height:0">
+              <span style="position:absolute;top:-8px;left:8px;padding:0 5px;line-height:15px;font-size:12px;font-weight:600;white-space:nowrap;color:var(--z-mut,#8E939A);background:var(--z-tb,#1A2028)">Hlavní</span>
+              <div style="flex:1;min-height:0;overflow:auto;padding:14px 8px 8px;display:flex;flex-direction:column;gap:4px">
+                <div style="display:flex;align-items:center;gap:4px"><span style="height:22px;display:flex;align-items:center;gap:8px;padding:0 6px;border:1px solid var(--z-inb,#7E8996);background:var(--z-in,#2A313B);font-weight:600;color:var(--z-red,#FF6259)"><span style="width:16px;height:16px;flex-shrink:0;margin-right:-2px;background:{{ langFlagBg }}"></span>{{ langCode }}<bs-icon name="chevron-down" level="1" size="11" style="display:flex;color:var(--z-mut,#8E939A)"></bs-icon></span></div>
+                <div style="display:grid;grid-template-columns:112px minmax(0,1fr) auto;gap:4px 6px;align-items:center">
+                  <span style="color:var(--z-lab,#F0A24A);font-weight:500">Typ karty:</span>
+                  <span style="height:22px;display:flex;align-items:center;justify-content:space-between;padding:0 6px;border:1px solid var(--z-inb,#7E8996);background:var(--z-in,#2A313B)">karta<bs-icon name="chevron-down" level="1" size="11" style="display:flex;color:var(--z-mut,#8E939A)"></bs-icon></span>
+                  <span style="width:22px;height:22px;display:flex;align-items:center;justify-content:center;color:var(--z-info,#2F6FD6);cursor:pointer" style-hover="color:var(--z-infoh,#4A86E8)"><bs-icon name="info-circle" variant="filled" level="1" size="22" style="display:flex"></bs-icon></span>
+                  <span style="color:var(--z-lab,#F0A24A);font-weight:500">Kód:</span>
+                  <span style="grid-column:span 2;height:22px;display:flex;align-items:center;padding:0 6px;border:1px solid var(--z-inb,#7E8996);background:var(--z-in,#2A313B)">{{ d.kod }}</span>
+                  <span style="color:var(--z-text2,#C9C5BC)">Lokalizované názvy</span>
+                  <div style="grid-column:span 2;display:flex;gap:16px">
+                    <sc-for list="{{ lokOpts }}" as="o" hint-placeholder-count="3">
+                      <span onClick="{{ o.select }}" style="display:flex;align-items:center;gap:6px;cursor:pointer"><span style="width:13px;height:13px;border-radius:50%;border:1px solid var(--z-line3,#3A414B);background:var(--z-in,#0D1014);display:flex;align-items:center;justify-content:center"><span style="width:5px;height:5px;border-radius:50%;background:{{ o.dot }}"></span></span>{{ o.label }}</span>
+                    </sc-for>
+                  </div>
+                  <span style="color:var(--z-text2,#C9C5BC)">Dlouhý název:</span>
+                  <span style="height:22px;display:flex;align-items:center;padding:0 6px;border:1px solid var(--z-inb,#7E8996);background:var(--z-mst,#1A3B26)"></span>
+                  <span style="display:flex;align-items:center;gap:4px"><span style="font-size:10.5px;color:var(--z-mut,#8E939A);width:26px;text-align:right">(0)</span><span style="width:22px;height:22px;display:flex;align-items:center;justify-content:center;color:var(--z-info,#2F6FD6);cursor:pointer" style-hover="color:var(--z-infoh,#4A86E8)"><bs-icon name="info-circle" variant="filled" level="1" size="22" style="display:flex"></bs-icon></span></span>
+                  <span style="color:var(--z-lab,#F0A24A);font-weight:500">Pohoda název:</span>
+                  <span style="height:22px;display:flex;align-items:center;padding:0 6px;border:1px solid var(--z-inb,#7E8996);background:var(--z-mst,#1A3B26);white-space:nowrap;overflow:hidden">{{ d.pohoda }}</span>
+                  <span style="display:flex;align-items:center;gap:4px"><span style="font-size:10.5px;color:var(--z-mut,#8E939A);width:26px;text-align:right">({{ d.pohodaLen }})</span><span style="width:22px;height:22px;display:flex;align-items:center;justify-content:center;color:var(--z-info,#2F6FD6);cursor:pointer" style-hover="color:var(--z-infoh,#4A86E8)"><bs-icon name="info-circle" variant="filled" level="1" size="22" style="display:flex"></bs-icon></span></span>
+                  <span style="color:var(--z-text2,#C9C5BC)">Krátký název:</span>
+                  <span style="height:22px;display:flex;align-items:center;padding:0 6px;border:1px solid var(--z-inb,#7E8996);background:var(--z-mst,#1A3B26)"></span>
+                  <span style="display:flex;align-items:center;gap:4px"><span style="font-size:10.5px;color:var(--z-mut,#8E939A);width:26px;text-align:right">(0)</span><span style="width:22px;height:22px;display:flex;align-items:center;justify-content:center;color:var(--z-info,#2F6FD6);cursor:pointer" style-hover="color:var(--z-infoh,#4A86E8)"><bs-icon name="info-circle" variant="filled" level="1" size="22" style="display:flex"></bs-icon></span></span>
+                  <span style="color:var(--z-lab,#F0A24A);font-weight:500">Text (P/N):</span>
+                  <span style="grid-column:span 2;height:22px;display:flex;align-items:center;padding:0 6px;border:1px solid var(--z-inb,#7E8996);background:var(--z-mst,#1A3B26)">{{ d.text }}</span>
+                </div>
+                <div style="display:grid;grid-template-columns:112px 96px minmax(0,1fr);gap:4px 6px;align-items:center;margin-top:2px">
+                  <span style="color:var(--z-lab,#F0A24A);font-weight:500">Obj. kód:</span>
+                  <span style="height:22px;display:flex;align-items:center;padding:0 6px;border:1px solid var(--z-inb,#7E8996);background:var(--z-in,#2A313B);white-space:nowrap;overflow:hidden">{{ d.obj }}</span>
+                  <span onClick="{{ ck.vc.t }}" style="display:flex;align-items:center;gap:6px;cursor:pointer;user-select:none;color:var(--z-lab,#F0A24A);font-weight:500"><span style="width:13px;height:13px;flex-shrink:0;border:1px solid {{ ck.vc.bd }};background:{{ ck.vc.bg }};display:flex;align-items:center;justify-content:center;color:#FFFFFF"><sc-if value="{{ ck.vc.on }}" hint-placeholder-val="{{ false }}"><bs-icon name="check" level="1" size="11" style="display:flex"></bs-icon></sc-if></span>Výrobní čísla</span>
+                  <span style="color:var(--z-lab,#F0A24A);font-weight:500">Objednat:</span>
+                  <span style="height:22px;display:flex;align-items:center;padding:0 6px;border:1px solid var(--z-inb,#7E8996);background:var(--z-in,#2A313B)">0</span>
+                  <span onClick="{{ ck.sarze.t }}" style="display:flex;align-items:center;gap:6px;cursor:pointer;user-select:none;color:var(--z-lab,#F0A24A);font-weight:500"><span style="width:13px;height:13px;flex-shrink:0;border:1px solid {{ ck.sarze.bd }};background:{{ ck.sarze.bg }};display:flex;align-items:center;justify-content:center;color:#FFFFFF"><sc-if value="{{ ck.sarze.on }}" hint-placeholder-val="{{ false }}"><bs-icon name="check" level="1" size="11" style="display:flex"></bs-icon></sc-if></span>Šarže</span>
+                  <span style="color:var(--z-lab,#F0A24A);font-weight:500">Dodavatel:</span>
+                  <span style="display:flex;align-items:center;gap:2px"><span style="flex:1;min-width:0;height:22px;display:flex;align-items:center;justify-content:space-between;padding:0 4px 0 6px;border:1px solid var(--z-inb,#7E8996);background:var(--z-in,#2A313B)">TE…<bs-icon name="chevron-down" level="1" size="10" style="display:flex;color:var(--z-mut,#8E939A)"></bs-icon></span><span style="display:flex;color:var(--z-red,#FF6259)"><bs-icon name="x" level="1" size="11" style="display:flex"></bs-icon></span><span style="display:flex;color:var(--z-mut,#8E939A)"><bs-icon name="dots" level="1" size="11" style="display:flex"></bs-icon></span></span>
+                  <span onClick="{{ ck.archiv.t }}" style="display:flex;align-items:center;gap:6px;cursor:pointer;user-select:none"><span style="width:13px;height:13px;flex-shrink:0;border:1px solid {{ ck.archiv.bd }};background:{{ ck.archiv.bg }};display:flex;align-items:center;justify-content:center;color:#FFFFFF"><sc-if value="{{ ck.archiv.on }}" hint-placeholder-val="{{ false }}"><bs-icon name="check" level="1" size="11" style="display:flex"></bs-icon></sc-if></span>Archív</span>
+                  <span style="color:var(--z-lab,#F0A24A);font-weight:500">Výrobce:</span>
+                  <span style="display:flex;align-items:center;gap:2px"><span style="flex:1;min-width:0;height:22px;display:flex;align-items:center;justify-content:flex-end;padding:0 4px;border:1px solid var(--z-inb,#7E8996);background:var(--z-in,#2A313B)"><bs-icon name="chevron-down" level="1" size="10" style="display:flex;color:var(--z-mut,#8E939A)"></bs-icon></span><span style="display:flex;color:var(--z-red,#FF6259)"><bs-icon name="x" level="1" size="11" style="display:flex"></bs-icon></span><span style="display:flex;color:var(--z-mut,#8E939A)"><bs-icon name="dots" level="1" size="11" style="display:flex"></bs-icon></span></span>
+                  <span onClick="{{ ck.sablona.t }}" style="display:flex;align-items:center;gap:6px;cursor:pointer;user-select:none;color:var(--z-lab,#F0A24A);font-weight:500"><span style="width:13px;height:13px;flex-shrink:0;border:1px solid {{ ck.sablona.bd }};background:{{ ck.sablona.bg }};display:flex;align-items:center;justify-content:center;color:#FFFFFF"><sc-if value="{{ ck.sablona.on }}" hint-placeholder-val="{{ false }}"><bs-icon name="check" level="1" size="11" style="display:flex"></bs-icon></sc-if></span>Šablona</span>
+                  <span style="color:var(--z-lab,#F0A24A);font-weight:500">Kód dostupnosti:</span>
+                  <span style="height:22px;display:flex;align-items:center;justify-content:flex-end;padding:0 4px;border:1px solid var(--z-inb,#7E8996);background:var(--z-in,#2A313B)"><bs-icon name="chevron-down" level="1" size="10" style="display:flex;color:var(--z-mut,#8E939A)"></bs-icon></span>
+                  <span onClick="{{ ck.internet.t }}" style="display:flex;align-items:center;gap:6px;cursor:pointer;user-select:none;color:var(--z-lab,#F0A24A);font-weight:500"><span style="width:13px;height:13px;flex-shrink:0;border:1px solid {{ ck.internet.bd }};background:{{ ck.internet.bg }};display:flex;align-items:center;justify-content:center;color:#FFFFFF"><sc-if value="{{ ck.internet.on }}" hint-placeholder-val="{{ false }}"><bs-icon name="check" level="1" size="11" style="display:flex"></bs-icon></sc-if></span>Internet</span>
+                  <span style="color:var(--z-lab,#F0A24A);font-weight:500">Záruka:</span>
+                  <span style="display:flex;gap:2px"><span style="flex:1;height:22px;display:flex;align-items:center;justify-content:space-between;padding:0 4px 0 6px;border:1px solid var(--z-inb,#7E8996);background:var(--z-in,#2A313B)">0<bs-icon name="arrows-sort" level="1" size="10" style="display:flex;color:var(--z-mut,#8E939A)"></bs-icon></span><span style="width:22px;height:22px;display:flex;align-items:center;justify-content:center;border:1px solid var(--z-inb,#7E8996);background:var(--z-in,#2A313B)"><bs-icon name="chevron-down" level="1" size="10" style="display:flex;color:var(--z-mut,#8E939A)"></bs-icon></span></span>
+                  <span onClick="{{ ck.feed.t }}" style="display:flex;align-items:center;gap:6px;cursor:pointer;user-select:none"><span style="width:13px;height:13px;flex-shrink:0;border:1px solid {{ ck.feed.bd }};background:{{ ck.feed.bg }};display:flex;align-items:center;justify-content:center;color:#FFFFFF"><sc-if value="{{ ck.feed.on }}" hint-placeholder-val="{{ false }}"><bs-icon name="check" level="1" size="11" style="display:flex"></bs-icon></sc-if></span>Vynechat z feedů</span>
+                  <span style="color:var(--z-lab,#F0A24A);font-weight:500">Čár. kód:</span>
+                  <span style="height:22px;display:flex;align-items:center;padding:0 6px;border:1px solid var(--z-inb,#7E8996);background:var(--z-in,#2A313B);white-space:nowrap;overflow:hidden">{{ d.ean }}</span>
+                  <span onClick="{{ ck.odbyt.t }}" style="display:flex;align-items:center;gap:6px;cursor:pointer;user-select:none;color:var(--z-lab,#F0A24A);font-weight:500"><span style="width:13px;height:13px;flex-shrink:0;border:1px solid {{ ck.odbyt.bd }};background:{{ ck.odbyt.bg }};display:flex;align-items:center;justify-content:center;color:#FFFFFF"><sc-if value="{{ ck.odbyt.on }}" hint-placeholder-val="{{ false }}"><bs-icon name="check" level="1" size="11" style="display:flex"></bs-icon></sc-if></span>Odbyt</span>
+                </div>
+              </div>
+            </section>
+
+            <div style="display:flex;flex-direction:column;gap:6px;min-width:0;min-height:0">
+              <section style="position:relative;margin-top:8px;border:1px solid var(--z-line,#2A3038);padding:14px 8px 8px;display:flex;flex-direction:column;gap:6px">
+                <span style="position:absolute;top:-8px;left:8px;padding:0 5px;line-height:15px;font-size:12px;font-weight:600;white-space:nowrap;color:var(--z-mut,#8E939A);background:var(--z-tb,#1A2028)">Ceny</span>
+                <span onClick="{{ ck.neakt.t }}" style="display:flex;align-items:center;gap:6px;cursor:pointer;user-select:none"><span style="width:13px;height:13px;flex-shrink:0;border:1px solid {{ ck.neakt.bd }};background:{{ ck.neakt.bg }};display:flex;align-items:center;justify-content:center;color:#FFFFFF"><sc-if value="{{ ck.neakt.on }}" hint-placeholder-val="{{ false }}"><bs-icon name="check" level="1" size="11" style="display:flex"></bs-icon></sc-if></span>Neaktualizovat ceny (Import)</span>
+                <div style="display:grid;grid-template-columns:110px 1fr 1fr;gap:6px;align-items:center">
+                  <span style="color:var(--z-lab,#F0A24A);font-weight:600">Vážená nákupní:</span>
+                  <span style="height:22px;display:flex;align-items:center;padding:0 6px;border:1px solid var(--z-inb,#7E8996);background:var(--z-mst,#1A3B26)">{{ d.nak }}</span>
+                  <span style="height:22px;display:flex;align-items:center;padding:0 6px;border:1px solid var(--z-inb,#7E8996);background:var(--z-mst,#1A3B26)">{{ d.nak }}</span>
+                </div>
+                <div style="height:112px;overflow-y:scroll;border-top:1px solid var(--z-line,#2A3038);border-left:1px solid var(--z-line,#2A3038);border-bottom:1px solid var(--z-line,#2A3038)">
+                <div style="display:grid;grid-template-columns:minmax(118px,1.4fr) repeat(4,minmax(0,1fr));">
+                  <span style="position:sticky;top:0;z-index:1;height:22px;display:flex;align-items:center;padding:0 6px;background:var(--z-head,#161A20);border-right:1px solid var(--z-line,#2A3038);border-bottom:1px solid var(--z-line,#2A3038)">Cena</span>
+                  <span style="position:sticky;top:0;z-index:1;height:22px;display:flex;align-items:center;padding:0 6px;background:var(--z-head,#161A20);border-right:1px solid var(--z-line,#2A3038);border-bottom:1px solid var(--z-line,#2A3038)">Bez DPH</span>
+                  <span style="position:sticky;top:0;z-index:1;height:22px;display:flex;align-items:center;padding:0 6px;background:var(--z-head,#161A20);border-right:1px solid var(--z-line,#2A3038);border-bottom:1px solid var(--z-line,#2A3038)">Včetně DPH</span>
+                  <span style="position:sticky;top:0;z-index:1;height:22px;display:flex;align-items:center;padding:0 6px;background:var(--z-head,#161A20);border-right:1px solid var(--z-line,#2A3038);border-bottom:1px solid var(--z-line,#2A3038);white-space:nowrap">Sleva/Rabat %</span>
+                  <span style="position:sticky;top:0;z-index:1;height:22px;display:flex;align-items:center;padding:0 6px;background:var(--z-head,#161A20);border-right:1px solid var(--z-line,#2A3038);border-bottom:1px solid var(--z-line,#2A3038)">Marže %</span>
+                  <span style="height:22px;display:flex;align-items:center;padding:0 6px;font-weight:700;border-right:1px solid var(--z-grid,#1C2128);border-bottom:1px solid var(--z-grid,#1C2128)">Nákupní</span>
+                  <span style="height:22px;display:flex;align-items:center;justify-content:flex-end;padding:0 6px;border-right:1px solid var(--z-grid,#1C2128);border-bottom:1px solid var(--z-grid,#1C2128)">{{ d.nak }}</span>
+                  <span style="height:22px;display:flex;align-items:center;justify-content:flex-end;padding:0 6px;border-right:1px solid var(--z-grid,#1C2128);border-bottom:1px solid var(--z-grid,#1C2128)">{{ d.nak }}</span>
+                  <span style="height:22px;background:var(--z-ro,#1A1F26);border-right:1px solid var(--z-grid,#1C2128);border-bottom:1px solid var(--z-grid,#1C2128)"></span>
+                  <span style="height:22px;background:var(--z-ro,#1A1F26);border-right:1px solid var(--z-line,#2A3038);border-bottom:1px solid var(--z-grid,#1C2128)"></span>
+                  <span style="height:22px;display:flex;align-items:center;padding:0 6px 0 14px;font-weight:700;color:var(--z-green,#7FD3A4);border-right:1px solid var(--z-grid,#1C2128);border-bottom:1px solid var(--z-grid,#1C2128)">Prodejní</span>
+                  <span style="height:22px;display:flex;align-items:center;justify-content:flex-end;padding:0 6px;border-right:1px solid var(--z-grid,#1C2128);border-bottom:1px solid var(--z-grid,#1C2128)">{{ d.proB }}</span>
+                  <span style="height:22px;display:flex;align-items:center;justify-content:flex-end;padding:0 6px;border-right:1px solid var(--z-grid,#1C2128);border-bottom:1px solid var(--z-grid,#1C2128)">{{ d.proS }}</span>
+                  <span style="height:22px;display:flex;align-items:center;justify-content:flex-end;padding:0 6px;border-right:1px solid var(--z-grid,#1C2128);border-bottom:1px solid var(--z-grid,#1C2128)">37,50 %</span>
+                  <span style="height:22px;display:flex;align-items:center;justify-content:space-between;padding:0 6px;border-right:1px solid var(--z-line,#2A3038);border-bottom:1px solid var(--z-grid,#1C2128)"><bs-icon name="lock" level="1" size="12" style="display:flex;color:var(--z-mut,#8E939A)"></bs-icon>60,00 %</span>
+                  <sc-for list="{{ priceRows }}" as="pr" hint-placeholder-count="5">
+                    <span style="height:22px;display:flex;align-items:center;padding:0 6px 0 14px;font-weight:600;color:var(--z-lab,#F0A24A);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;border-right:1px solid var(--z-grid,#1C2128);border-bottom:1px solid var(--z-grid,#1C2128)">{{ pr.name }}</span>
+                    <span style="height:22px;display:flex;align-items:center;justify-content:flex-end;padding:0 6px;border-right:1px solid var(--z-grid,#1C2128);border-bottom:1px solid var(--z-grid,#1C2128)">{{ pr.b }}</span>
+                    <span style="height:22px;display:flex;align-items:center;justify-content:flex-end;padding:0 6px;border-right:1px solid var(--z-grid,#1C2128);border-bottom:1px solid var(--z-grid,#1C2128)">{{ pr.s }}</span>
+                    <span style="height:22px;display:flex;align-items:center;justify-content:flex-end;padding:0 6px;border-right:1px solid var(--z-grid,#1C2128);border-bottom:1px solid var(--z-grid,#1C2128)">{{ pr.sl }}</span>
+                    <span style="height:22px;display:flex;align-items:center;justify-content:flex-end;padding:0 6px;background:var(--z-ro,#1A1F26);border-right:1px solid var(--z-line,#2A3038);border-bottom:1px solid var(--z-grid,#1C2128)">{{ pr.m }}</span>
+                  </sc-for>
+                </div>
+                </div>
+              </section>
+              <section style="position:relative;margin-top:8px;flex:1;min-height:0;border:1px solid var(--z-line,#2A3038);padding:14px 8px 8px;display:flex;flex-direction:column;gap:4px">
+                <span style="position:absolute;top:-8px;left:8px;padding:0 5px;line-height:15px;font-size:12px;font-weight:600;white-space:nowrap;color:var(--z-lab,#F0A24A);background:var(--z-tb,#1A2028)">Poznámka</span>
+                <textarea style="flex:1;min-height:0;resize:none;border:1px solid var(--z-inb,#7E8996);background:var(--z-in,#2A313B);color:var(--z-text,#F4F1EA);font:inherit;font-size:12px;padding:6px;outline:none"></textarea>
+              </section>
+            </div>
+        <div style="display:flex;flex-direction:column;gap:4px;min-height:0;min-width:0">
+          <section style="position:relative;margin-top:8px;border:1px solid var(--z-line,#2A3038);padding:14px 8px 8px;display:flex;flex-direction:column;gap:4px">
+            <span style="position:absolute;top:-8px;left:8px;padding:0 5px;line-height:15px;font-size:12px;font-weight:600;white-space:nowrap;color:var(--z-lab,#F0A24A);background:var(--z-tb,#1A2028)">E1 parametry</span>
+            <div style="height:128px;overflow-y:scroll;display:flex;flex-direction:column;gap:4px;padding-right:4px">
+            <sc-for list="{{ e1 }}" as="e" hint-placeholder-count="5">
+              <div style="display:grid;grid-template-columns:96px minmax(0,1fr);gap:6px;align-items:center"><span style="color:var(--z-labd,#9C7A52);white-space:nowrap">{{ e }}</span><span style="height:21px;border:1px solid var(--z-inb,#7E8996);background:var(--z-in,#2A313B)"></span></div>
+            </sc-for>
+            </div>
+          </section>
+          <div style="flex:1;min-height:0;display:grid;grid-template-columns:1fr 1fr;gap:4px;margin-top:4px">
+            <section style="position:relative;margin-top:8px;border:1px solid var(--z-line,#2A3038);padding:14px 8px 8px"><span style="position:absolute;top:-8px;left:8px;padding:0 5px;line-height:15px;font-size:12px;font-weight:600;white-space:nowrap;color:var(--z-mut,#8E939A);background:var(--z-tb,#1A2028)">Vlastní příznaky</span></section>
+            <section style="position:relative;margin-top:8px;border:1px solid var(--z-line,#2A3038);padding:14px 8px 8px"><span style="position:absolute;top:-8px;left:8px;padding:0 5px;line-height:15px;font-size:12px;font-weight:600;white-space:nowrap;color:var(--z-mut,#8E939A);background:var(--z-tb,#1A2028)">Akce</span></section>
+          </div>
+          <div style="display:flex;justify-content:flex-end">
+            <button style="all:unset;cursor:pointer;height:24px;padding:0 18px;display:flex;align-items:center;gap:6px;border:1px solid transparent;background:var(--z-pb,#3A434F);color:var(--z-pbt,#FFFFFF);font-weight:500" style-hover="background:#E5372F;color:#FFFFFF"><bs-icon name="help-circle" level="1" size="13" style="display:flex"></bs-icon>Nápověda</button>
+          </div>
+        </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>
+
+  <div data-screen-label="Eshop uživatelé" style="display:{{ euDisp }};height:calc(100vh - var(--tabs-h,70px));overflow:auto">
+  <div style="display:grid;height:100%;min-width:1400px;min-height:760px;grid-template-rows:auto auto minmax(0,1fr) 196px;gap:4px;padding:4px">
+
+    <section style="position:relative;margin-top:8px;border:1px solid var(--z-line,#2A3038);padding:14px 8px 8px;display:flex;align-items:stretch;gap:14px">
+      <span style="position:absolute;top:-8px;left:8px;padding:0 5px;line-height:15px;font-size:12px;font-weight:600;white-space:nowrap;color:var(--z-mut,#8E939A);background:var(--z-bg,#0A0C0F)">Filtr</span>
+      <div style="display:flex;flex-direction:column;gap:5px">
+        <span style="color:var(--z-text2,#C9C5BC)">Login</span>
+        <div style="display:flex;align-items:center;gap:8px">
+          <label style="width:280px;height:22px;display:flex;align-items:center;gap:6px;padding:0 6px;border:1px solid var(--z-inb,#7E8996);background:var(--z-in,#2A313B);color:var(--z-mut,#8E939A)"><bs-icon name="search" level="1" size="12" style="display:flex"></bs-icon><input value="{{ euQ }}" onInput="{{ onEuQ }}" placeholder="login, e-mail, firma…" style="all:unset;flex:1;min-width:0;font-size:12px;color:var(--z-text,#F4F1EA)"></label>
+          <span onClick="{{ ck.euInv.t }}" style="display:flex;align-items:center;gap:6px;cursor:pointer;user-select:none;"><span style="width:13px;height:13px;flex-shrink:0;border:1px solid {{ ck.euInv.bd }};background:{{ ck.euInv.bg }};display:flex;align-items:center;justify-content:center;color:#FFFFFF"><sc-if value="{{ ck.euInv.on }}" hint-placeholder-val="{{ false }}"><bs-icon name="check" level="1" size="11" style="display:flex"></bs-icon></sc-if></span>invertovat</span>
+          <button style="all:unset;cursor:default;height:22px;padding:0 10px;display:flex;align-items:center;border:1px solid var(--z-line,#2A3038);color:var(--z-dis,#4E545C)">Zpět</button>
+          <button onClick="{{ clearEuQ }}" style="all:unset;cursor:pointer;height:22px;padding:0 10px;display:flex;align-items:center;white-space:nowrap;border:1px solid var(--z-line,#2A3038);color:{{ euClearColor }}" style-hover="background:var(--z-btnh,#2E3540)">Zrušit filtr</button>
+        </div>
+        <span style="display:flex;gap:6px"><span style="color:var(--z-text2,#C9C5BC)">položek:</span><b>{{ euCnt }}</b></span>
+      </div>
+      <button style="all:unset;cursor:pointer;align-self:center;height:52px;width:100px;display:flex;align-items:center;justify-content:center;gap:6px;border:1px solid transparent;background:var(--z-pb,#3A434F);color:var(--z-pbt,#FFFFFF);font-weight:500" style-hover="background:#E5372F;color:#FFFFFF"><bs-icon name="refresh" level="1" size="13" style="display:flex"></bs-icon>Aktualizovat</button>
+      <div style="display:grid;grid-template-columns:repeat(3,auto);grid-template-rows:auto auto;gap:6px 10px;align-content:center;margin-left:8px">
+        <button style="all:unset;cursor:pointer;height:22px;padding:0 10px;display:flex;align-items:center;justify-content:center;white-space:nowrap;border:1px solid transparent;background:var(--z-pb,#3A434F);color:var(--z-pbt,#FFFFFF);font-weight:500" style-hover="background:#E5372F;color:#FFFFFF">Vytvořit nového uživatele v POHODĚ i na ESHOPU</button><button style="all:unset;cursor:pointer;height:22px;padding:0 10px;display:flex;align-items:center;justify-content:center;white-space:nowrap;border:1px solid transparent;background:var(--z-pb,#3A434F);color:var(--z-pbt,#FFFFFF);font-weight:500" style-hover="background:#E5372F;color:#FFFFFF">Export zobrazených uživatelů</button><button style="all:unset;cursor:pointer;height:22px;padding:0 10px;display:flex;align-items:center;justify-content:center;white-space:nowrap;border:1px solid transparent;background:var(--z-pb,#3A434F);color:var(--z-pbt,#FFFFFF);font-weight:500" style-hover="background:#E5372F;color:#FFFFFF">Hromadně smazat všechny vyfiltrované</button>
+        <button style="all:unset;cursor:pointer;height:22px;padding:0 10px;display:flex;align-items:center;justify-content:center;white-space:nowrap;border:1px solid transparent;background:var(--z-pb,#3A434F);color:var(--z-pbt,#FFFFFF);font-weight:500" style-hover="background:#E5372F;color:#FFFFFF">Vytvořit ESHOP přístup pro existujícího POHODA uživatele</button><button style="all:unset;cursor:pointer;height:22px;padding:0 10px;display:flex;align-items:center;justify-content:center;white-space:nowrap;border:1px solid transparent;background:var(--z-pb,#3A434F);color:var(--z-pbt,#FFFFFF);font-weight:500" style-hover="background:#E5372F;color:#FFFFFF">Vygenerovat eshop přístupy</button><button style="all:unset;cursor:pointer;height:22px;padding:0 10px;display:flex;align-items:center;justify-content:center;white-space:nowrap;border:1px solid transparent;background:var(--z-pb,#3A434F);color:var(--z-pbt,#FFFFFF);font-weight:500" style-hover="background:#E5372F;color:#FFFFFF">Hromadně zablokovat všechny vyfiltrované</button>
+      </div>
+    </section>
+
+    <div style="height:28px;display:flex;align-items:center;justify-content:space-between;padding:0 8px;border:1px solid var(--z-inb,#7E8996);background:var(--z-in,#2A313B);color:var(--z-text2,#C9C5BC)"><span>Přetáhněte sem záhlaví sloupce pro seskupení podle něj</span><bs-icon name="search" level="1" size="15" style="display:flex"></bs-icon></div>
+
+    <section style="border:1px solid var(--z-line,#2A3038);background:var(--z-panel,#11151A);overflow:auto;min-height:0">
+      <table style="border-collapse:separate;border-spacing:0;table-layout:fixed;width:max-content;font-size:12px">
+        <thead>
+          <tr>
+            <th style="position:sticky;top:0;left:0;z-index:3;width:40px;height:24px;background:var(--z-head,#161A20);border-right:1px solid var(--z-line,#2A3038);border-bottom:1px solid var(--z-grid,#1C2128)"></th>
+            <sc-for list="{{ euCols }}" as="c" hint-placeholder-count="24">
+              <th style="position:sticky;top:0;z-index:2;width:{{ c.w }};height:24px;padding:0 6px;text-align:left;font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;background:var(--z-head,#161A20);border-right:1px solid var(--z-grid,#1C2128);border-bottom:1px solid var(--z-grid,#1C2128)">{{ c.title }}</th>
+            </sc-for>
+          </tr>
+          <tr>
+            <th style="position:sticky;top:24px;left:0;z-index:3;height:20px;background:var(--z-head,#161A20);border-right:1px solid var(--z-line,#2A3038);border-bottom:1px solid var(--z-line,#2A3038);color:var(--z-mut,#8E939A)"><span style="display:flex;justify-content:center"><bs-icon name="filter" level="1" size="12" style="display:flex"></bs-icon></span></th>
+            <sc-for list="{{ euCols }}" as="c" hint-placeholder-count="24">
+              <th style="position:sticky;top:24px;z-index:2;height:20px;padding:0 6px;text-align:left;font-weight:400;font-family:'Geist Mono',monospace;font-size:10px;color:var(--z-mut,#8E939A);background:var(--z-head,#161A20);border-right:1px solid var(--z-grid,#1C2128);border-bottom:1px solid var(--z-line,#2A3038)">{{ c.flt }}</th>
+            </sc-for>
+          </tr>
+        </thead>
+        <tbody>
+          <sc-for list="{{ euRows }}" as="r" hint-placeholder-count="20">
+            <tr onClick="{{ r.select }}" onMouseEnter="{{ r.enter }}" onMouseLeave="{{ r.leave }}" style="background:{{ r.bg }}">
+              <td style="position:sticky;left:0;z-index:1;height:21px;padding:0 6px;text-align:right;white-space:nowrap;background:var(--z-head,#161A20);color:{{ r.numColor }};font-weight:{{ r.numFw }};border-right:1px solid var(--z-line,#2A3038);border-bottom:1px solid var(--z-grid,#1C2128);box-shadow:{{ r.numSh }}">{{ r.num }}</td>
+              <sc-for list="{{ r.cells }}" as="c" hint-placeholder-count="24">
+                <td style="height:21px;padding:0 6px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;text-align:{{ c.al }};background:{{ c.bg }};color:{{ c.c }};font-weight:{{ c.fw }};border-right:1px solid var(--z-grid,#1C2128);border-bottom:1px solid var(--z-grid,#1C2128)"><sc-if value="{{ c.cb }}" hint-placeholder-val="{{ false }}"><span style="display:flex;justify-content:center"><span style="width:13px;height:13px;border:1px solid var(--z-line3,#3A414B);background:var(--z-in,#0D1014)"></span></span></sc-if>{{ c.v }}</td>
+              </sc-for>
+            </tr>
+          </sc-for>
+        </tbody>
+      </table>
+      <sc-if value="{{ euNoRows }}" hint-placeholder-val="{{ false }}"><div style="padding:16px 12px;color:var(--z-mut,#8E939A)">Filtru neodpovídá žádný uživatel.</div></sc-if>
+    </section>
+
+    <div style="display:grid;grid-template-columns:380px minmax(0,1fr) minmax(0,1fr) 340px;gap:6px;min-height:0">
+      <section style="position:relative;margin-top:8px;border:1px solid var(--z-line,#2A3038);padding:14px 10px 8px;display:flex;flex-direction:column;gap:6px">
+        <span style="position:absolute;top:-8px;left:8px;padding:0 5px;line-height:15px;font-size:12px;font-weight:600;white-space:nowrap;color:var(--z-mut,#8E939A);background:var(--z-bg,#0A0C0F)">Uživatel</span>
+        <div style="display:flex;align-items:center;gap:6px"><span style="width:44px;color:var(--z-text2,#C9C5BC)">Heslo:</span><span style="flex:1;height:22px;border:1px solid var(--z-inb,#7E8996);background:var(--z-in,#2A313B)"></span><button style="all:unset;cursor:pointer;height:22px;padding:0 10px;display:flex;align-items:center;justify-content:center;white-space:nowrap;border:1px solid transparent;background:var(--z-pb,#3A434F);color:var(--z-pbt,#FFFFFF);font-weight:500" style-hover="background:#E5372F;color:#FFFFFF">Nastavit heslo</button></div>
+        <div style="flex:1;display:grid;grid-template-columns:84px minmax(0,1fr);gap:8px;min-height:0">
+          <button style="all:unset;cursor:default;display:flex;align-items:center;justify-content:center;text-align:center;border:1px solid var(--z-line,#2A3038);color:var(--z-dis,#4E545C)">Uložit změny</button>
+          <div style="display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;text-align:center">
+            <b>Kontaktní osoba pro:</b>
+            <b>{{ eu.related }}</b>
+            <span style="display:flex;align-items:center;gap:6px;margin-top:4px;color:var(--z-red,#FF6259)"><bs-icon name="alert-triangle" variant="filled" level="1" size="15" style="display:flex;color:#F0A24A"></bs-icon>Údaje je možné editovat pouze v Pohodě</span>
+          </div>
+        </div>
+        <button style="all:unset;cursor:pointer;height:22px;padding:0 10px;display:flex;align-items:center;justify-content:center;white-space:nowrap;height:24px;border:1px solid transparent;background:var(--z-pb,#3A434F);color:var(--z-pbt,#FFFFFF);font-weight:500" style-hover="background:#E5372F;color:#FFFFFF">Zablokovat / Odblokovat</button>
+      </section>
+      <section style="position:relative;margin-top:8px;border:1px solid var(--z-line,#2A3038);padding:14px 10px 8px;display:grid;grid-template-columns:110px minmax(0,1fr);gap:4px 8px;align-items:center;align-content:start">
+          <span style="position:absolute;top:-8px;left:8px;padding:0 5px;line-height:15px;font-size:12px;font-weight:600;white-space:nowrap;color:var(--z-lab,#F0A24A);background:var(--z-bg,#0A0C0F)">Registrační údaje</span>
+          <span style="color:var(--z-text2,#C9C5BC)">Jméno:</span><span style="height:22px;display:flex;align-items:center;padding:0 6px;border:1px solid var(--z-inb,#7E8996);background:var(--z-in,#2A313B);white-space:nowrap;overflow:hidden;">{{ eu.regJm }}</span>
+          <span style="color:var(--z-text2,#C9C5BC)">Firma:</span><span style="height:22px;display:flex;align-items:center;padding:0 6px;border:1px solid var(--z-inb,#7E8996);background:var(--z-in,#2A313B);white-space:nowrap;overflow:hidden;">{{ eu.firma }}</span>
+          <span style="color:var(--z-text2,#C9C5BC)">Ulice:</span><span style="height:22px;display:flex;align-items:center;padding:0 6px;border:1px solid var(--z-inb,#7E8996);background:var(--z-in,#2A313B);white-space:nowrap;overflow:hidden;">{{ eu.ulice }}</span>
+          <span style="color:var(--z-text2,#C9C5BC)">Město:</span><span style="height:22px;display:flex;align-items:center;padding:0 6px;border:1px solid var(--z-inb,#7E8996);background:var(--z-in,#2A313B);white-space:nowrap;overflow:hidden;">{{ eu.mesto }}</span>
+          <span style="color:var(--z-text2,#C9C5BC)">PSČ:</span><span style="height:22px;display:flex;align-items:center;padding:0 6px;border:1px solid var(--z-inb,#7E8996);background:var(--z-in,#2A313B);white-space:nowrap;overflow:hidden;">{{ eu.psc }}</span>
+        </section>
+      <section style="position:relative;margin-top:8px;border:1px solid var(--z-line,#2A3038);padding:14px 10px 8px;display:grid;grid-template-columns:110px minmax(0,1fr);gap:4px 8px;align-items:center;align-content:start">
+          <span style="position:absolute;top:-8px;left:8px;padding:0 5px;line-height:15px;font-size:12px;font-weight:600;white-space:nowrap;color:var(--z-lab,#F0A24A);background:var(--z-bg,#0A0C0F)">Dodací údaje</span>
+          <span style="color:var(--z-text2,#C9C5BC)">Jméno:</span><span style="height:22px;display:flex;align-items:center;padding:0 6px;border:1px solid var(--z-inb,#7E8996);background:var(--z-in,#2A313B);white-space:nowrap;overflow:hidden;">{{ eu.dodJm }}</span>
+          <span style="color:var(--z-text2,#C9C5BC)">Firma:</span><span style="height:22px;display:flex;align-items:center;padding:0 6px;border:1px solid var(--z-inb,#7E8996);background:var(--z-in,#2A313B);white-space:nowrap;overflow:hidden;">{{ eu.firma }}</span>
+          <span style="color:var(--z-text2,#C9C5BC)">Ulice:</span><span style="height:22px;display:flex;align-items:center;padding:0 6px;border:1px solid var(--z-inb,#7E8996);background:var(--z-in,#2A313B);white-space:nowrap;overflow:hidden;">{{ eu.ulice }}</span>
+          <span style="color:var(--z-text2,#C9C5BC)">Město:</span><span style="height:22px;display:flex;align-items:center;padding:0 6px;border:1px solid var(--z-inb,#7E8996);background:var(--z-in,#2A313B);white-space:nowrap;overflow:hidden;">{{ eu.mesto }}</span>
+          <span style="color:var(--z-text2,#C9C5BC)">PSČ:</span><span style="height:22px;display:flex;align-items:center;padding:0 6px;border:1px solid var(--z-inb,#7E8996);background:var(--z-in,#2A313B);white-space:nowrap;overflow:hidden;">{{ eu.psc }}</span>
+        </section>
+      <section style="position:relative;margin-top:8px;border:1px solid var(--z-line,#2A3038);padding:14px 10px 8px;display:flex;flex-direction:column;gap:10px">
+        <span style="position:absolute;top:-8px;left:8px;padding:0 5px;line-height:15px;font-size:12px;font-weight:600;white-space:nowrap;color:var(--z-mut,#8E939A);background:var(--z-bg,#0A0C0F)">Oprávnění</span>
+        <span onClick="{{ ck.euAdmin.t }}" style="display:flex;align-items:center;gap:6px;cursor:pointer;user-select:none;"><span style="width:13px;height:13px;flex-shrink:0;border:1px solid {{ ck.euAdmin.bd }};background:{{ ck.euAdmin.bg }};display:flex;align-items:center;justify-content:center;color:#FFFFFF"><sc-if value="{{ ck.euAdmin.on }}" hint-placeholder-val="{{ false }}"><bs-icon name="check" level="1" size="11" style="display:flex"></bs-icon></sc-if></span>Administrátor, přístup do všech účtů zákazníků</span>
+        <span style="display:flex;align-items:center;gap:8px"><bs-icon name="info-circle" variant="filled" level="1" size="22" style="display:flex;color:var(--z-info,#2F6FD6)"></bs-icon>Vyžaduje licenci „Obchodní zástupci“</span>
+      </section>
+    </div>
+  </div>
+  </div>
+
+  <div data-screen-label="Zásoby (Fresh)" data-fresh="1" data-fo="1" style="display:{{ fzDisp }};background:var(--z-bg,#0A0C0F);height:calc(100vh - var(--tabs-h,70px));overflow:auto">
+  <div style="display:grid;height:100%;min-width:1400px;min-height:880px;grid-template-columns:{{ asideW }} minmax(0,1fr);gap:10px;padding:10px">
+
+    <aside style="position:relative;display:flex;flex-direction:column;min-height:0;min-width:0;border:1px solid var(--z-line,#2A3038);background:var(--z-panel,#11151A);border-radius:6px 16px 16px 16px;corner-shape:squircle">
+      <div style="display:flex;flex-wrap:wrap;gap:4px;padding:8px;border-bottom:1px solid var(--z-line,#2A3038)">
+        <sc-for list="{{ langs }}" as="l" hint-placeholder-count="9">
+          <button onClick="{{ l.select }}" style="all:unset;cursor:pointer;height:26px;padding:0 8px 0 6px;display:flex;align-items:center;gap:5px;border-radius:7px;font-size:11.5px;font-weight:600;letter-spacing:.02em;color:{{ l.fC }};background:{{ l.fBg }};border:1px solid {{ l.fBd }};box-shadow:{{ l.fSh }}" style-hover="border-color:var(--z-line3,#3A414B);color:var(--z-text,#F4F1EA)"><span style="width:16px;height:16px;flex-shrink:0;border-radius:3px;background:{{ l.flagBg }};opacity:{{ l.op }}"></span>{{ l.code }}</button>
+        </sc-for>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:6px;padding:8px;background:var(--z-panel,#11151A)">
+        <div style="display:flex;align-items:center;gap:14px">
+          <span style="font-weight:600;width:52px">Zobrazit:</span>
+          <sc-for list="{{ zobrOpts }}" as="o" hint-placeholder-count="2">
+            <span onClick="{{ o.select }}" style="display:flex;align-items:center;gap:6px;cursor:pointer"><span style="width:13px;height:13px;border-radius:50%;border:1px solid var(--z-line3,#3A414B);background:var(--z-in,#0D1014);display:flex;align-items:center;justify-content:center"><span style="width:5px;height:5px;border-radius:50%;background:{{ o.dot }}"></span></span>{{ o.label }}</span>
+          </sc-for>
+        </div>
+        <div style="display:flex;align-items:center;gap:6px">
+          <span style="width:52px;color:var(--z-text2,#C9C5BC)">Filtr:</span>
+          <div style="flex:1;height:24px;display:flex;align-items:center;gap:6px;padding:0 6px;border:1px solid var(--z-inb,#7E8996);border-radius:6px;background:var(--z-in,#2A313B);color:var(--z-mut,#8E939A)"><bs-icon name="search" level="1" size="12" style="display:flex"></bs-icon></div>
+          <button style="all:unset;border-radius:7px;cursor:pointer;width:22px;height:22px;display:flex;align-items:center;justify-content:center;border:1px solid var(--z-line3,#3A414B);background:var(--z-pb,#3A434F);color:var(--z-pbt,#FFFFFF);font-weight:500" style-hover="background:#E5372F;color:#FFFFFF"><bs-icon name="dots" level="1" size="12" style="display:flex"></bs-icon></button>
+        </div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:4px">
+          <button style="all:unset;border-radius:7px;cursor:pointer;height:22px;display:flex;align-items:center;justify-content:center;border:1px solid var(--z-line3,#3A414B);background:var(--z-pb,#3A434F);color:var(--z-pbt,#FFFFFF);font-weight:500" style-hover="background:#E5372F;color:#FFFFFF">Zobrazit editor kategorií</button>
+          <button style="all:unset;border-radius:7px;cursor:pointer;height:22px;display:flex;align-items:center;justify-content:center;gap:6px;border:1px solid var(--z-line3,#3A414B);background:var(--z-pb,#3A434F);color:var(--z-pbt,#FFFFFF);font-weight:500" style-hover="background:#E5372F;color:#FFFFFF"><bs-icon name="refresh" level="1" size="12" style="display:flex"></bs-icon>Aktualizovat</button>
+        </div>
+      </div>
+      <div style="display:flex;flex-direction:column;border-top:1px solid var(--z-line,#2A3038);border-bottom:1px solid var(--z-line,#2A3038);background:var(--z-head,#161A20)">
+        <span style="height:24px;display:flex;align-items:center;padding:0 8px;font-weight:600;border-bottom:1px solid var(--z-grid,#1C2128)">Název kategorie</span>
+        <span style="height:20px;display:flex;align-items:center;padding:0 8px;font-family:'Geist Mono',monospace;font-size:10px;color:var(--z-mut,#8E939A)">abc</span>
+      </div>
+      <div style="flex:1;min-height:0;overflow-y:scroll;overflow-x:auto;padding:4px 0">
+        <sc-for list="{{ tree }}" as="n" hint-placeholder-count="20">
+          <div onClick="{{ n.select }}" style="height:20px;display:flex;align-items:center;gap:4px;padding-left:{{ n.pad }};padding-right:8px;white-space:nowrap;cursor:pointer;background:{{ n.bg }};color:{{ n.color }};font-weight:{{ n.fw }}" style-hover="box-shadow:inset 0 0 0 1px var(--z-line3,#3A414B)">
+            <span onClick="{{ n.toggle }}" style="width:14px;height:14px;display:flex;align-items:center;justify-content:center;visibility:{{ n.chevVis }};transform:rotate({{ n.rot }});transition:transform .12s;color:var(--z-mut,#8E939A)"><bs-icon name="chevron-right" level="1" size="11" style="display:flex"></bs-icon></span>
+            <bs-icon name="{{ n.icon }}" level="1" size="14" style="display:flex;color:{{ n.ic }}"></bs-icon>
+            <span style="overflow:hidden;text-overflow:ellipsis">{{ n.label }}</span>
+          </div>
+        </sc-for>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:6px;padding:8px;border-top:1px solid var(--z-line,#2A3038)">
+        <span onClick="{{ ck.eshop.t }}" style="display:flex;align-items:center;gap:6px;cursor:pointer;user-select:none;font-weight:600"><span style="width:13px;height:13px;flex-shrink:0;border-radius:4px;border:1px solid {{ ck.eshop.bd }};background:{{ ck.eshop.bg }};display:flex;align-items:center;justify-content:center;color:#FFFFFF"><sc-if value="{{ ck.eshop.on }}" hint-placeholder-val="{{ false }}"><bs-icon name="check" level="1" size="11" style="display:flex"></bs-icon></sc-if></span>Nahrávat na eshop</span>
+        <span onClick="{{ ck.skryta.t }}" style="display:flex;align-items:center;gap:6px;cursor:pointer;user-select:none"><span style="width:13px;height:13px;flex-shrink:0;border-radius:4px;border:1px solid {{ ck.skryta.bd }};background:{{ ck.skryta.bg }};display:flex;align-items:center;justify-content:center;color:#FFFFFF"><sc-if value="{{ ck.skryta.on }}" hint-placeholder-val="{{ false }}"><bs-icon name="check" level="1" size="11" style="display:flex"></bs-icon></sc-if></span>Skrytá</span>
+      </div>
+      <div onMouseDown="{{ startDrag }}" title="Táhnutím změníte šířku" style="position:absolute;top:0;right:-5px;bottom:0;width:8px;z-index:5;cursor:col-resize;background:{{ dragBg }}" style-hover="background:linear-gradient(90deg,transparent 3px,#E5372F 3px,#E5372F 5px,transparent 5px)"></div>
+    </aside>
+
+    <div style="display:grid;grid-template-rows:auto minmax(0,1fr) 404px;gap:10px;min-width:0;min-height:0">
+
+      <div style="display:grid;grid-template-columns:minmax(0,1fr) minmax(300px,380px);gap:10px">
+        <section style="position:relative;border:1px solid var(--z-line,#2A3038);padding:30px 12px 12px;display:flex;flex-direction:column;gap:5px;background:var(--z-card,#12161B);border-radius:6px 16px 16px 16px;corner-shape:squircle">
+          <span style="position:absolute;top:10px;left:14px;padding:0;line-height:15px;font-size:10.5px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;white-space:nowrap;color:var(--z-mut,#8E939A);background:transparent">Filtr</span>
+          <div style="display:grid;grid-template-columns:180px auto 1fr;gap:5px 14px;align-items:center">
+            <span style="color:var(--z-text2,#C9C5BC)">EAN</span>
+            <span onClick="{{ ck.jenHl.t }}" style="display:flex;align-items:center;gap:6px;cursor:pointer;user-select:none;white-space:nowrap"><span style="width:13px;height:13px;flex-shrink:0;border-radius:4px;border:1px solid {{ ck.jenHl.bd }};background:{{ ck.jenHl.bg }};display:flex;align-items:center;justify-content:center;color:#FFFFFF"><sc-if value="{{ ck.jenHl.on }}" hint-placeholder-val="{{ false }}"><bs-icon name="check" level="1" size="11" style="display:flex"></bs-icon></sc-if></span>Jen položky z hlavní kategorie</span>
+            <div style="display:flex;flex-wrap:wrap;gap:4px">
+              <button style="all:unset;border-radius:7px;cursor:pointer;height:22px;padding:0 10px;display:flex;align-items:center;white-space:nowrap;border:1px solid var(--z-line3,#3A414B);background:var(--z-pb,#3A434F);color:var(--z-pbt,#FFFFFF);font-weight:500" style-hover="background:#E5372F;color:#FFFFFF">Master/Varianty</button>
+              <button style="all:unset;border-radius:7px;cursor:pointer;height:22px;padding:0 8px 0 10px;display:flex;align-items:center;gap:6px;white-space:nowrap;border:1px solid var(--z-line3,#3A414B);background:var(--z-pb,#3A434F);color:var(--z-pbt,#FFFFFF);font-weight:500" style-hover="background:#E5372F;color:#FFFFFF">Import příznaky<bs-icon name="chevron-down" level="1" size="11" style="display:flex"></bs-icon></button>
+            </div>
+            <label style="height:22px;display:flex;align-items:center;gap:6px;padding:0 6px;border:1px solid var(--z-inb,#7E8996);border-radius:6px;background:var(--z-in,#2A313B);color:var(--z-mut,#8E939A)"><bs-icon name="search" level="1" size="12" style="display:flex"></bs-icon><input value="{{ q }}" onInput="{{ onQ }}" placeholder="EAN, kód, název…" style="all:unset;flex:1;min-width:0;font-size:12px;color:var(--z-text,#F4F1EA)"></label>
+            <span onClick="{{ ck.invert.t }}" style="display:flex;align-items:center;gap:6px;cursor:pointer;user-select:none"><span style="width:13px;height:13px;flex-shrink:0;border-radius:4px;border:1px solid {{ ck.invert.bd }};background:{{ ck.invert.bg }};display:flex;align-items:center;justify-content:center;color:#FFFFFF"><sc-if value="{{ ck.invert.on }}" hint-placeholder-val="{{ false }}"><bs-icon name="check" level="1" size="11" style="display:flex"></bs-icon></sc-if></span>invertovat</span>
+            <div style="display:flex;flex-wrap:wrap;gap:4px">
+              <button style="all:unset;border-radius:7px;cursor:pointer;height:22px;padding:0 10px;display:flex;align-items:center;white-space:nowrap;border:1px solid var(--z-line3,#3A414B);background:var(--z-pb,#3A434F);color:var(--z-pbt,#FFFFFF);font-weight:500" style-hover="background:#E5372F;color:#FFFFFF">Editovat filtr</button>
+              <button style="all:unset;border-radius:7px;cursor:default;height:22px;padding:0 10px;display:flex;align-items:center;white-space:nowrap;border:1px solid var(--z-line,#2A3038);color:var(--z-dis,#4E545C)">Zpět</button>
+              <button onClick="{{ clearQ }}" style="all:unset;cursor:pointer;height:22px;padding:0 10px;display:flex;align-items:center;white-space:nowrap;border:1px solid var(--z-line,#2A3038);color:{{ clearColor }}" style-hover="background:var(--z-btnh,#1F252D)">Zrušit filtr</button>
+              <button style="all:unset;border-radius:7px;cursor:pointer;height:22px;padding:0 8px 0 10px;display:flex;align-items:center;gap:6px;white-space:nowrap;border:1px solid var(--z-line3,#3A414B);background:var(--z-pb,#3A434F);color:var(--z-pbt,#FFFFFF);font-weight:500" style-hover="background:#E5372F;color:#FFFFFF">Vlastní příznaky<bs-icon name="chevron-down" level="1" size="11" style="display:flex"></bs-icon></button>
+            </div>
+            <div style="height:22px;display:flex;align-items:center;justify-content:flex-end;padding:0 6px;border:1px solid var(--z-inb,#7E8996);border-radius:6px;background:var(--z-in,#2A313B);color:var(--z-mut,#8E939A)"><bs-icon name="chevron-down" level="1" size="11" style="display:flex"></bs-icon></div>
+            <div style="display:flex;flex-wrap:wrap;gap:4px">
+              <button style="all:unset;border-radius:7px;cursor:pointer;height:22px;padding:0 10px;display:flex;align-items:center;white-space:nowrap;border:1px solid var(--z-line3,#3A414B);background:var(--z-pb,#3A434F);color:var(--z-pbt,#FFFFFF);font-weight:500" style-hover="background:#E5372F;color:#FFFFFF">SQL filtr</button>
+              <button style="all:unset;border-radius:7px;cursor:pointer;height:22px;padding:0 10px;display:flex;align-items:center;white-space:nowrap;border:1px solid var(--z-line3,#3A414B);background:var(--z-pb,#3A434F);color:var(--z-pbt,#FFFFFF);font-weight:500" style-hover="background:#E5372F;color:#FFFFFF">Uložené filtry</button>
+            </div>
+            <span></span>
+          </div>
+        </section>
+        <section style="position:relative;border:1px solid var(--z-line,#2A3038);padding:30px 12px 12px;display:flex;flex-direction:column;gap:4px;min-width:0;background:var(--z-card,#12161B);border-radius:6px 16px 16px 16px;corner-shape:squircle">
+          <span style="position:absolute;top:10px;left:14px;padding:0;line-height:15px;font-size:10.5px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;white-space:nowrap;color:var(--z-mut,#8E939A);background:transparent">Přehled</span>
+          <div style="display:flex;gap:6px;white-space:nowrap;overflow:hidden"><span style="color:var(--z-text2,#C9C5BC)">Kategorie:</span><b style="overflow:hidden;text-overflow:ellipsis">{{ catPath }}</b></div>
+          <div style="display:flex;gap:18px"><span style="display:flex;gap:6px"><span style="color:var(--z-text2,#C9C5BC)">Počet položek:</span><b>{{ cntLabel }}</b></span><span style="display:flex;gap:6px"><span style="color:var(--z-text2,#C9C5BC)">Počet podkategorií:</span><b>73</b></span></div>
+          <div style="display:flex;gap:6px;white-space:nowrap;overflow:hidden"><span style="color:var(--z-text2,#C9C5BC)">Umístění:</span><b style="overflow:hidden;text-overflow:ellipsis">{{ placePath }}</b></div>
+          <button style="all:unset;border-radius:7px;cursor:pointer;align-self:flex-start;height:22px;width:170px;display:flex;align-items:center;justify-content:center;margin-top:2px;border:1px solid var(--z-line3,#3A414B);background:var(--z-pb,#3A434F);color:var(--z-pbt,#FFFFFF);font-weight:500" style-hover="background:#E5372F;color:#FFFFFF">{{ selKind }}</button>
+        </section>
+      </div>
+
+      <section style="border:1px solid var(--z-line,#2A3038);background:var(--z-panel,#11151A);overflow:auto;min-height:0;border-radius:6px 16px 16px 16px;corner-shape:squircle">
+        <table style="border-collapse:separate;border-spacing:0;table-layout:fixed;width:max-content;font-size:12px">
+          <thead>
+            <tr>
+              <th style="position:sticky;top:0;left:0;z-index:3;width:52px;height:24px;background:var(--z-head,#161A20);border-right:1px solid var(--z-line,#2A3038);border-bottom:1px solid var(--z-grid,#1C2128)"></th>
+              <sc-for list="{{ cols }}" as="c" hint-placeholder-count="19">
+                <th style="position:sticky;top:0;z-index:2;width:{{ c.w }};height:24px;padding:0 6px;text-align:left;font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;background:var(--z-head,#161A20);border-right:1px solid var(--z-grid,#1C2128);border-bottom:1px solid var(--z-grid,#1C2128)">{{ c.title }}</th>
+              </sc-for>
+            </tr>
+            <tr>
+              <th style="position:sticky;top:24px;left:0;z-index:3;height:20px;background:var(--z-head,#161A20);border-right:1px solid var(--z-line,#2A3038);border-bottom:1px solid var(--z-line,#2A3038);color:var(--z-mut,#8E939A)"><span style="display:flex;justify-content:center"><bs-icon name="filter" level="1" size="12" style="display:flex"></bs-icon></span></th>
+              <sc-for list="{{ cols }}" as="c" hint-placeholder-count="19">
+                <th style="position:sticky;top:24px;z-index:2;height:20px;padding:0 6px;text-align:left;font-weight:400;font-family:'Geist Mono',monospace;font-size:10px;color:var(--z-mut,#8E939A);background:var(--z-head,#161A20);border-right:1px solid var(--z-grid,#1C2128);border-bottom:1px solid var(--z-line,#2A3038)">{{ c.flt }}</th>
+              </sc-for>
+            </tr>
+          </thead>
+          <tbody>
+            <sc-for list="{{ rows }}" as="r" hint-placeholder-count="18">
+              <tr onClick="{{ r.select }}" onMouseEnter="{{ r.enter }}" onMouseLeave="{{ r.leave }}" style="background:{{ r.bg }};cursor:default">
+                <td style="position:sticky;left:0;z-index:1;height:21px;padding:0 6px;text-align:right;white-space:nowrap;background:var(--z-head,#161A20);color:{{ r.numColor }};font-weight:{{ r.numFw }};border-right:1px solid var(--z-line,#2A3038);border-bottom:1px solid var(--z-grid,#1C2128);box-shadow:{{ r.numSh }}">{{ r.num }}</td>
+                <sc-for list="{{ r.cells }}" as="c" hint-placeholder-count="12">
+                  <td style="height:21px;padding:0 6px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;text-align:{{ c.al }};font-family:{{ c.ff }};background:{{ c.bg }};color:{{ c.c }};border-right:1px solid var(--z-grid,#1C2128);border-bottom:1px solid var(--z-grid,#1C2128)">{{ c.v }}</td>
+                </sc-for>
+              </tr>
+            </sc-for>
+          </tbody>
+        </table>
+        <sc-if value="{{ noRows }}" hint-placeholder-val="{{ false }}"><div style="padding:16px 12px;color:var(--z-mut,#8E939A)">Filtru neodpovídá žádná položka.</div></sc-if>
+      </section>
+
+      <div style="display:grid;grid-template-columns:46px minmax(0,1fr);gap:10px;min-height:0">
+        <section style="position:relative;display:flex;flex-direction:column;align-items:center;gap:3px;padding:30px 0 6px;border:1px solid var(--z-line,#2A3038);background:var(--z-card,#12161B);border-radius:6px 16px 16px 16px;corner-shape:squircle">
+          <span style="position:absolute;top:10px;left:5px;padding:0;line-height:15px;font-size:10.5px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;white-space:nowrap;color:var(--z-mut,#8E939A);background:transparent">Akce</span>
+          <sc-for list="{{ akce }}" as="a" hint-placeholder-count="8">
+            <button title="{{ a.title }}" style="all:unset;cursor:pointer;width:30px;height:26px;display:flex;align-items:center;justify-content:center;border:1px solid var(--z-line,#2A3038);background:var(--z-btn,#161A20);color:{{ a.color }}" style-hover="background:var(--z-btnh,#1F252D)"><bs-icon name="{{ a.icon }}" variant="filled" level="1" size="{{ a.size }}" style="display:flex"></bs-icon></button>
+          </sc-for>
+        </section>
+
+        <div style="display:flex;flex-direction:column;min-width:0;min-height:0">
+          <div style="display:flex;gap:3px;height:28px;margin-bottom:-1px;position:relative;z-index:1;white-space:nowrap">
+            <span style="display:flex;align-items:center;padding:0 14px;border-radius:8px 8px 0 0;border:1px solid var(--z-tbl,#3A414B);border-bottom-color:var(--z-tb,#1A2028);background:var(--z-tb,#1A2028);box-shadow:inset 0 2px 0 #E5372F;font-weight:600">Hlavní</span>
+            <span style="display:flex;align-items:center;padding:0 14px;border-radius:8px 8px 0 0;border:1px solid var(--z-line,#2A3038);background:var(--z-head,#161A20);color:var(--z-lab,#F0A24A);font-weight:600;cursor:pointer" style-hover="background:var(--z-btnh,#1F252D)">E1 parametry</span>
+            <span style="display:flex;align-items:center;padding:0 14px;border-radius:8px 8px 0 0;border:1px solid var(--z-line,#2A3038);background:var(--z-head,#161A20);color:var(--z-text2,#C9C5BC);cursor:pointer" style-hover="background:var(--z-btnh,#1F252D)">Příznaky</span>
+            <span style="display:flex;align-items:center;padding:0 14px;border-radius:8px 8px 0 0;border:1px solid var(--z-line,#2A3038);background:var(--z-head,#161A20);color:var(--z-lab,#F0A24A);font-weight:600;cursor:pointer" style-hover="background:var(--z-btnh,#1F252D)">Internetové parametry</span>
+            <span style="display:flex;align-items:center;padding:0 14px;border-radius:8px 8px 0 0;border:1px solid var(--z-line,#2A3038);background:var(--z-head,#161A20);color:var(--z-text2,#C9C5BC);cursor:pointer" style-hover="background:var(--z-btnh,#1F252D)">Množstevní slevy</span>
+          </div>
+          <div style="flex:1;min-height:0;display:grid;grid-template-columns:minmax(380px,1fr) minmax(340px,1fr) minmax(240px,300px);gap:6px;padding:6px;border:1px solid var(--z-tbl,#3A414B);background:var(--z-tb,#1A2028);border-radius:0 14px 14px 14px">
+
+            <section style="position:relative;border:1px solid var(--z-line,#2A3038);display:flex;flex-direction:column;min-height:0;background:var(--z-card,#12161B);border-radius:6px 16px 16px 16px;corner-shape:squircle">
+              <span style="position:absolute;top:10px;left:14px;padding:0;line-height:15px;font-size:10.5px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;white-space:nowrap;color:var(--z-mut,#8E939A);background:transparent">Hlavní</span>
+              <div style="flex:1;min-height:0;overflow:auto;padding:30px 12px 12px;display:flex;flex-direction:column;gap:4px">
+                <div style="display:flex;align-items:center;gap:4px"><span style="height:22px;display:flex;align-items:center;gap:8px;padding:0 6px;border:1px solid var(--z-inb,#7E8996);border-radius:6px;background:var(--z-in,#2A313B);font-weight:600;color:var(--z-red,#FF6259)"><span style="width:16px;height:16px;flex-shrink:0;margin-right:-2px;background:{{ langFlagBg }}"></span>{{ langCode }}<bs-icon name="chevron-down" level="1" size="11" style="display:flex;color:var(--z-mut,#8E939A)"></bs-icon></span></div>
+                <div style="display:grid;grid-template-columns:112px minmax(0,1fr) auto;gap:4px 6px;align-items:center">
+                  <span style="color:var(--z-lab,#F0A24A);font-weight:500">Typ karty:</span>
+                  <span style="height:22px;display:flex;align-items:center;justify-content:space-between;padding:0 6px;border:1px solid var(--z-inb,#7E8996);border-radius:6px;background:var(--z-in,#2A313B)">karta<bs-icon name="chevron-down" level="1" size="11" style="display:flex;color:var(--z-mut,#8E939A)"></bs-icon></span>
+                  <span style="width:22px;height:22px;display:flex;align-items:center;justify-content:center;color:var(--z-info,#2F6FD6);cursor:pointer" style-hover="color:var(--z-infoh,#4A86E8)"><bs-icon name="info-circle" variant="filled" level="1" size="22" style="display:flex"></bs-icon></span>
+                  <span style="color:var(--z-lab,#F0A24A);font-weight:500">Kód:</span>
+                  <span style="grid-column:span 2;height:22px;display:flex;align-items:center;padding:0 6px;border:1px solid var(--z-inb,#7E8996);border-radius:6px;background:var(--z-in,#2A313B)">{{ d.kod }}</span>
+                  <span style="color:var(--z-text2,#C9C5BC)">Lokalizované názvy</span>
+                  <div style="grid-column:span 2;display:flex;gap:16px">
+                    <sc-for list="{{ lokOpts }}" as="o" hint-placeholder-count="3">
+                      <span onClick="{{ o.select }}" style="display:flex;align-items:center;gap:6px;cursor:pointer"><span style="width:13px;height:13px;border-radius:50%;border:1px solid var(--z-line3,#3A414B);background:var(--z-in,#0D1014);display:flex;align-items:center;justify-content:center"><span style="width:5px;height:5px;border-radius:50%;background:{{ o.dot }}"></span></span>{{ o.label }}</span>
+                    </sc-for>
+                  </div>
+                  <span style="color:var(--z-text2,#C9C5BC)">Dlouhý název:</span>
+                  <span style="height:22px;display:flex;align-items:center;padding:0 6px;border:1px solid var(--z-inb,#7E8996);border-radius:6px;background:var(--z-mst,#1A3B26)"></span>
+                  <span style="display:flex;align-items:center;gap:4px"><span style="font-size:10.5px;color:var(--z-mut,#8E939A);width:26px;text-align:right">(0)</span><span style="width:22px;height:22px;display:flex;align-items:center;justify-content:center;color:var(--z-info,#2F6FD6);cursor:pointer" style-hover="color:var(--z-infoh,#4A86E8)"><bs-icon name="info-circle" variant="filled" level="1" size="22" style="display:flex"></bs-icon></span></span>
+                  <span style="color:var(--z-lab,#F0A24A);font-weight:500">Pohoda název:</span>
+                  <span style="height:22px;display:flex;align-items:center;padding:0 6px;border:1px solid var(--z-inb,#7E8996);border-radius:6px;background:var(--z-mst,#1A3B26);white-space:nowrap;overflow:hidden">{{ d.pohoda }}</span>
+                  <span style="display:flex;align-items:center;gap:4px"><span style="font-size:10.5px;color:var(--z-mut,#8E939A);width:26px;text-align:right">({{ d.pohodaLen }})</span><span style="width:22px;height:22px;display:flex;align-items:center;justify-content:center;color:var(--z-info,#2F6FD6);cursor:pointer" style-hover="color:var(--z-infoh,#4A86E8)"><bs-icon name="info-circle" variant="filled" level="1" size="22" style="display:flex"></bs-icon></span></span>
+                  <span style="color:var(--z-text2,#C9C5BC)">Krátký název:</span>
+                  <span style="height:22px;display:flex;align-items:center;padding:0 6px;border:1px solid var(--z-inb,#7E8996);border-radius:6px;background:var(--z-mst,#1A3B26)"></span>
+                  <span style="display:flex;align-items:center;gap:4px"><span style="font-size:10.5px;color:var(--z-mut,#8E939A);width:26px;text-align:right">(0)</span><span style="width:22px;height:22px;display:flex;align-items:center;justify-content:center;color:var(--z-info,#2F6FD6);cursor:pointer" style-hover="color:var(--z-infoh,#4A86E8)"><bs-icon name="info-circle" variant="filled" level="1" size="22" style="display:flex"></bs-icon></span></span>
+                  <span style="color:var(--z-lab,#F0A24A);font-weight:500">Text (P/N):</span>
+                  <span style="grid-column:span 2;height:22px;display:flex;align-items:center;padding:0 6px;border:1px solid var(--z-inb,#7E8996);border-radius:6px;background:var(--z-mst,#1A3B26)">{{ d.text }}</span>
+                </div>
+                <div style="display:grid;grid-template-columns:112px 96px minmax(0,1fr);gap:4px 6px;align-items:center;margin-top:2px">
+                  <span style="color:var(--z-lab,#F0A24A);font-weight:500">Obj. kód:</span>
+                  <span style="height:22px;display:flex;align-items:center;padding:0 6px;border:1px solid var(--z-inb,#7E8996);border-radius:6px;background:var(--z-in,#2A313B);white-space:nowrap;overflow:hidden">{{ d.obj }}</span>
+                  <span onClick="{{ ck.vc.t }}" style="display:flex;align-items:center;gap:6px;cursor:pointer;user-select:none;color:var(--z-lab,#F0A24A);font-weight:500"><span style="width:13px;height:13px;flex-shrink:0;border-radius:4px;border:1px solid {{ ck.vc.bd }};background:{{ ck.vc.bg }};display:flex;align-items:center;justify-content:center;color:#FFFFFF"><sc-if value="{{ ck.vc.on }}" hint-placeholder-val="{{ false }}"><bs-icon name="check" level="1" size="11" style="display:flex"></bs-icon></sc-if></span>Výrobní čísla</span>
+                  <span style="color:var(--z-lab,#F0A24A);font-weight:500">Objednat:</span>
+                  <span style="height:22px;display:flex;align-items:center;padding:0 6px;border:1px solid var(--z-inb,#7E8996);border-radius:6px;background:var(--z-in,#2A313B)">0</span>
+                  <span onClick="{{ ck.sarze.t }}" style="display:flex;align-items:center;gap:6px;cursor:pointer;user-select:none;color:var(--z-lab,#F0A24A);font-weight:500"><span style="width:13px;height:13px;flex-shrink:0;border-radius:4px;border:1px solid {{ ck.sarze.bd }};background:{{ ck.sarze.bg }};display:flex;align-items:center;justify-content:center;color:#FFFFFF"><sc-if value="{{ ck.sarze.on }}" hint-placeholder-val="{{ false }}"><bs-icon name="check" level="1" size="11" style="display:flex"></bs-icon></sc-if></span>Šarže</span>
+                  <span style="color:var(--z-lab,#F0A24A);font-weight:500">Dodavatel:</span>
+                  <span style="display:flex;align-items:center;gap:2px"><span style="flex:1;min-width:0;height:22px;display:flex;align-items:center;justify-content:space-between;padding:0 4px 0 6px;border:1px solid var(--z-inb,#7E8996);border-radius:6px;background:var(--z-in,#2A313B)">TE…<bs-icon name="chevron-down" level="1" size="10" style="display:flex;color:var(--z-mut,#8E939A)"></bs-icon></span><span style="display:flex;color:var(--z-red,#FF6259)"><bs-icon name="x" level="1" size="11" style="display:flex"></bs-icon></span><span style="display:flex;color:var(--z-mut,#8E939A)"><bs-icon name="dots" level="1" size="11" style="display:flex"></bs-icon></span></span>
+                  <span onClick="{{ ck.archiv.t }}" style="display:flex;align-items:center;gap:6px;cursor:pointer;user-select:none"><span style="width:13px;height:13px;flex-shrink:0;border-radius:4px;border:1px solid {{ ck.archiv.bd }};background:{{ ck.archiv.bg }};display:flex;align-items:center;justify-content:center;color:#FFFFFF"><sc-if value="{{ ck.archiv.on }}" hint-placeholder-val="{{ false }}"><bs-icon name="check" level="1" size="11" style="display:flex"></bs-icon></sc-if></span>Archív</span>
+                  <span style="color:var(--z-lab,#F0A24A);font-weight:500">Výrobce:</span>
+                  <span style="display:flex;align-items:center;gap:2px"><span style="flex:1;min-width:0;height:22px;display:flex;align-items:center;justify-content:flex-end;padding:0 4px;border:1px solid var(--z-inb,#7E8996);border-radius:6px;background:var(--z-in,#2A313B)"><bs-icon name="chevron-down" level="1" size="10" style="display:flex;color:var(--z-mut,#8E939A)"></bs-icon></span><span style="display:flex;color:var(--z-red,#FF6259)"><bs-icon name="x" level="1" size="11" style="display:flex"></bs-icon></span><span style="display:flex;color:var(--z-mut,#8E939A)"><bs-icon name="dots" level="1" size="11" style="display:flex"></bs-icon></span></span>
+                  <span onClick="{{ ck.sablona.t }}" style="display:flex;align-items:center;gap:6px;cursor:pointer;user-select:none;color:var(--z-lab,#F0A24A);font-weight:500"><span style="width:13px;height:13px;flex-shrink:0;border-radius:4px;border:1px solid {{ ck.sablona.bd }};background:{{ ck.sablona.bg }};display:flex;align-items:center;justify-content:center;color:#FFFFFF"><sc-if value="{{ ck.sablona.on }}" hint-placeholder-val="{{ false }}"><bs-icon name="check" level="1" size="11" style="display:flex"></bs-icon></sc-if></span>Šablona</span>
+                  <span style="color:var(--z-lab,#F0A24A);font-weight:500">Kód dostupnosti:</span>
+                  <span style="height:22px;display:flex;align-items:center;justify-content:flex-end;padding:0 4px;border:1px solid var(--z-inb,#7E8996);border-radius:6px;background:var(--z-in,#2A313B)"><bs-icon name="chevron-down" level="1" size="10" style="display:flex;color:var(--z-mut,#8E939A)"></bs-icon></span>
+                  <span onClick="{{ ck.internet.t }}" style="display:flex;align-items:center;gap:6px;cursor:pointer;user-select:none;color:var(--z-lab,#F0A24A);font-weight:500"><span style="width:13px;height:13px;flex-shrink:0;border-radius:4px;border:1px solid {{ ck.internet.bd }};background:{{ ck.internet.bg }};display:flex;align-items:center;justify-content:center;color:#FFFFFF"><sc-if value="{{ ck.internet.on }}" hint-placeholder-val="{{ false }}"><bs-icon name="check" level="1" size="11" style="display:flex"></bs-icon></sc-if></span>Internet</span>
+                  <span style="color:var(--z-lab,#F0A24A);font-weight:500">Záruka:</span>
+                  <span style="display:flex;gap:2px"><span style="flex:1;height:22px;display:flex;align-items:center;justify-content:space-between;padding:0 4px 0 6px;border:1px solid var(--z-inb,#7E8996);border-radius:6px;background:var(--z-in,#2A313B)">0<bs-icon name="arrows-sort" level="1" size="10" style="display:flex;color:var(--z-mut,#8E939A)"></bs-icon></span><span style="width:22px;height:22px;display:flex;align-items:center;justify-content:center;border:1px solid var(--z-inb,#7E8996);border-radius:6px;background:var(--z-in,#2A313B)"><bs-icon name="chevron-down" level="1" size="10" style="display:flex;color:var(--z-mut,#8E939A)"></bs-icon></span></span>
+                  <span onClick="{{ ck.feed.t }}" style="display:flex;align-items:center;gap:6px;cursor:pointer;user-select:none"><span style="width:13px;height:13px;flex-shrink:0;border-radius:4px;border:1px solid {{ ck.feed.bd }};background:{{ ck.feed.bg }};display:flex;align-items:center;justify-content:center;color:#FFFFFF"><sc-if value="{{ ck.feed.on }}" hint-placeholder-val="{{ false }}"><bs-icon name="check" level="1" size="11" style="display:flex"></bs-icon></sc-if></span>Vynechat z feedů</span>
+                  <span style="color:var(--z-lab,#F0A24A);font-weight:500">Čár. kód:</span>
+                  <span style="height:22px;display:flex;align-items:center;padding:0 6px;border:1px solid var(--z-inb,#7E8996);border-radius:6px;background:var(--z-in,#2A313B);white-space:nowrap;overflow:hidden">{{ d.ean }}</span>
+                  <span onClick="{{ ck.odbyt.t }}" style="display:flex;align-items:center;gap:6px;cursor:pointer;user-select:none;color:var(--z-lab,#F0A24A);font-weight:500"><span style="width:13px;height:13px;flex-shrink:0;border-radius:4px;border:1px solid {{ ck.odbyt.bd }};background:{{ ck.odbyt.bg }};display:flex;align-items:center;justify-content:center;color:#FFFFFF"><sc-if value="{{ ck.odbyt.on }}" hint-placeholder-val="{{ false }}"><bs-icon name="check" level="1" size="11" style="display:flex"></bs-icon></sc-if></span>Odbyt</span>
+                </div>
+              </div>
+            </section>
+
+            <div style="display:flex;flex-direction:column;gap:6px;min-width:0;min-height:0">
+              <section style="position:relative;border:1px solid var(--z-line,#2A3038);padding:30px 12px 12px;display:flex;flex-direction:column;gap:6px;background:var(--z-card,#12161B);border-radius:6px 16px 16px 16px;corner-shape:squircle">
+                <span style="position:absolute;top:10px;left:14px;padding:0;line-height:15px;font-size:10.5px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;white-space:nowrap;color:var(--z-mut,#8E939A);background:transparent">Ceny</span>
+                <span onClick="{{ ck.neakt.t }}" style="display:flex;align-items:center;gap:6px;cursor:pointer;user-select:none"><span style="width:13px;height:13px;flex-shrink:0;border-radius:4px;border:1px solid {{ ck.neakt.bd }};background:{{ ck.neakt.bg }};display:flex;align-items:center;justify-content:center;color:#FFFFFF"><sc-if value="{{ ck.neakt.on }}" hint-placeholder-val="{{ false }}"><bs-icon name="check" level="1" size="11" style="display:flex"></bs-icon></sc-if></span>Neaktualizovat ceny (Import)</span>
+                <div style="display:grid;grid-template-columns:110px 1fr 1fr;gap:6px;align-items:center">
+                  <span style="color:var(--z-lab,#F0A24A);font-weight:600">Vážená nákupní:</span>
+                  <span style="height:22px;display:flex;align-items:center;padding:0 6px;border:1px solid var(--z-inb,#7E8996);border-radius:6px;background:var(--z-mst,#1A3B26)">{{ d.nak }}</span>
+                  <span style="height:22px;display:flex;align-items:center;padding:0 6px;border:1px solid var(--z-inb,#7E8996);border-radius:6px;background:var(--z-mst,#1A3B26)">{{ d.nak }}</span>
+                </div>
+                <div style="height:112px;overflow-y:scroll;border-top:1px solid var(--z-line,#2A3038);border-left:1px solid var(--z-line,#2A3038);border-bottom:1px solid var(--z-line,#2A3038)">
+                <div style="display:grid;grid-template-columns:minmax(118px,1.4fr) repeat(4,minmax(0,1fr));">
+                  <span style="position:sticky;top:0;z-index:1;height:22px;display:flex;align-items:center;padding:0 6px;background:var(--z-head,#161A20);border-right:1px solid var(--z-line,#2A3038);border-bottom:1px solid var(--z-line,#2A3038)">Cena</span>
+                  <span style="position:sticky;top:0;z-index:1;height:22px;display:flex;align-items:center;padding:0 6px;background:var(--z-head,#161A20);border-right:1px solid var(--z-line,#2A3038);border-bottom:1px solid var(--z-line,#2A3038)">Bez DPH</span>
+                  <span style="position:sticky;top:0;z-index:1;height:22px;display:flex;align-items:center;padding:0 6px;background:var(--z-head,#161A20);border-right:1px solid var(--z-line,#2A3038);border-bottom:1px solid var(--z-line,#2A3038)">Včetně DPH</span>
+                  <span style="position:sticky;top:0;z-index:1;height:22px;display:flex;align-items:center;padding:0 6px;background:var(--z-head,#161A20);border-right:1px solid var(--z-line,#2A3038);border-bottom:1px solid var(--z-line,#2A3038);white-space:nowrap">Sleva/Rabat %</span>
+                  <span style="position:sticky;top:0;z-index:1;height:22px;display:flex;align-items:center;padding:0 6px;background:var(--z-head,#161A20);border-right:1px solid var(--z-line,#2A3038);border-bottom:1px solid var(--z-line,#2A3038)">Marže %</span>
+                  <span style="height:22px;display:flex;align-items:center;padding:0 6px;font-weight:700;border-right:1px solid var(--z-grid,#1C2128);border-bottom:1px solid var(--z-grid,#1C2128)">Nákupní</span>
+                  <span style="height:22px;display:flex;align-items:center;justify-content:flex-end;padding:0 6px;border-right:1px solid var(--z-grid,#1C2128);border-bottom:1px solid var(--z-grid,#1C2128)">{{ d.nak }}</span>
+                  <span style="height:22px;display:flex;align-items:center;justify-content:flex-end;padding:0 6px;border-right:1px solid var(--z-grid,#1C2128);border-bottom:1px solid var(--z-grid,#1C2128)">{{ d.nak }}</span>
+                  <span style="height:22px;background:var(--z-ro,#1A1F26);border-right:1px solid var(--z-grid,#1C2128);border-bottom:1px solid var(--z-grid,#1C2128)"></span>
+                  <span style="height:22px;background:var(--z-ro,#1A1F26);border-right:1px solid var(--z-line,#2A3038);border-bottom:1px solid var(--z-grid,#1C2128)"></span>
+                  <span style="height:22px;display:flex;align-items:center;padding:0 6px 0 14px;font-weight:700;color:var(--z-green,#7FD3A4);border-right:1px solid var(--z-grid,#1C2128);border-bottom:1px solid var(--z-grid,#1C2128)">Prodejní</span>
+                  <span style="height:22px;display:flex;align-items:center;justify-content:flex-end;padding:0 6px;border-right:1px solid var(--z-grid,#1C2128);border-bottom:1px solid var(--z-grid,#1C2128)">{{ d.proB }}</span>
+                  <span style="height:22px;display:flex;align-items:center;justify-content:flex-end;padding:0 6px;border-right:1px solid var(--z-grid,#1C2128);border-bottom:1px solid var(--z-grid,#1C2128)">{{ d.proS }}</span>
+                  <span style="height:22px;display:flex;align-items:center;justify-content:flex-end;padding:0 6px;border-right:1px solid var(--z-grid,#1C2128);border-bottom:1px solid var(--z-grid,#1C2128)">37,50 %</span>
+                  <span style="height:22px;display:flex;align-items:center;justify-content:space-between;padding:0 6px;border-right:1px solid var(--z-line,#2A3038);border-bottom:1px solid var(--z-grid,#1C2128)"><bs-icon name="lock" level="1" size="12" style="display:flex;color:var(--z-mut,#8E939A)"></bs-icon>60,00 %</span>
+                  <sc-for list="{{ priceRows }}" as="pr" hint-placeholder-count="5">
+                    <span style="height:22px;display:flex;align-items:center;padding:0 6px 0 14px;font-weight:600;color:var(--z-lab,#F0A24A);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;border-right:1px solid var(--z-grid,#1C2128);border-bottom:1px solid var(--z-grid,#1C2128)">{{ pr.name }}</span>
+                    <span style="height:22px;display:flex;align-items:center;justify-content:flex-end;padding:0 6px;border-right:1px solid var(--z-grid,#1C2128);border-bottom:1px solid var(--z-grid,#1C2128)">{{ pr.b }}</span>
+                    <span style="height:22px;display:flex;align-items:center;justify-content:flex-end;padding:0 6px;border-right:1px solid var(--z-grid,#1C2128);border-bottom:1px solid var(--z-grid,#1C2128)">{{ pr.s }}</span>
+                    <span style="height:22px;display:flex;align-items:center;justify-content:flex-end;padding:0 6px;border-right:1px solid var(--z-grid,#1C2128);border-bottom:1px solid var(--z-grid,#1C2128)">{{ pr.sl }}</span>
+                    <span style="height:22px;display:flex;align-items:center;justify-content:flex-end;padding:0 6px;background:var(--z-ro,#1A1F26);border-right:1px solid var(--z-line,#2A3038);border-bottom:1px solid var(--z-grid,#1C2128)">{{ pr.m }}</span>
+                  </sc-for>
+                </div>
+                </div>
+              </section>
+              <section style="position:relative;flex:1;min-height:0;border:1px solid var(--z-line,#2A3038);padding:30px 12px 12px;display:flex;flex-direction:column;gap:4px;background:var(--z-card,#12161B);border-radius:6px 16px 16px 16px;corner-shape:squircle">
+                <span style="position:absolute;top:10px;left:14px;padding:0;line-height:15px;font-size:10.5px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;white-space:nowrap;color:var(--z-lab,#F0A24A);background:transparent">Poznámka</span>
+                <textarea style="flex:1;min-height:0;resize:none;border:1px solid var(--z-inb,#7E8996);border-radius:6px;background:var(--z-in,#2A313B);color:var(--z-text,#F4F1EA);font:inherit;font-size:12px;padding:6px;outline:none"></textarea>
+              </section>
+            </div>
+        <div style="display:flex;flex-direction:column;gap:4px;min-height:0;min-width:0">
+          <section style="position:relative;border:1px solid var(--z-line,#2A3038);padding:30px 12px 12px;display:flex;flex-direction:column;gap:4px;background:var(--z-card,#12161B);border-radius:6px 16px 16px 16px;corner-shape:squircle">
+            <span style="position:absolute;top:10px;left:14px;padding:0;line-height:15px;font-size:10.5px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;white-space:nowrap;color:var(--z-lab,#F0A24A);background:transparent">E1 parametry</span>
+            <div style="height:128px;overflow-y:scroll;display:flex;flex-direction:column;gap:4px;padding-right:4px">
+            <sc-for list="{{ e1 }}" as="e" hint-placeholder-count="5">
+              <div style="display:grid;grid-template-columns:96px minmax(0,1fr);gap:6px;align-items:center"><span style="color:var(--z-labd,#9C7A52);white-space:nowrap">{{ e }}</span><span style="height:21px;border:1px solid var(--z-inb,#7E8996);border-radius:6px;background:var(--z-in,#2A313B)"></span></div>
+            </sc-for>
+            </div>
+          </section>
+          <div style="flex:1;min-height:0;display:grid;grid-template-columns:1fr 1fr;gap:4px;margin-top:4px">
+            <section style="position:relative;border:1px solid var(--z-line,#2A3038);padding:30px 12px 12px;background:var(--z-card,#12161B);border-radius:6px 16px 16px 16px;corner-shape:squircle"><span style="position:absolute;top:10px;left:14px;padding:0;line-height:15px;font-size:10.5px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;white-space:nowrap;color:var(--z-mut,#8E939A);background:transparent">Vlastní příznaky</span></section>
+            <section style="position:relative;border:1px solid var(--z-line,#2A3038);padding:30px 12px 12px;background:var(--z-card,#12161B);border-radius:6px 16px 16px 16px;corner-shape:squircle"><span style="position:absolute;top:10px;left:14px;padding:0;line-height:15px;font-size:10.5px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;white-space:nowrap;color:var(--z-mut,#8E939A);background:transparent">Akce</span></section>
+          </div>
+          <div style="display:flex;justify-content:flex-end">
+            <button style="all:unset;border-radius:7px;cursor:pointer;height:24px;padding:0 18px;display:flex;align-items:center;gap:6px;border:1px solid var(--z-line3,#3A414B);background:var(--z-pb,#3A434F);color:var(--z-pbt,#FFFFFF);font-weight:500" style-hover="background:#E5372F;color:#FFFFFF"><bs-icon name="help-circle" level="1" size="13" style="display:flex"></bs-icon>Nápověda</button>
+          </div>
+        </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>
+
+  <div data-screen-label="Eshop uživatelé (Fresh)" data-fresh="1" data-fo="1" style="display:{{ feDisp }};background:var(--z-bg,#0A0C0F);height:calc(100vh - var(--tabs-h,70px));overflow:auto">
+  <div style="display:grid;height:100%;min-width:1400px;min-height:800px;grid-template-rows:auto auto minmax(0,1fr) 228px;gap:10px;padding:10px">
+
+    <section style="position:relative;border:1px solid var(--z-line,#2A3038);padding:30px 12px 12px;display:flex;align-items:stretch;gap:14px;background:var(--z-card,#12161B);border-radius:6px 16px 16px 16px;corner-shape:squircle">
+      <span style="position:absolute;top:10px;left:14px;padding:0;line-height:15px;font-size:10.5px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;white-space:nowrap;color:var(--z-mut,#8E939A);background:transparent">Filtr</span>
+      <div style="display:flex;flex-direction:column;gap:5px">
+        <span style="color:var(--z-text2,#C9C5BC)">Login</span>
+        <div style="display:flex;align-items:center;gap:8px">
+          <label style="width:280px;height:22px;display:flex;align-items:center;gap:6px;padding:0 6px;border:1px solid var(--z-inb,#7E8996);border-radius:6px;background:var(--z-in,#2A313B);color:var(--z-mut,#8E939A)"><bs-icon name="search" level="1" size="12" style="display:flex"></bs-icon><input value="{{ euQ }}" onInput="{{ onEuQ }}" placeholder="login, e-mail, firma…" style="all:unset;flex:1;min-width:0;font-size:12px;color:var(--z-text,#F4F1EA)"></label>
+          <span onClick="{{ ck.euInv.t }}" style="display:flex;align-items:center;gap:6px;cursor:pointer;user-select:none;"><span style="width:13px;height:13px;flex-shrink:0;border-radius:4px;border:1px solid {{ ck.euInv.bd }};background:{{ ck.euInv.bg }};display:flex;align-items:center;justify-content:center;color:#FFFFFF"><sc-if value="{{ ck.euInv.on }}" hint-placeholder-val="{{ false }}"><bs-icon name="check" level="1" size="11" style="display:flex"></bs-icon></sc-if></span>invertovat</span>
+          <button style="all:unset;border-radius:7px;cursor:default;height:22px;padding:0 10px;display:flex;align-items:center;border:1px solid var(--z-line,#2A3038);color:var(--z-dis,#4E545C)">Zpět</button>
+          <button onClick="{{ clearEuQ }}" style="all:unset;cursor:pointer;height:22px;padding:0 10px;display:flex;align-items:center;white-space:nowrap;border:1px solid var(--z-line,#2A3038);color:{{ euClearColor }}" style-hover="background:var(--z-btnh,#2E3540)">Zrušit filtr</button>
+        </div>
+        <span style="display:flex;gap:6px"><span style="color:var(--z-text2,#C9C5BC)">položek:</span><b>{{ euCnt }}</b></span>
+      </div>
+      <button style="all:unset;border-radius:7px;cursor:pointer;align-self:center;height:52px;width:100px;display:flex;align-items:center;justify-content:center;gap:6px;border:1px solid var(--z-line3,#3A414B);background:var(--z-pb,#3A434F);color:var(--z-pbt,#FFFFFF);font-weight:500" style-hover="background:#E5372F;color:#FFFFFF"><bs-icon name="refresh" level="1" size="13" style="display:flex"></bs-icon>Aktualizovat</button>
+      <div style="display:grid;grid-template-columns:repeat(3,auto);grid-template-rows:auto auto;gap:6px 10px;align-content:center;margin-left:8px">
+        <button style="all:unset;border-radius:7px;cursor:pointer;height:22px;padding:0 10px;display:flex;align-items:center;justify-content:center;white-space:nowrap;border:1px solid var(--z-line3,#3A414B);background:var(--z-pb,#3A434F);color:var(--z-pbt,#FFFFFF);font-weight:500" style-hover="background:#E5372F;color:#FFFFFF">Vytvořit nového uživatele v POHODĚ i na ESHOPU</button><button style="all:unset;border-radius:7px;cursor:pointer;height:22px;padding:0 10px;display:flex;align-items:center;justify-content:center;white-space:nowrap;border:1px solid var(--z-line3,#3A414B);background:var(--z-pb,#3A434F);color:var(--z-pbt,#FFFFFF);font-weight:500" style-hover="background:#E5372F;color:#FFFFFF">Export zobrazených uživatelů</button><button style="all:unset;border-radius:7px;cursor:pointer;height:22px;padding:0 10px;display:flex;align-items:center;justify-content:center;white-space:nowrap;border:1px solid var(--z-line3,#3A414B);background:var(--z-pb,#3A434F);color:var(--z-pbt,#FFFFFF);font-weight:500" style-hover="background:#E5372F;color:#FFFFFF">Hromadně smazat všechny vyfiltrované</button>
+        <button style="all:unset;border-radius:7px;cursor:pointer;height:22px;padding:0 10px;display:flex;align-items:center;justify-content:center;white-space:nowrap;border:1px solid var(--z-line3,#3A414B);background:var(--z-pb,#3A434F);color:var(--z-pbt,#FFFFFF);font-weight:500" style-hover="background:#E5372F;color:#FFFFFF">Vytvořit ESHOP přístup pro existujícího POHODA uživatele</button><button style="all:unset;border-radius:7px;cursor:pointer;height:22px;padding:0 10px;display:flex;align-items:center;justify-content:center;white-space:nowrap;border:1px solid var(--z-line3,#3A414B);background:var(--z-pb,#3A434F);color:var(--z-pbt,#FFFFFF);font-weight:500" style-hover="background:#E5372F;color:#FFFFFF">Vygenerovat eshop přístupy</button><button style="all:unset;border-radius:7px;cursor:pointer;height:22px;padding:0 10px;display:flex;align-items:center;justify-content:center;white-space:nowrap;border:1px solid var(--z-line3,#3A414B);background:var(--z-pb,#3A434F);color:var(--z-pbt,#FFFFFF);font-weight:500" style-hover="background:#E5372F;color:#FFFFFF">Hromadně zablokovat všechny vyfiltrované</button>
+      </div>
+    </section>
+
+    <div style="height:28px;display:flex;align-items:center;justify-content:space-between;padding:0 8px;border:1px solid var(--z-inb,#7E8996);border-radius:6px;background:var(--z-in,#2A313B);color:var(--z-text2,#C9C5BC)"><span>Přetáhněte sem záhlaví sloupce pro seskupení podle něj</span><bs-icon name="search" level="1" size="15" style="display:flex"></bs-icon></div>
+
+    <section style="border:1px solid var(--z-line,#2A3038);background:var(--z-panel,#11151A);overflow:auto;min-height:0;border-radius:6px 16px 16px 16px;corner-shape:squircle">
+      <table style="border-collapse:separate;border-spacing:0;table-layout:fixed;width:max-content;font-size:12px">
+        <thead>
+          <tr>
+            <th style="position:sticky;top:0;left:0;z-index:3;width:40px;height:24px;background:var(--z-head,#161A20);border-right:1px solid var(--z-line,#2A3038);border-bottom:1px solid var(--z-grid,#1C2128)"></th>
+            <sc-for list="{{ euCols }}" as="c" hint-placeholder-count="24">
+              <th style="position:sticky;top:0;z-index:2;width:{{ c.w }};height:24px;padding:0 6px;text-align:left;font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;background:var(--z-head,#161A20);border-right:1px solid var(--z-grid,#1C2128);border-bottom:1px solid var(--z-grid,#1C2128)">{{ c.title }}</th>
+            </sc-for>
+          </tr>
+          <tr>
+            <th style="position:sticky;top:24px;left:0;z-index:3;height:20px;background:var(--z-head,#161A20);border-right:1px solid var(--z-line,#2A3038);border-bottom:1px solid var(--z-line,#2A3038);color:var(--z-mut,#8E939A)"><span style="display:flex;justify-content:center"><bs-icon name="filter" level="1" size="12" style="display:flex"></bs-icon></span></th>
+            <sc-for list="{{ euCols }}" as="c" hint-placeholder-count="24">
+              <th style="position:sticky;top:24px;z-index:2;height:20px;padding:0 6px;text-align:left;font-weight:400;font-family:'Geist Mono',monospace;font-size:10px;color:var(--z-mut,#8E939A);background:var(--z-head,#161A20);border-right:1px solid var(--z-grid,#1C2128);border-bottom:1px solid var(--z-line,#2A3038)">{{ c.flt }}</th>
+            </sc-for>
+          </tr>
+        </thead>
+        <tbody>
+          <sc-for list="{{ euRows }}" as="r" hint-placeholder-count="20">
+            <tr onClick="{{ r.select }}" onMouseEnter="{{ r.enter }}" onMouseLeave="{{ r.leave }}" style="background:{{ r.bg }}">
+              <td style="position:sticky;left:0;z-index:1;height:21px;padding:0 6px;text-align:right;white-space:nowrap;background:var(--z-head,#161A20);color:{{ r.numColor }};font-weight:{{ r.numFw }};border-right:1px solid var(--z-line,#2A3038);border-bottom:1px solid var(--z-grid,#1C2128);box-shadow:{{ r.numSh }}">{{ r.num }}</td>
+              <sc-for list="{{ r.cells }}" as="c" hint-placeholder-count="24">
+                <td style="height:21px;padding:0 6px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;text-align:{{ c.al }};background:{{ c.bg }};color:{{ c.c }};font-weight:{{ c.fw }};border-right:1px solid var(--z-grid,#1C2128);border-bottom:1px solid var(--z-grid,#1C2128)"><sc-if value="{{ c.cb }}" hint-placeholder-val="{{ false }}"><span style="display:flex;justify-content:center"><span style="width:13px;height:13px;border-radius:4px;border:1px solid var(--z-line3,#3A414B);background:var(--z-in,#0D1014)"></span></span></sc-if>{{ c.v }}</td>
+              </sc-for>
+            </tr>
+          </sc-for>
+        </tbody>
+      </table>
+      <sc-if value="{{ euNoRows }}" hint-placeholder-val="{{ false }}"><div style="padding:16px 12px;color:var(--z-mut,#8E939A)">Filtru neodpovídá žádný uživatel.</div></sc-if>
+    </section>
+
+    <div style="display:grid;grid-template-columns:380px minmax(0,1fr) minmax(0,1fr) 340px;gap:10px;min-height:0">
+      <section style="position:relative;border:1px solid var(--z-line,#2A3038);padding:30px 14px 12px;display:flex;flex-direction:column;gap:6px;background:var(--z-card,#12161B);border-radius:6px 16px 16px 16px;corner-shape:squircle">
+        <span style="position:absolute;top:10px;left:14px;padding:0;line-height:15px;font-size:10.5px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;white-space:nowrap;color:var(--z-mut,#8E939A);background:transparent">Uživatel</span>
+        <div style="display:flex;align-items:center;gap:6px"><span style="width:44px;color:var(--z-text2,#C9C5BC)">Heslo:</span><span style="flex:1;height:22px;border:1px solid var(--z-inb,#7E8996);border-radius:6px;background:var(--z-in,#2A313B)"></span><button style="all:unset;border-radius:7px;cursor:pointer;height:22px;padding:0 10px;display:flex;align-items:center;justify-content:center;white-space:nowrap;border:1px solid var(--z-line3,#3A414B);background:var(--z-pb,#3A434F);color:var(--z-pbt,#FFFFFF);font-weight:500" style-hover="background:#E5372F;color:#FFFFFF">Nastavit heslo</button></div>
+        <div style="flex:1;display:grid;grid-template-columns:84px minmax(0,1fr);gap:8px;min-height:0">
+          <button style="all:unset;border-radius:7px;cursor:default;display:flex;align-items:center;justify-content:center;text-align:center;border:1px solid var(--z-line,#2A3038);color:var(--z-dis,#4E545C)">Uložit změny</button>
+          <div style="display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;text-align:center">
+            <b>Kontaktní osoba pro:</b>
+            <b>{{ eu.related }}</b>
+            <span style="display:flex;align-items:center;gap:6px;margin-top:4px;color:var(--z-red,#FF6259)"><bs-icon name="alert-triangle" variant="filled" level="1" size="15" style="display:flex;color:#F0A24A"></bs-icon>Údaje je možné editovat pouze v Pohodě</span>
+          </div>
+        </div>
+        <button style="all:unset;border-radius:7px;cursor:pointer;height:22px;padding:0 10px;display:flex;align-items:center;justify-content:center;white-space:nowrap;height:24px;border:1px solid var(--z-line3,#3A414B);background:var(--z-pb,#3A434F);color:var(--z-pbt,#FFFFFF);font-weight:500" style-hover="background:#E5372F;color:#FFFFFF">Zablokovat / Odblokovat</button>
+      </section>
+      <section style="position:relative;border:1px solid var(--z-line,#2A3038);padding:30px 14px 12px;display:grid;grid-template-columns:110px minmax(0,1fr);gap:4px 8px;align-items:center;align-content:start;background:var(--z-card,#12161B);border-radius:6px 16px 16px 16px;corner-shape:squircle">
+          <span style="position:absolute;top:10px;left:14px;padding:0;line-height:15px;font-size:10.5px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;white-space:nowrap;color:var(--z-lab,#F0A24A);background:transparent">Registrační údaje</span>
+          <span style="color:var(--z-text2,#C9C5BC)">Jméno:</span><span style="height:22px;display:flex;align-items:center;padding:0 6px;border:1px solid var(--z-inb,#7E8996);border-radius:6px;background:var(--z-in,#2A313B);white-space:nowrap;overflow:hidden;">{{ eu.regJm }}</span>
+          <span style="color:var(--z-text2,#C9C5BC)">Firma:</span><span style="height:22px;display:flex;align-items:center;padding:0 6px;border:1px solid var(--z-inb,#7E8996);border-radius:6px;background:var(--z-in,#2A313B);white-space:nowrap;overflow:hidden;">{{ eu.firma }}</span>
+          <span style="color:var(--z-text2,#C9C5BC)">Ulice:</span><span style="height:22px;display:flex;align-items:center;padding:0 6px;border:1px solid var(--z-inb,#7E8996);border-radius:6px;background:var(--z-in,#2A313B);white-space:nowrap;overflow:hidden;">{{ eu.ulice }}</span>
+          <span style="color:var(--z-text2,#C9C5BC)">Město:</span><span style="height:22px;display:flex;align-items:center;padding:0 6px;border:1px solid var(--z-inb,#7E8996);border-radius:6px;background:var(--z-in,#2A313B);white-space:nowrap;overflow:hidden;">{{ eu.mesto }}</span>
+          <span style="color:var(--z-text2,#C9C5BC)">PSČ:</span><span style="height:22px;display:flex;align-items:center;padding:0 6px;border:1px solid var(--z-inb,#7E8996);border-radius:6px;background:var(--z-in,#2A313B);white-space:nowrap;overflow:hidden;">{{ eu.psc }}</span>
+        </section>
+      <section style="position:relative;border:1px solid var(--z-line,#2A3038);padding:30px 14px 12px;display:grid;grid-template-columns:110px minmax(0,1fr);gap:4px 8px;align-items:center;align-content:start;background:var(--z-card,#12161B);border-radius:6px 16px 16px 16px;corner-shape:squircle">
+          <span style="position:absolute;top:10px;left:14px;padding:0;line-height:15px;font-size:10.5px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;white-space:nowrap;color:var(--z-lab,#F0A24A);background:transparent">Dodací údaje</span>
+          <span style="color:var(--z-text2,#C9C5BC)">Jméno:</span><span style="height:22px;display:flex;align-items:center;padding:0 6px;border:1px solid var(--z-inb,#7E8996);border-radius:6px;background:var(--z-in,#2A313B);white-space:nowrap;overflow:hidden;">{{ eu.dodJm }}</span>
+          <span style="color:var(--z-text2,#C9C5BC)">Firma:</span><span style="height:22px;display:flex;align-items:center;padding:0 6px;border:1px solid var(--z-inb,#7E8996);border-radius:6px;background:var(--z-in,#2A313B);white-space:nowrap;overflow:hidden;">{{ eu.firma }}</span>
+          <span style="color:var(--z-text2,#C9C5BC)">Ulice:</span><span style="height:22px;display:flex;align-items:center;padding:0 6px;border:1px solid var(--z-inb,#7E8996);border-radius:6px;background:var(--z-in,#2A313B);white-space:nowrap;overflow:hidden;">{{ eu.ulice }}</span>
+          <span style="color:var(--z-text2,#C9C5BC)">Město:</span><span style="height:22px;display:flex;align-items:center;padding:0 6px;border:1px solid var(--z-inb,#7E8996);border-radius:6px;background:var(--z-in,#2A313B);white-space:nowrap;overflow:hidden;">{{ eu.mesto }}</span>
+          <span style="color:var(--z-text2,#C9C5BC)">PSČ:</span><span style="height:22px;display:flex;align-items:center;padding:0 6px;border:1px solid var(--z-inb,#7E8996);border-radius:6px;background:var(--z-in,#2A313B);white-space:nowrap;overflow:hidden;">{{ eu.psc }}</span>
+        </section>
+      <section style="position:relative;border:1px solid var(--z-line,#2A3038);padding:30px 14px 12px;display:flex;flex-direction:column;gap:10px;background:var(--z-card,#12161B);border-radius:6px 16px 16px 16px;corner-shape:squircle">
+        <span style="position:absolute;top:10px;left:14px;padding:0;line-height:15px;font-size:10.5px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;white-space:nowrap;color:var(--z-mut,#8E939A);background:transparent">Oprávnění</span>
+        <span onClick="{{ ck.euAdmin.t }}" style="display:flex;align-items:center;gap:6px;cursor:pointer;user-select:none;"><span style="width:13px;height:13px;flex-shrink:0;border-radius:4px;border:1px solid {{ ck.euAdmin.bd }};background:{{ ck.euAdmin.bg }};display:flex;align-items:center;justify-content:center;color:#FFFFFF"><sc-if value="{{ ck.euAdmin.on }}" hint-placeholder-val="{{ false }}"><bs-icon name="check" level="1" size="11" style="display:flex"></bs-icon></sc-if></span>Administrátor, přístup do všech účtů zákazníků</span>
+        <span style="display:flex;align-items:center;gap:8px"><bs-icon name="info-circle" variant="filled" level="1" size="22" style="display:flex;color:var(--z-info,#2F6FD6)"></bs-icon>Vyžaduje licenci „Obchodní zástupci“</span>
+      </section>
+    </div>
+  </div>
+  </div>
+
+  <div data-screen-label="Nastavení aplikace" data-fresh="1" style="display:{{ naDisp }};min-height:calc(100vh - var(--tabs-h,70px));background:var(--f-bg,#0A0C0F);color:var(--f-tx,#F4F1EA);font-size:13px">
+  <div style="max-width:980px;padding:22px 28px 40px;display:flex;flex-direction:column;gap:20px">
+    <header style="display:flex;flex-direction:column;gap:4px">
+      <span style="display:flex;align-items:center;gap:6px;font-size:12px;color:var(--f-mut2,#6E747C)"><bs-icon name="settings" level="1" size="13"></bs-icon>Nastavení aplikace · STREFA s.r.o.</span>
+      <h1 style="margin:0;font-size:26px;font-weight:600;letter-spacing:-0.025em">Nastavení aplikace</h1>
+    </header>
+    <section style="display:flex;flex-direction:column;gap:18px;padding:20px 22px 22px;background:var(--f-card,#12161B);border:1px solid var(--f-bd,rgba(236,232,222,0.07));border-radius:8px 24px 24px 24px;corner-shape:squircle;box-shadow:var(--f-sh,none)">
+      <div style="display:flex;flex-direction:column;gap:3px">
+        <h2 style="margin:0;font-size:18px;font-weight:600;letter-spacing:-0.015em">Vzhled rozhraní</h2>
+        <span style="font-size:12px;color:var(--f-mut,#8E939A);text-wrap:pretty">Platí pro záložky Zásoby a Eshop uživatelé. Úvod je vždy v novém vzhledu.</span>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:12px">
+        <sc-for list="{{ naUi }}" as="o" hint-placeholder-count="2">
+          <button onClick="{{ o.select }}" style="all:unset;cursor:pointer;display:flex;flex-direction:column;gap:14px;padding:14px;border-radius:6px 18px 18px 18px;corner-shape:squircle;background:{{ o.bg }};border:1px solid {{ o.bd }};transition:border-color .2s,background .2s" style-hover="border-color:var(--f-bd3,rgba(236,232,222,0.24))">
+            <sc-if value="{{ o.isOld }}" hint-placeholder-val="{{ false }}">
+              <div style="height:118px;display:grid;grid-template-columns:30% minmax(0,1fr);gap:3px;padding:3px;border-radius:8px;background:#0A0C0F;border:1px solid rgba(236,232,222,0.08);overflow:hidden">
+                <div style="background:#11151A;border:1px solid #2A3038;background-image:repeating-linear-gradient(180deg,transparent 0 7px,#1C2128 7px 8px)"></div>
+                <div style="display:grid;grid-template-rows:22px minmax(0,1fr) 34px;gap:3px">
+                  <div style="border:1px solid #2A3038;display:flex;gap:3px;padding:4px;align-items:center"><span style="width:26px;height:8px;background:#3A434F"></span><span style="width:26px;height:8px;background:#3A434F"></span><span style="width:26px;height:8px;background:#3A434F"></span></div>
+                  <div style="background:#11151A;border:1px solid #2A3038;background-image:repeating-linear-gradient(180deg,transparent 0 6px,#1C2128 6px 7px),repeating-linear-gradient(90deg,transparent 0 22px,#1C2128 22px 23px)"></div>
+                  <div style="border:1px solid #3A414B;background:#1A2028;background-image:repeating-linear-gradient(180deg,transparent 0 8px,#2A313B 8px 9px)"></div>
+                </div>
+              </div>
+            </sc-if>
+            <sc-if value="{{ o.isFresh }}" hint-placeholder-val="{{ false }}">
+              <div style="height:118px;display:grid;grid-template-columns:24% minmax(0,1fr) 30%;gap:6px;padding:8px;border-radius:8px;background:#0A0C0F;border:1px solid rgba(236,232,222,0.08);overflow:hidden">
+                <div style="border-radius:3px 9px 9px 9px;background:#12161B;border:1px solid rgba(236,232,222,0.07);display:flex;flex-direction:column;gap:5px;padding:8px 6px"><span style="height:6px;width:70%;border-radius:3px;background:rgba(236,232,222,0.12)"></span><span style="height:6px;width:85%;border-radius:3px;background:rgba(229,55,47,0.45)"></span><span style="height:6px;width:60%;border-radius:3px;background:rgba(236,232,222,0.12)"></span><span style="height:6px;width:75%;border-radius:3px;background:rgba(236,232,222,0.12)"></span></div>
+                <div style="border-radius:3px 9px 9px 9px;background:#12161B;border:1px solid rgba(236,232,222,0.07);display:flex;flex-direction:column;gap:6px;padding:8px"><span style="height:10px;border-radius:5px;background:#0D1014;border:1px solid rgba(236,232,222,0.1)"></span><span style="height:8px;border-radius:4px;background:rgba(236,232,222,0.06)"></span><span style="height:8px;border-radius:4px;background:rgba(229,55,47,0.16)"></span><span style="height:8px;border-radius:4px;background:rgba(236,232,222,0.06)"></span><span style="height:8px;border-radius:4px;background:rgba(236,232,222,0.06)"></span></div>
+                <div style="border-radius:3px 9px 9px 9px;background:#12161B;border:1px solid rgba(236,232,222,0.07);display:flex;flex-direction:column;gap:6px;padding:8px"><span style="height:8px;width:80%;border-radius:4px;background:rgba(236,232,222,0.16)"></span><span style="display:grid;grid-template-columns:1fr 1fr;gap:4px"><span style="height:16px;border-radius:4px;background:#0D1014"></span><span style="height:16px;border-radius:4px;background:#0D1014"></span></span><span style="margin-top:auto;align-self:flex-end;width:36%;height:10px;border-radius:4px;background:#E5372F"></span></div>
+              </div>
+            </sc-if>
+            <div style="display:flex;align-items:flex-start;gap:10px">
+              <span style="width:16px;height:16px;flex-shrink:0;margin-top:1px;border-radius:50%;border:1.5px solid {{ o.ring }};display:flex;align-items:center;justify-content:center"><span style="width:8px;height:8px;border-radius:50%;background:{{ o.dot }}"></span></span>
+              <span style="display:flex;flex-direction:column;gap:3px">
+                <span style="display:flex;align-items:baseline;gap:8px"><span style="font-size:14px;font-weight:600">{{ o.title }}</span><span style="font-size:12px;color:var(--f-mut,#8E939A)">{{ o.tag }}</span></span>
+                <span style="font-size:12px;line-height:1.5;color:var(--f-mut,#8E939A);text-wrap:pretty">{{ o.desc }}</span>
+              </span>
+            </div>
+          </button>
+        </sc-for>
+      </div>
+    </section>
+    <section style="display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:16px;padding:20px 22px;background:var(--f-card,#12161B);border:1px solid var(--f-bd,rgba(236,232,222,0.07));border-radius:8px 24px 24px 24px;corner-shape:squircle;box-shadow:var(--f-sh,none)">
+      <div style="display:flex;flex-direction:column;gap:3px">
+        <h2 style="margin:0;font-size:18px;font-weight:600;letter-spacing:-0.015em">Barevný režim</h2>
+        <span style="font-size:12px;color:var(--f-mut,#8E939A)">Tmavý nebo světlý vzhled všech záložek.</span>
+      </div>
+      <div style="display:flex;padding:3px;border-radius:4px 10px 10px 10px;corner-shape:squircle;background:var(--f-sunk,#0D1014);border:1px solid var(--f-bd,rgba(236,232,222,0.07))">
+        <sc-for list="{{ naTheme }}" as="o" hint-placeholder-count="2">
+          <button onClick="{{ o.select }}" style="all:unset;cursor:pointer;display:flex;align-items:center;gap:7px;height:30px;padding:0 14px;border-radius:7px;font-size:12.5px;font-weight:500;color:{{ o.color }};background:{{ o.bg }};box-shadow:{{ o.sh }}" style-hover="color:var(--f-tx,#F4F1EA)"><bs-icon name="{{ o.icon }}" level="1" size="14"></bs-icon>{{ o.label }}</button>
+        </sc-for>
+      </div>
+    </section>
+  </div>
+  </div>
+
+  <sc-if value="{{ pnlOpen }}" hint-placeholder-val="{{ false }}">
+    <div style="position:fixed;left:16px;bottom:16px;z-index:100;width:300px;background:#1A1F26;border:1px solid rgba(236,232,222,0.12);border-radius:8px 24px 24px 24px;corner-shape:squircle;box-shadow:0 24px 60px rgba(0,0,0,0.55);display:flex;flex-direction:column;color:#F4F1EA;font-family:'Geist',system-ui,sans-serif">
+      <div style="display:flex;align-items:center;gap:10px;padding:12px 12px 12px 14px;border-bottom:1px solid rgba(236,232,222,0.07)">
+        <span style="width:8px;height:8px;border-radius:50%;background:#E5372F;box-shadow:0 0 0 3px rgba(229,55,47,0.2)"></span>
+        <div style="flex:1;display:flex;flex-direction:column;line-height:1.3">
+          <span style="font-size:13px;font-weight:600">Režim prezentace</span>
+          <span style="font-size:11px;color:#8E939A">Přepínání vzhledu pro klienta</span>
+        </div>
+        <button onClick="{{ closePnl }}" aria-label="Skrýt panel" style="all:unset;cursor:pointer;width:28px;height:28px;border-radius:8px;display:flex;align-items:center;justify-content:center;color:#A7ABB2" style-hover="background:#262C35;color:#F4F1EA"><bs-icon name="x" level="1" size="14" style="display:flex"></bs-icon></button>
+      </div>
+      <div style="padding:12px 12px 14px;display:flex;flex-direction:column;gap:10px">
+        <div style="display:flex;align-items:center;justify-content:space-between;gap:8px;padding:2px 2px 0">
+          <span style="font-size:12px;color:#D9D5CC">UI</span>
+          <div style="display:flex;padding:3px;border-radius:4px 9px 9px 9px;corner-shape:squircle;background:#12161B;border:1px solid rgba(236,232,222,0.07)">
+            <sc-for list="{{ pnlUi }}" as="o" hint-placeholder-count="2">
+              <button onClick="{{ o.select }}" style="all:unset;cursor:pointer;display:flex;align-items:center;gap:6px;height:26px;padding:0 10px;border-radius:6px;font-size:12px;font-weight:500;color:{{ o.color }};background:{{ o.bg }}"><bs-icon name="{{ o.icon }}" level="1" size="13" style="display:flex"></bs-icon>{{ o.label }}</button>
+            </sc-for>
+          </div>
+        </div>
+        <div style="display:flex;align-items:center;justify-content:space-between;gap:8px;padding:2px 2px 0">
+          <span style="font-size:12px;color:#D9D5CC">Režim</span>
+          <div style="display:flex;padding:3px;border-radius:4px 9px 9px 9px;corner-shape:squircle;background:#12161B;border:1px solid rgba(236,232,222,0.07)">
+            <sc-for list="{{ pnlTheme }}" as="o" hint-placeholder-count="2">
+              <button onClick="{{ o.select }}" style="all:unset;cursor:pointer;display:flex;align-items:center;gap:6px;height:26px;padding:0 10px;border-radius:6px;font-size:12px;font-weight:500;color:{{ o.color }};background:{{ o.bg }}"><bs-icon name="{{ o.icon }}" level="1" size="13" style="display:flex"></bs-icon>{{ o.label }}</button>
+            </sc-for>
+          </div>
+        </div>
+      </div>
+    </div>
+  </sc-if>
+  <sc-if value="{{ pnlClosed }}" hint-placeholder-val="{{ false }}">
+    <button onClick="{{ openPnl }}" aria-label="Otevřít režim prezentace" title="Režim prezentace" style="all:unset;cursor:pointer;position:fixed;left:16px;bottom:16px;z-index:100;width:46px;height:46px;border-radius:50%;background:#1A1F26;border:1px solid rgba(236,232,222,0.14);box-shadow:0 12px 32px rgba(0,0,0,0.5);display:flex;align-items:center;justify-content:center;color:#F4F1EA" style-hover="background:#232931">
+      <bs-icon name="adjustments-horizontal" level="1" size="18" style="display:flex"></bs-icon>
+      <span style="position:absolute;top:2px;right:2px;width:9px;height:9px;border-radius:50%;background:#E5372F;border:2px solid #1A1F26"></span>
+    </button>
+  </sc-if>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;theme&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;dark&quot;,&quot;light&quot;],&quot;default&quot;:&quot;dark&quot;,&quot;tsType&quot;:&quot;'dark'|'light'&quot;},&quot;startTab&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;uvod&quot;,&quot;zasoby&quot;,&quot;eu&quot;,&quot;na&quot;],&quot;default&quot;:&quot;uvod&quot;,&quot;tsType&quot;:&quot;'uvod'|'zasoby'|'eu'|'na'&quot;}}">
+const SKLADY=["EVIDENCE (01_EVID)","KINDERKAMIONACI (98)","KINDERKAMIONACI (99)","Konsignační sklad AUTO-TECH (05K Auto-t)","Konsignační sklad Box-Auto (05K Box-Au)","Konsignační sklad KOVO-HOLUB (05K HOLUB)","Konsignační sklad Movana (05K Movana)","Konsignační sklad MULTITEC (05K Multit)","Konsignační sklad Redos (05K REDOS)","Konsignační sklad Škrobanek (05K Skroba)","Konsignační sklad ZLT (05K ZLT)","KOOPERACE (09 koopera)","Nezařazeno 2022 (Nezařaz.II)","Prodejna KD (00_Prodejn)","Sklad BOYRIVEN výroba (01_BOYRIVE)","sklad elektroniky (01EL)","Sklad JTB výroba (01_JTB)","Sklad KD (01)"];
+const KD="Sklad KD (01)";
+const CATS=[["Akce",1,0,1],["ALSAP ART",0,1],["ALSAP výrobky",1],["Bazar",0,1],["Blatníky bedny",1],["Bonus klub ALSAP",1],["Dům a zahrada",1],["Elekro - kabely, oka",0,1],["Konfigurátory",0],["LED / osvětlení",1],["Novinky",0],["Plachtové konstrukce",1],["Příslušenství",1],["Sklápěče",1],["Skříně",1],["Smart ALSAP",0],["Spojovací materiál",1]];
+const NM=["Profil plachtový C 40 mm, Al","Lišta plachtová 3 m, Al elox","Háček na plachtu nerez","Lano pryžové Ø 8 mm, černé","Rohový spoj profilu C","Plachtovina PVC 650 g/m², šedá","Napínák plachty ráčnový","Kedr Ø 6 mm, PVC","Profil horní rámový 6,3 m","Těsnění pro klapku profil D 21 x 17 mm samolepicí","Držák plachtové tyče","Oko plachtové Ø 12 mm, mosaz"];
+const ROWS=[[5192,67937,69820,"v","35B0216","02.16","35B0216"],[5193,67964,"","m","","","349020_"],[5194,67965,"","m","","","349030_"],[5195,67975,"","n","","15094260 / 116…","329088_3330"],[5196,68188,"","n","381010_6300_A2","E9907 l=6300mm","381010_6300_A2"],[5197,68264,69628,"v","","37.08.250","35B3708250"],[5198,68317,"","n","33T332_A1","","33T332_A1"],[5199,68318,"","n","33T334_A1","","33T334_A1"],[5200,68345,"","n","335124","38809","335124"],[5201,68765,"","v","35B10125","101.25","35B10125"],[5202,68767,69202,"v","35B4525","45.25","35B4525"],[5203,68768,"","v","35B10125-1","101.25-1","35B10125-1"],[5204,68830,"","v","322043","23DV-","322043"],[5205,68859,88015,"v","335111","","335111"],[5206,69202,"","m","","","35B4525/35/50"],[5207,69215,"","m","","","35B060_kedr"],[5208,69226,"","m","","","35B5800/01/02"],[5209,69227,"","m","","","35B0013/1/224"],[5210,69240,69226,"v","35B5800","58.00","35B5800"],[5211,69241,69226,"v","35B5801","58.01","35B5801"],[5212,69305,"","n","336210","40112","336210"],[5213,69311,"","n","336214","40118","336214"],...Array.from({length:58},(_,i)=>{const n=5214+i,id=69320+i*7+(i%5)*3,t=i%9===0?"m":(i%9<4?"v":"n");const k=String(336220+i*4);return [n,id,t==="v"&&i%2?69226+i:"",t,t==="m"?"":(t==="v"?"35B"+(5810+i):k),t==="m"?"":(t==="v"?(58+i/100).toFixed(2):String(40120+i*3)),t==="m"?"35B"+(5810+i)+"/0"+(i%4+1):(t==="v"?"35B"+(5810+i):k)];})].map((r,i)=>{const name=r[0]===5200?NM[9]:NM[i%NM.length];const nak=r[0]===5200?53.42:20+((r[1]*37)%9000)/100;return {n:r[0],id:r[1],idv:r[2],t:r[3],ean:r[4],obj:r[5],kod:r[6],name,nak,flags:i%3===1?"·······|·········":"·················",text:r[0]===5200?"EPDM, -30°C/+80°C, černý":""};});
+const COLS=[["Id",72,"right","="],["Id Virtuální",86,"right","="],["Vlastní příznaky",128,"left","abc"],["Název CZ",270,"left","abc"],["Název POHODA zkrácený",180,"left","abc"],["Příznaky pro import",130,"left","abc"],["EAN",132,"left","abc"],["Objednací kód",130,"left","abc"],["Výrobce",110,"left","abc"],["Kód",132,"left","abc"],["GPSR – Zodpovědná osoba",170,"left","abc"],["Prodejní cena",100,"right","="],["Nákupní cena",96,"right","="],["Skladem",72,"right","="],["Rezervováno",86,"right","="],["Dostupnost",110,"left","abc"],["Hmotnost kg",88,"right","="],["Dodavatel",120,"left","abc"],["Naposledy změněno",130,"left","abc"]];
+const fmt=(n,d=2)=>n.toLocaleString("cs-CZ",{minimumFractionDigits:d,maximumFractionDigits:d});
+const fid=n=>n===""?"":Number(n).toLocaleString("cs-CZ");
+const EU_N=[["STORMWARE s.r.o.","Jihlava","Za Prachárnou 4962/45","586 01","CZ","Jan Novák"],["Neplatný odkaz","Rybany","Rybany 5","956 36","SK","Eva Baláková"],["Martin Nešpůrek","Vyšná Šebastová","Vyšná Šebastová 112","080 06","SK","Ing. Anna Bérešová"],["Ladislav Ligač","Michalovce","Priemyselná 8","071 01","SK","Ing. Árpád Ligač"],["Miramid s.r.o.","Kľačno","Kľačno 415","972 15","SK","Renata Murínová"],["Do krámu s.r.o.","Kotešová","Kotešová 22","013 61","SK","Peter Ušák"],["ELBISOL s.r.o.","Žilina","Kamenná cesta 3","010 01","SK","Ing. Ľubomír Kmeť"],["Drutex okna s.r.o.","Ivanka pri Dunaji","Pekná 9","900 28","SK","Ing. Miroslav Dráb"],["Portalis s.r.o.","Bratislava","Wattova 12","821 04","SK","Gabriel Polák"],["Maralu, s.r.o.","Dobrá Niva","8. marca 28","962 61","SK","Štefan Homola"],["Radek Dašovský","Bratislava","Hodonínska 42","841 03","SK","Marcel Andrejko"],["Ondřej Antálek","Zvolen","Terézie Vansovej 4","960 01","SK","Hubert Grešák"],["Pavel Musil","Liptovský Hrádok","Martinkova 7","033 01","SK","Zuzana Galová"],["EKO - DOMY Czech","Topoľčany","Stredňanská 2","955 03","SK","Alžbeta Sasková"],["servis hydraulics","Nitra","Farská 52","949 01","SK","Ing. Natália Sedláková"],["izolace crhonek","Andovce","Andovce 41","941 23","SK","Ing. Ladislav Crhonek"],["TSML p.o.","Piešťany","Vajanského 11","921 01","SK","Bc. Lukáš Tóth"],["Václav Hodek","Modra","Dolná 61","900 01","SK","Ing. Vladan Hodek"],["Ing. Milan Janiš","Veľká Mača","Veľká Mača 120","925 32","SK","Ladislav Bugyi"],["ondrej bartos","Nitrica","Račice 37","972 22","SK","Ivan Krovina"],["Jan Havel","Bratislava","Trnavská cesta 2","821 01","SK","Tomáš Smka"],["Jana Jandová","Dolné Kočkovce","Školská 10","020 01","SK","Ivan Kozák"],["PALEKO CZ s.r.o.","Trenčín","Súdna 304","911 01","SK","Branislav Lipka"],["Expedo Logistics s.r.o.","Šamorín","Liečebný ústav 2","931 01","SK","Ing. Eugen Lipka"],["ODMM HONZU, s.r.o.","Jívka","Jívka 62","542 13","CZ","Jiří Hák"],["Autodoprava Hanák","Úpořiny-Tenkrát","Pražská 17","415 01","CZ","Andrea Zemanová"],["Neplatný odkaz","Děčín","Polská 118","405 02","CZ","Petr Kaitman"]];
+const EU=EU_N.map((r,i)=>{const s=(i*7919+13)%100000;const sk=r[4]==="SK";const mail=["info","office","obchod","objednavky","eshop"][i%5]+"@"+r[0].toLowerCase().normalize("NFD").replace(/[^a-z]/g,"").slice(0,10)+(sk?".sk":".cz");
+  return {i,login:i===0?"info@stormware.cz":(s.toString(16)+"a1d07").slice(0,8)+"-"+(1000+s%9000),idp:i===0?1:17470+(s%140),pu:r[0],tel:sk?"0"+(33+i%9)+"/"+(5000+s%4000)+" "+(10+i):"+420 "+(499+i)+" "+(100+s%900)+" "+(100+i*3),mob:i%3?"0905 "+(100+s%900)+" "+(100+i*7):"",fax:i%4===1?"0918 "+(600+i)+" "+(100+s%800):"",mail,ico:String(25000000+s*137).slice(0,8),dic:i%3===0?"20"+(23+i%3)+String(s).slice(0,6):"",kb:i===0?"0300":"",ucet:i===0?"288603707":"",typ:i%4===0&&i>0?"prodejní":"",eshop:i===0?"EshopA cz":(sk?"EshopA hu":"EshopD ee"),jazyk:"",jm:r[5],firma:r[0],ulice:r[2],mesto:r[1],psc:r[3],zeme:i%11===3?"sk":""};});
+const EUCOLS=[["Login",120,"abc"],["ID Pohoda",70,"="],["Pohoda uživatel",130,"="],["",44,""],["Telefon",110,"abc"],["Mobil",100,"abc"],["Fax",100,"abc"],["E-mail",200,"abc"],["IČO",80,"abc"],["DIČ",80,"abc"],["Kontaktní osoba",110,"abc"],["Kód banky",76,"abc"],["Zablokováno",84,"☐"],["Číslo účtu",90,"abc"],["Administrátor",92,"☐"],["Typ cen",80,"="],["Eshop",90,"abc"],["Jazyk",60,"="],["Jméno",130,"abc"],["Firma",140,"abc"],["Ulice",140,"abc"],["Město",110,"abc"],["PSČ",60,"abc"],["Země",50,"abc"]];
+const LS="bsadmin-shell";
+const load=()=>{try{return JSON.parse(localStorage.getItem(LS))||{}}catch(e){return {}}};
+
+class Component extends DCLogic {
+  state={...{tab:null,theme:null,asideW:340},...load(),drag:false,tabHov:null,sel:5200,hov:null,q:"",lang:"CZ",zobr:"nazvy",lok:"nemenit",openRoot:true,openKD:true,cat:"Plachtové konstrukce",
+    ck:{eshop:true,skryta:false,jenHl:false,invert:false,vc:false,sarze:false,archiv:false,sablona:false,internet:true,feed:false,odbyt:true,neakt:false,euInv:false,euAdmin:false},euSel:0,euHov:null,euQ:"",zType:"all",zDet:"hl",zDetOpen:true,fzMenu:false,catQ:"",euStat:"all",euShop:"all",euBlk:{},euMenu:false,euPw:""};
+  save(){try{localStorage.setItem(LS,JSON.stringify({tab:this.state.tab,theme:this.state.theme,asideW:this.state.asideW,ui:this.state.ui}))}catch(e){}}
+  theme(){return this.state.theme??this.props.theme??"dark";}
+  tab(){return this.state.tab??this.props.startTab??"uvod";}
+  ui(){return this.state.ui??"fresh";}
+  componentDidUpdate(pp){if(pp.theme!==this.props.theme&&this.props.theme)this.setState({theme:this.props.theme},()=>this.save());if(pp.startTab!==this.props.startTab&&this.props.startTab)this.setState({tab:this.props.startTab},()=>this.save());}
+  euVals(){const st=this.state,q=st.euQ.trim().toLowerCase();
+    const vis=EU.filter(r=>{if(!q)return true;const m=[r.login,r.mail,r.pu,r.firma].some(s=>s.toLowerCase().includes(q));return st.ck.euInv?!m:m;});
+    const C=(v,o={})=>({v,al:o.al||"left",bg:o.bg||"transparent",c:o.c||"inherit",fw:o.fw||400,cb:!!o.cb});
+    const G="var(--z-mst,#1A3B26)";
+    const euRows=vis.map((r,k)=>{const sel=st.euSel===r.i,hov=st.euHov===r.i&&!sel;const base=sel?"var(--z-sel,#4B2321)":"var(--z-panel,#11151A)";
+      return {num:sel?"▸ "+(k+1):k+1,numColor:sel?"var(--z-red,#FF6259)":"var(--z-mut,#8E939A)",numFw:sel?700:400,numSh:sel?"inset 3px 0 0 #E5372F":"none",
+        bg:hov?"color-mix(in oklab, "+base+" 90%, var(--z-text,#F4F1EA))":base,
+        cells:[C(r.login,sel?{bg:"#E5372F",c:"#FFFFFF",fw:600}:{}),C(r.idp.toLocaleString("cs-CZ"),{al:"right"}),C(r.pu,{bg:G}),C("Změnit",{bg:G,c:"var(--z-info,#5B9BF0)",fw:500}),C(r.tel),C(r.mob),C(r.fax),C(r.mail),C(r.ico),C(r.dic),C(""),C(r.kb),C("",{cb:1}),C(r.ucet),C("",{cb:1}),C(r.typ),C(r.eshop),C(r.jazyk),C(r.jm),C(r.firma),C(r.ulice),C(r.mesto),C(r.psc),C(r.zeme)],
+        select:()=>this.setState({euSel:r.i}),enter:()=>this.setState({euHov:r.i}),leave:()=>this.setState(s=>s.euHov===r.i?{euHov:null}:null)};});
+    const d=EU[st.euSel]||EU[0];
+    return {euCols:EUCOLS.map(([title,w,flt])=>({title,w:w+"px",flt})),euRows,euNoRows:!euRows.length,euCnt:vis.length,euQ:st.euQ,
+      onEuQ:(e)=>this.setState({euQ:e.target.value}),clearEuQ:()=>this.setState({euQ:""}),euClearColor:st.euQ?"var(--z-text,#F4F1EA)":"var(--z-dis,#4E545C)",
+      eu:{related:d.jm||"RelatedUser",regJm:"",dodJm:"",firma:d.firma,ulice:d.ulice,mesto:d.mesto,psc:d.psc}};}
+  renderVals(){
+    const st=this.state,th=this.theme(),tab=this.tab(),set=(o)=>this.setState(o,()=>this.save());
+    const TABS=[["uvod","Úvod","home",1],["zasoby","Zásoby","package",1],["ptd","Pokročilá transformace dat","arrows-exchange",0],["eu","Eshop uživatelé","users",1],["na","Nastavení aplikace","settings",1],["us","Uživatelské stránky","file-text",0],["nv","Nastavení vyhledávání","search",0]];
+    const lightT=th==="light",fr=this.ui()==="fresh";
+    const actBg=id=>id==="na"||(fr&&(id==="zasoby"||id==="eu"))?(lightT?"#F3F1EC":"#0A0C0F"):"var(--z-bg,#0A0C0F)";
+    const tabs=TABS.map(([id,label,icon,live])=>{const act=tab===id,hov=st.tabHov===id&&!act;const uv=act&&id==="uvod";const sb="#0D1014";const ab=uv?sb:actBg(id);
+      return {label,icon,closable:id!=="uvod",noClose:id==="uvod",title:live?label:label+" – připravujeme",cursor:live&&!act?"pointer":"default",
+        bg:uv?sb:id==="uvod"?(hov?"#1A2028":"#0D1014"):act?ab:hov?"#D9D4CA":"#E9E5DD",bb:act?ab:"var(--z-line,#2A3038)",
+        color:id==="uvod"?"#F4F1EA":act?"var(--z-text,#F4F1EA)":"#15181C",
+        ic:act?"#E5372F":id==="uvod"?"#C9C5BC":"#62676E",bd:id==="uvod"||act?"var(--z-line,#2A3038)":"#C9C3B7",xc:id==="uvod"||act?"var(--z-mut,#8E939A)":"#62676E",fw:act?600:500,sh:act?"inset 0 2px 0 #E5372F":"none",
+        go:()=>{if(live&&!act)set({tab:id});},enter:()=>this.setState({tabHov:id}),leave:()=>this.setState({tabHov:null}),close:(e)=>e.stopPropagation()};});
+    const q=st.q.trim().toLowerCase();
+    const vis=ROWS.filter(r=>{if(!q)return true;const m=[r.name,r.ean,r.kod,r.obj,String(r.id)].some(s=>s.toLowerCase().includes(q));return st.ck.invert?!m:m;});
+    const rows=vis.map((r,k)=>{const sel=st.sel===r.n,hov=st.hov===r.n&&!sel;
+      const b0=r.t==="v"?"var(--z-var,#2F2A16)":r.t==="m"?"var(--z-mst,#1A3B26)":"var(--z-panel,#11151A)";
+      const base=sel?"var(--z-sel,#4B2321)":k%2?`color-mix(in oklab, ${b0} 94%, var(--z-text,#F4F1EA))`:b0;
+      const C=(v,al="left",ff="inherit",c="inherit")=>({v,al,ff,c,bg:"transparent"});
+      const ean=C(r.ean);if(sel){ean.bg="#E5372F";ean.c="#FFFFFF";}
+      return {num:sel?"▸ "+r.n:r.n,numColor:sel?"var(--z-red,#FF6259)":"var(--z-mut,#8E939A)",numFw:sel?700:400,numSh:sel?"inset 3px 0 0 #E5372F":"none",
+        bg:hov?`color-mix(in oklab, ${base} 90%, var(--z-text,#F4F1EA))`:base,
+        cells:[C(fid(r.id),"right"),C(fid(r.idv),"right"),C(r.flags,"left","'Geist Mono',monospace","var(--z-mut,#8E939A)"),C(r.name),C(r.name.slice(0,40)),C("0"),ean,C(r.obj),C(""),C(r.kod),C(""),C(fmt(r.nak*1.6),"right"),C(fmt(r.nak),"right"),C(String((r.id*13)%240),"right"),C(String((r.id*7)%12),"right"),C((r.id*13)%240>0?"Skladem":"Na objednávku","left","inherit",(r.id*13)%240>0?"var(--z-green,#7FD3A4)":"var(--z-mut,#8E939A)"),C(fmt(((r.id*11)%900)/100+0.1,2),"right"),C(r.t==="v"||r.t==="m"?"ALSAP s.r.o.":"TEMA PROFIL"),C(((r.id%27)+1)+". "+((r.id%9)+1)+". 2026 "+String(8+r.id%10).padStart(2,"0")+":"+String(r.id%60).padStart(2,"0"),"left","'Geist Mono',monospace","var(--z-text2,#C9C5BC)")],
+        select:()=>this.setState({sel:r.n}),enter:()=>this.setState({hov:r.n}),leave:()=>this.setState(s=>s.hov===r.n?{hov:null}:null)};});
+    const sr=ROWS.find(r=>r.n===st.sel)||ROWS[8];
+    const pro=sr.nak*1.6;
+    const d={kod:sr.kod,ean:sr.ean||sr.kod,obj:sr.obj,pohoda:sr.name.slice(0,40),pohodaLen:Math.min(sr.name.length,75),text:sr.text,nak:fmt(sr.nak),proB:fmt(pro,1),proS:fmt(pro*1.21,1),parB:fmt(pro/25.1,3),parS:fmt(pro/25.1*1.21,3)};
+    const tree=[];const tn=(o)=>tree.push(o);
+    tn({d:0,label:"Všechny sklady",icon:"building-warehouse",kids:1,open:st.openRoot,fw:700,toggle:()=>this.setState({openRoot:!st.openRoot})});
+    if(st.openRoot)SKLADY.forEach(s=>{const kd=s===KD;tn({d:1,dim:!kd,label:s,icon:"building-warehouse",kids:1,open:kd&&st.openKD,fw:kd?700:500,color:kd?null:"var(--z-text2,#C9C5BC)",toggle:kd?()=>this.setState({openKD:!st.openKD}):null});
+      if(kd&&st.openKD)CATS.filter(c=>!st.catQ||c[0].toLowerCase().includes(st.catQ.trim().toLowerCase())).forEach(([n,k,m,sp])=>tn({d:2,sp,m,label:n,cat:1,icon:sp?"tag":"folder",kids:k,fw:600,color:sp?"var(--z-red,#FF6259)":m?"var(--z-mut,#8E939A)":null,ic:sp?"var(--z-red,#FF6259)":"var(--z-fold,#D9A53C)"}));});
+    const treeV=tree.map(n=>{const sel=n.cat&&st.cat===n.label;return {label:n.label,icon:n.icon,pad:(6+n.d*16)+"px",chevVis:n.kids?"visible":"hidden",rot:n.open?"90deg":"0deg",
+      fw:n.fw,color:n.color||"var(--z-text,#F4F1EA)",ic:n.ic||"var(--z-mut,#8E939A)",bg:sel?"var(--z-sel,#4B2321)":"transparent",
+      toggle:(e)=>{e.stopPropagation();n.toggle&&n.toggle();},select:()=>{if(n.cat)this.setState({cat:n.label});else n.toggle&&n.toggle();}};});
+    const ck={};Object.keys(st.ck).forEach(k=>{const on=!!st.ck[k];ck[k]={on,bg:on?"#E5372F":"var(--z-in,#0D1014)",bd:on?"#E5372F":"var(--z-line3,#3A414B)",t:()=>this.setState(s=>({ck:{...s.ck,[k]:!s.ck[k]}}))};});
+    const radio=(opts,key)=>opts.map(([v,l])=>({label:l,dot:st[key]===v?"#E5372F":"transparent",select:()=>this.setState({[key]:v})}));
+    const MENU=[["Soubor"],["Test error"],["Test progress"],["Test log"],["Sklad","zasoby"],["Uživatelé","eu"],["Nastavení","na"],["Internetový obchod"],["Statistiky"],["O programu"],["Debug"],["Extension points"],["GC"],["dbname"],["CLEAR"],["Nápověda"]];
+    const menu=MENU.map(([label,to])=>({label,c:to&&tab===to?"#15181C":"#3F434A",go:()=>{if(to)set({tab:to});}}));
+    const out={menu,theme:tab==="uvod"?"dark":th,tabs,asideW:st.asideW+"px",dragBg:st.drag?"linear-gradient(90deg,transparent 3px,#E5372F 3px,#E5372F 5px,transparent 5px)":"transparent",
+      startDrag:(e)=>{e.preventDefault();const x0=e.clientX,w0=st.asideW;this.setState({drag:true});document.body.style.cursor="col-resize";document.body.style.userSelect="none";
+        const mv=(ev)=>this.setState({asideW:Math.max(240,Math.min(720,w0+ev.clientX-x0))});
+        const up=()=>{window.removeEventListener("mousemove",mv);window.removeEventListener("mouseup",up);document.body.style.cursor="";document.body.style.userSelect="";this.setState({drag:false},()=>this.save());};
+        window.addEventListener("mousemove",mv);window.addEventListener("mouseup",up);},uvodDisp:tab==="uvod"?"block":"none",zasDisp:tab==="zasoby"&&this.ui()==="old"?"grid":"none",euDisp:tab==="eu"&&this.ui()==="old"?"block":"none",fzDisp:tab==="zasoby"&&this.ui()==="fresh"?"block":"none",feDisp:tab==="eu"&&this.ui()==="fresh"?"block":"none",naDisp:tab==="na"?"block":"none",...this.euVals(),
+      setTheme:(v)=>set({theme:v}),
+      themeOpts:[["dark","moon","Tmavý"],["light","sun","Světlý"]].map(([v,i,l])=>({icon:i,label:l,bg:th===v?"#FFFFFF":"transparent",color:th===v?"#15181C":"#62676E",select:()=>set({theme:v})})),
+      langs:["CZ","EN","DE","SK","HU","PL","EE","FI","LV"].map(c=>({code:c,flagBg:"url(./assets/flags/"+c.toLowerCase()+".png) center/16px no-repeat",op:st.lang===c?1:.75,color:st.lang===c?"var(--z-red,#FF6259)":"var(--z-mut,#8E939A)",bg:st.lang===c?"var(--z-panel,#11151A)":"transparent",sh:st.lang===c?"inset 0 2px 0 #E5372F":"none",fBg:st.lang===c?"rgba(229,55,47,0.14)":"var(--z-btn,#161A20)",fBd:st.lang===c?"rgba(229,55,47,0.55)":"var(--z-line,#2A3038)",fC:st.lang===c?"var(--z-text,#F4F1EA)":"var(--z-mut,#8E939A)",fSh:st.lang===c?"inset 0 0 0 1px rgba(229,55,47,0.25)":"none",select:()=>this.setState({lang:c})})),
+      langCode:st.lang,langFlagBg:"url(./assets/flags/"+st.lang.toLowerCase()+".png) center/16px no-repeat",zobrOpts:radio([["nazvy","Názvy členění"],["vetve","Větve"]],"zobr"),lokOpts:radio([["nemenit","neměnit"],["doplnit","doplnit"],["prepsat","přepsat"]],"lok"),
+      tree:treeV,ck,q:st.q,onQ:(e)=>this.setState({q:e.target.value}),clearQ:()=>this.setState({q:""}),clearColor:st.q?"var(--z-text,#F4F1EA)":"var(--z-dis,#4E545C)",
+      catPath:"Sklad KD\\"+st.cat,placePath:"[hlavní karta] - Sklad KD\\"+st.cat,cntLabel:(q?vis.length:5461)+"/5461",selKind:sr.t==="m"?"master":sr.t==="v"?"varianta":"produkt",
+      cols:COLS.map(([title,w,al,flt])=>({title,w:w+"px",flt})),rows,noRows:rows.length===0,d,
+      akce:[["file","Nová karta"],["copy","Kopírovat kartu"],["pencil","Upravit"],["circle-x","Smazat","#E5372F",18],["archive","Archivovat"],["world","Zobrazit na eshopu"],["eye","Náhled"],["photo","Obrázky"]].map(([icon,title,color,size])=>({icon,title,size:size||15,color:color||"var(--z-text2,#C9C5BC)"})),
+      priceRows:[["Partner € [EUR]",25.1,0.58,59.12],["Velkoobchod",1,12,48.2],["Eshop SK € [EUR]",24.6,0,60],["Eshop HU Ft [HUF]",0.0645,0,60],["Eshop PL zł [PLN]",5.82,0,60],["Montážní firmy",1,8,52.4]].map(([name,k,sl,m])=>{const b=pro*(1-sl/100)/k;const dd=k>20?3:k<1?0:2;return {name,b:fmt(b,dd),s:fmt(b*1.21,dd),sl:fmt(sl)+" %",m:fmt(m)+" %"};}),e1:["ALU-SV číslo:","ALU-SV název:","Certifikace:","Délka profilu:","Materiál:","Povrch:","Hmotnost/m:","Barva:","Norma:"]};
+    const pseg=(opts,cur,fn)=>opts.map(([v,l,ic])=>({label:l,icon:ic,bg:cur===v?"#232931":"transparent",color:cur===v?"#F4F1EA":"#8E939A",select:()=>fn(v)}));
+    const pnl={pnlShow:tab!=="uvod",pnlOpen:tab!=="uvod"&&!!st.pnlOpen,pnlClosed:tab!=="uvod"&&!st.pnlOpen,openPnl:()=>this.setState({pnlOpen:true}),closePnl:()=>this.setState({pnlOpen:false}),
+      pnlUi:pseg([["old","Old","layout-grid"],["fresh","Fresh","sparkles"]],this.ui(),v=>set({ui:v})),pnlTheme:pseg([["dark","Tmavý","moon"],["light","Světlý","sun"]],th,v=>set({theme:v}))};
+    return {...out,...pnl,...this.freshVals(out,{vis,sr,d,pro,tree,ck,q,th,set})};
+  }
+  freshVals(o,{vis,sr,d,pro,tree,ck,q,th,set}){
+    const st=this.state,A="var(--f-seg,#232931)",TX="var(--f-tx,#F4F1EA)",MU="var(--f-mut,#8E939A)",M2="var(--f-mut2,#6E747C)",RED="var(--f-red,#FF6259)";
+    const seg=(opts,cur,fn)=>opts.map(([v,l,c,ic])=>({label:l,icon:ic||"",cnt:c==null?"":String(c),bg:cur===v?A:"transparent",color:cur===v?TX:MU,sh:cur===v?"0 1px 2px rgba(0,0,0,0.22)":"none",select:()=>fn(v)}));
+    const SW=(k,label)=>({label,track:st.ck[k]?"#E5372F":"var(--f-bd3,rgba(236,232,222,0.18))",knob:st.ck[k]?"14px":"2px",t:ck[k].t});
+    const chip=(k,label,icon)=>{const on=!!st.ck[k];return {label,icon,bg:on?"rgba(229,55,47,0.12)":"transparent",bd:on?"rgba(229,55,47,0.42)":"var(--f-bd2,rgba(236,232,222,0.12))",c:on?RED:"var(--f-tx2,#D9D5CC)",t:ck[k].t};};
+    const TY={v:["Varianta","rgba(240,162,74,0.14)","var(--f-amb,#F0A24A)"],m:["Master","rgba(70,192,127,0.13)","var(--f-grn,#7FD3A4)"],n:["Produkt","var(--f-chip,#1A1F26)",MU]};
+    const dodOf=r=>r.t==="v"||r.t==="m"?"ALSAP s.r.o.":"TEMA PROFIL";
+    const cnt={n:0,m:0,v:0};vis.forEach(r=>cnt[r.t]++);
+    const zt=st.zType,fvis=zt==="all"?vis:vis.filter(r=>r.t===zt);
+    const fzRows=fvis.map((r,k)=>{const sel=st.sel===r.n,stock=(r.id*13)%240,ty=TY[r.t];
+      return {kod:r.kod,name:r.name,sub:(r.obj?"Obj. "+r.obj+" · ":"")+"ID "+fid(r.id)+" · "+dodOf(r),ean:r.ean||"—",ty:ty[0],tyBg:ty[1],tyC:ty[2],stock:String(stock),stockC:stock>0?TX:M2,
+        avail:stock>0?"Skladem":"Na objednávku",avBg:stock>0?"rgba(70,192,127,0.13)":"var(--f-chip,#1A1F26)",avC:stock>0?"var(--f-grn,#7FD3A4)":MU,pro:fmt(r.nak*1.6)+" Kč",nak:fmt(r.nak),
+        bg:sel?"rgba(229,55,47,0.09)":k%2?"var(--f-zebra,rgba(236,232,222,0.022))":"transparent",ring:sel?"inset 0 0 0 1px rgba(229,55,47,0.32)":"none",select:()=>this.setState({sel:r.n,zDetOpen:true})};});
+    const sty=TY[sr.t],ss=(sr.id*13)%240;
+    const F=(label,val,x={})=>({label,txt:val||x.ph||"",c:val?TX:M2,mono:x.mono?"'Geist Mono',monospace":"inherit",chev:!!x.chev,cnt:x.cnt||"",span:x.span?"span 2":"auto"});
+    const skIcon=l=>/^Konsigna/.test(l)?"truck":/^Prodejna/.test(l)?"building-store":/výroba|elektroniky/.test(l)?"box":"building-warehouse";
+    const hsh=s=>[...s].reduce((a,c)=>(a*31+c.charCodeAt(0))%9973,7);
+    const fzTree=tree.map(n=>{const sel=n.cat&&st.cat===n.label;
+      const icon=n.d===0?"stack-2":n.d===1?skIcon(n.label):n.sp?"tag":"folder";
+      const icBg=n.d===0?"rgba(229,55,47,0.14)":n.d===1?"var(--f-chip,#1A1F26)":"transparent";
+      const ic=sel||n.sp||n.d===0?RED:n.d===1?"var(--f-tx2,#D9D5CC)":n.m?M2:"var(--f-amb,#F0A24A)";
+      const count=n.d===2?String(20+hsh(n.label)%380):n.d===1?(n.label===KD?"5 461":String(hsh(n.label)%900)):"";
+      return {label:n.label,icon,icBg,icBox:n.d<2?"22px":"18px",guides:Array.from({length:n.d},(_,i)=>({left:(15+i*18)+"px"})),pad:(4+n.d*18)+"px",chevVis:n.kids?"visible":"hidden",rot:n.open?"90deg":"0deg",fw:sel?600:n.d===0?700:n.d===1&&!n.dim?600:500,
+      count,color:sel||n.sp?RED:n.m?M2:n.dim?"var(--f-tx2,#D9D5CC)":TX,ic,bg:sel?"rgba(229,55,47,0.1)":"transparent",h:n.d<2?"32px":"28px",
+      toggle:(e)=>{e.stopPropagation();n.toggle&&n.toggle();},select:()=>{if(n.cat)this.setState({cat:n.label});else n.toggle&&n.toggle();}};});
+    const ESH=["EshopA cz","EshopA hu","EshopD ee"];
+    const blk=r=>st.euBlk[r.i]??(r.i%9===4);
+    const eq=st.euQ.trim().toLowerCase();
+    const base=EU.filter(r=>{if(!eq)return true;const m=[r.login,r.mail,r.pu,r.firma].some(s=>s.toLowerCase().includes(eq));return st.ck.euInv?!m:m;});
+    const bys=st.euShop==="all"?base:base.filter(r=>r.eshop===st.euShop);
+    const nb=bys.filter(blk).length;
+    const fev=bys.filter(r=>st.euStat==="all"?true:st.euStat==="blk"?blk(r):!blk(r));
+    const ini=s=>(s.replace(/s\.r\.o\.|p\.o\.|Ing\.|Bc\.|,/gi,"").trim().split(/\s+/).filter(Boolean).slice(0,2).map(w=>w[0]).join("")||"?").toUpperCase();
+    const STP=b=>b?["Zablokován","rgba(229,55,47,0.12)",RED]:["Aktivní","rgba(70,192,127,0.13)","var(--f-grn,#7FD3A4)"];
+    const feRows=fev.map((r,k)=>{const sel=st.euSel===r.i,[stat,stBg,stC]=STP(blk(r));
+      return {ini:ini(r.firma),firma:r.firma,login:r.login,mail:r.mail,tel:r.tel||"—",ico:r.ico,dic:r.dic||"bez DIČ",shop:r.eshop,idp:r.idp.toLocaleString("cs-CZ"),stat,stBg,stC,
+        bg:sel?"rgba(229,55,47,0.09)":k%2?"var(--f-zebra,rgba(236,232,222,0.022))":"transparent",ring:sel?"inset 0 0 0 1px rgba(229,55,47,0.32)":"none",select:()=>this.setState({euSel:r.i,euPw:""})};});
+    const e=EU[st.euSel]||EU[0],eb=blk(e),[es,esBg,esC]=STP(eb);
+    const KV=(k,v,mono)=>({k,v:v||"—",c:v?TX:M2,ff:mono?"'Geist Mono',monospace":"inherit"});
+    return {
+      fzCat:st.cat,fzCols:st.zDetOpen?"268px minmax(0,1fr) 452px":"268px minmax(0,1fr)",fzSub:fvis.length.toLocaleString("cs-CZ")+(q?" nalezeno":" z 5 461")+" · 73 podkategorií",
+      fzTypes:seg([["all","Vše",vis.length],["n","Produkty",cnt.n],["m","Master",cnt.m],["v","Varianty",cnt.v]],zt,v=>this.setState({zType:v})),
+      fzZobr:seg([["nazvy","Názvy členění"],["vetve","Větve"]],st.zobr,v=>this.setState({zobr:v})),
+      catQ:st.catQ,onCatQ:(ev)=>this.setState({catQ:ev.target.value}),fzTree,fzCatSw:[SW("eshop","Nahrávat na eshop"),SW("skryta","Skrytá")],
+      fzHasQ:!!st.q,fzChips:[chip("jenHl","Jen z hlavní kategorie","folder"),chip("invert","Invertovat","arrows-exchange")],
+      fzMenu:st.fzMenu,fzMenuT:()=>this.setState(s=>({fzMenu:!s.fzMenu})),
+      fzMenuItems:[["pencil","Editovat filtr"],["filter","SQL filtr"],["list-details","Uložené filtry"],["layout-grid","Master / Varianty"],["download","Import příznaky"],["tag","Vlastní příznaky"]].map(([icon,label])=>({icon,label})),
+      fzRows,noRows:!fzRows.length,fzDetOpen:st.zDetOpen,fzClose:()=>this.setState({zDetOpen:false}),
+      fzD:{ty:sty[0],tyBg:sty[1],tyC:sty[2],kod:sr.kod,name:sr.name,meta:"EAN "+d.ean+" · "+dodOf(sr)+" · ID "+fid(sr.id),
+        kpis:[{l:"Skladem",v:ss+" ks",s:"rezervováno "+((sr.id*7)%12)},{l:"Prodejní s DPH",v:d.proS+" Kč",s:d.proB+" bez DPH"},{l:"Marže",v:"60,00 %",s:"nákup "+d.nak+" Kč"}]},
+      fzActs:[["world","Zobrazit na eshopu"],["eye","Náhled"],["photo","Obrázky"],["copy","Kopírovat kartu"],["archive","Archivovat"],["trash","Smazat",RED],["x","Zavřít detail"]].map(([icon,title,c],i)=>({icon,title,color:c||MU,tip:st.actTip===i,sep:icon==="x",tipOn:()=>this.setState({actTip:i}),tipOff:()=>this.setState({actTip:null}),click:icon==="x"?()=>this.setState({zDetOpen:false,actTip:null}):null})),
+      fzTabs:seg([["hl","Hlavní",null,"file"],["ceny","Ceny",null,"cash"],["par","Parametry",null,"list-details"]],st.zDet,v=>this.setState({zDet:v})),
+      fzTabHl:st.zDet==="hl",fzTabCeny:st.zDet==="ceny",fzTabPar:st.zDet==="par",
+      fzLangs:o.langs.map(l=>{const on=st.lang===l.code;return {code:l.code,flagBg:l.flagBg,select:l.select,bd:on?"rgba(229,55,47,0.5)":"var(--f-bd2,rgba(236,232,222,0.12))",bg:on?"rgba(229,55,47,0.1)":"transparent",c:on?TX:MU};}),
+      fzGroups:[{title:"Identifikace",fields:[F("Typ karty","karta",{chev:1}),F("Kód",d.kod,{mono:1}),F("Objednací kód",d.obj,{mono:1,ph:"—"}),F("Čárový kód",d.ean,{mono:1})]},
+        {title:"Názvy",fields:[F("Pohoda název",d.pohoda,{span:1,cnt:d.pohodaLen+" znaků"}),F("Dlouhý název","",{span:1,ph:"Doplňte dlouhý název",cnt:"0 znaků"}),F("Krátký název","",{span:1,ph:"Doplňte krátký název",cnt:"0 znaků"}),F("Text (P/N)",d.text,{span:1,ph:"—"})]},
+        {title:"Dodávka",fields:[F("Dodavatel",dodOf(sr),{chev:1}),F("Výrobce","",{chev:1,ph:"Nevybráno"}),F("Kód dostupnosti","",{chev:1,ph:"Nevybráno"}),F("Záruka","0 měsíců",{chev:1}),F("Objednat","0")]}],
+      fzLok:seg([["nemenit","Neměnit"],["doplnit","Doplnit"],["prepsat","Přepsat"]],st.lok,v=>this.setState({lok:v})),
+      fzSw:[SW("internet","Internet"),SW("odbyt","Odbyt"),SW("vc","Výrobní čísla"),SW("sarze","Šarže"),SW("sablona","Šablona"),SW("archiv","Archív"),SW("feed","Vynechat z feedů")],
+      fzPriceSw:[SW("neakt","Neaktualizovat ceny při importu")],
+      fzPrices:[{name:"Nákupní",b:d.nak,s:d.nak,sl:"—",m:"—",c:TX},{name:"Prodejní",b:d.proB,s:d.proS,sl:"37,50 %",m:"60,00 %",c:"var(--f-grn,#7FD3A4)"},...o.priceRows.map(p=>({name:p.name,b:p.b,s:p.s,sl:p.sl,m:p.m,c:"var(--f-tx2,#D9D5CC)"}))],
+      fzE1:o.e1.map(x=>x.replace(":","")),
+      feSub:fev.length+" z "+EU.length+" · "+nb+" zablokováno",feHasQ:!!st.euQ,
+      feStat:seg([["all","Vše",bys.length],["act","Aktivní",bys.length-nb],["blk","Zablokovaní",nb]],st.euStat,v=>this.setState({euStat:v})),
+      feShops:seg([["all","Všechny e-shopy"],...ESH.map(s=>[s,s])],st.euShop,v=>this.setState({euShop:v})),
+      feChips:[chip("euInv","Invertovat","arrows-exchange")],feRows,feNoRows:!feRows.length,
+      feReset:()=>this.setState(s=>({euQ:"",euStat:"all",euShop:"all",ck:{...s.ck,euInv:false}})),
+      feMenu:st.euMenu,feMenuT:()=>this.setState(s=>({euMenu:!s.euMenu})),feMenuHead:"Pro "+fev.length+" vyfiltrovaných",
+      feMenuItems:[["key","Vygenerovat eshop přístupy","var(--f-tx2,#D9D5CC)"],["lock","Hromadně zablokovat vyfiltrované","var(--f-tx2,#D9D5CC)"],["trash","Hromadně smazat vyfiltrované",RED]].map(([icon,label,c])=>({icon,label,c})),
+      fe:{ini:ini(e.firma),firma:e.firma,jm:e.jm||"Bez kontaktní osoby",login:e.login,stat:es,stBg:esBg,stC:esC,related:e.jm||"RelatedUser",
+        groups:[{title:"Kontakt",icon:"mail",rows:[KV("E-mail",e.mail),KV("Telefon",e.tel),KV("Mobil",e.mob),KV("Fax",e.fax),KV("Kontaktní osoba",e.jm)]},
+          {title:"Firma",icon:"building",rows:[KV("Pohoda uživatel",e.pu),KV("ID Pohoda",String(e.idp),1),KV("IČO",e.ico,1),KV("DIČ",e.dic,1),KV("Účet",e.ucet?e.ucet+"/"+e.kb:"",1),KV("Typ cen",e.typ),KV("E-shop",e.eshop),KV("Jazyk",e.jazyk)]},
+          {title:"Registrační adresa",icon:"map-pin",rows:[KV("Ulice",e.ulice),KV("Město",e.mesto),KV("PSČ",e.psc,1),KV("Země",e.zeme.toUpperCase()),KV("Dodací adresa","Shodná s registrační")]}]},
+      euPw:st.euPw,onEuPw:(ev)=>this.setState({euPw:ev.target.value}),fePwC:st.euPw?TX:M2,fePwCur:st.euPw?"pointer":"default",
+      feAdm:SW("euAdmin"),
+      feBlk:()=>this.setState(s=>({euBlk:{...s.euBlk,[e.i]:!eb}})),feBlkLabel:eb?"Odblokovat":"Zablokovat",feBlkIcon:eb?"check":"lock",feBlkC:eb?"var(--f-grn,#7FD3A4)":RED,feBlkBd:eb?"rgba(70,192,127,0.35)":"rgba(229,55,47,0.35)",
+      naUi:[["old","Old","Stávající provedení","Husté formuláře a tabulky s mřížkou, všechny ovládací prvky viditelné najednou."],["fresh","Fresh","Moderní UI a UX","Stejné rozložení jako Old – vše na svém místě, jen v moderním vzhledu Úvodu."]].map(([v,title,tag,desc])=>{const on=this.ui()===v;
+        return {title,tag,desc,isOld:v==="old",isFresh:v==="fresh",bd:on?"#E5372F":"var(--f-bd2,rgba(236,232,222,0.12))",bg:on?"rgba(229,55,47,0.06)":"var(--f-sunk,#0D1014)",ring:on?"#E5372F":"var(--f-bd3,rgba(236,232,222,0.24))",dot:on?"#E5372F":"transparent",select:()=>set({ui:v})};}),
+      naTheme:seg([["dark","Tmavý",null,"moon"],["light","Světlý",null,"sun"]],th,v=>set({theme:v}))
+    };
+  }
+}
+</script>
+</body>
+</html>
