@@ -59,14 +59,6 @@ a:hover{color:#FF6259}
       </div>
     </sc-for>
     <div style="flex:1"></div>
-    <div style="flex-shrink:0;display:flex;align-items:center;gap:8px;padding:0 10px 0 12px;margin-bottom:4px;border-radius:6px;background:#F0EDE6;border:1px solid #C9C3B7">
-      <span style="color:#62676E;font-size:11.5px">Režim</span>
-      <div style="display:flex;border:1px solid #C9C3B7;border-radius:4px;overflow:hidden">
-        <sc-for list="{{ themeOpts }}" as="o" hint-placeholder-count="2">
-          <button onClick="{{ o.select }}" style="all:unset;cursor:pointer;display:flex;align-items:center;gap:6px;height:24px;padding:0 10px;font-size:12px;font-weight:500;background:{{ o.bg }};color:{{ o.color }}" style-hover="color:#15181C"><bs-icon variant="filled" name="{{ o.icon }}" level="1" size="13" style="display:flex"></bs-icon>{{ o.label }}</button>
-        </sc-for>
-      </div>
-    </div>
   </nav>
   </div>
 
