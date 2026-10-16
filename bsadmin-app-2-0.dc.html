@@ -854,7 +854,7 @@ a:hover{color:#FF6259}
   </sc-if>
 </div>
 </x-dc>
-<script type="text/x-dc" data-dc-script data-props="{&quot;theme&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;dark&quot;,&quot;light&quot;],&quot;default&quot;:&quot;dark&quot;,&quot;tsType&quot;:&quot;'dark'|'light'&quot;},&quot;startTab&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;uvod&quot;,&quot;zasoby&quot;,&quot;eu&quot;,&quot;na&quot;],&quot;default&quot;:&quot;uvod&quot;,&quot;tsType&quot;:&quot;'uvod'|'zasoby'|'eu'|'na'&quot;}}">
+<script type="text/x-dc" data-dc-script data-props="{&quot;theme&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;dark&quot;,&quot;light&quot;],&quot;default&quot;:&quot;light&quot;,&quot;tsType&quot;:&quot;'dark'|'light'&quot;},&quot;startTab&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;uvod&quot;,&quot;zasoby&quot;,&quot;eu&quot;,&quot;na&quot;],&quot;default&quot;:&quot;uvod&quot;,&quot;tsType&quot;:&quot;'uvod'|'zasoby'|'eu'|'na'&quot;}}">
 const SKLADY=["EVIDENCE (01_EVID)","KINDERKAMIONACI (98)","KINDERKAMIONACI (99)","Konsignační sklad AUTO-TECH (05K Auto-t)","Konsignační sklad Box-Auto (05K Box-Au)","Konsignační sklad KOVO-HOLUB (05K HOLUB)","Konsignační sklad Movana (05K Movana)","Konsignační sklad MULTITEC (05K Multit)","Konsignační sklad Redos (05K REDOS)","Konsignační sklad Škrobanek (05K Skroba)","Konsignační sklad ZLT (05K ZLT)","KOOPERACE (09 koopera)","Nezařazeno 2022 (Nezařaz.II)","Prodejna KD (00_Prodejn)","Sklad BOYRIVEN výroba (01_BOYRIVE)","sklad elektroniky (01EL)","Sklad JTB výroba (01_JTB)","Sklad KD (01)"];
 const KD="Sklad KD (01)";
 const CATS=[["Akce",1,0,1],["ALSAP ART",0,1],["ALSAP výrobky",1],["Bazar",0,1],["Blatníky bedny",1],["Bonus klub ALSAP",1],["Dům a zahrada",1],["Elekro - kabely, oka",0,1],["Konfigurátory",0],["LED / osvětlení",1],["Novinky",0],["Plachtové konstrukce",1],["Příslušenství",1],["Sklápěče",1],["Skříně",1],["Smart ALSAP",0],["Spojovací materiál",1]];
@@ -874,9 +874,9 @@ class Component extends DCLogic {
   state={...{tab:null,theme:null,asideW:340},...load(),drag:false,tabHov:null,sel:5200,hov:null,q:"",lang:"CZ",zobr:"nazvy",lok:"nemenit",openRoot:true,openKD:true,cat:"Plachtové konstrukce",
     ck:{eshop:true,skryta:false,jenHl:false,invert:false,vc:false,sarze:false,archiv:false,sablona:false,internet:true,feed:false,odbyt:true,neakt:false,euInv:false,euAdmin:false},euSel:0,euHov:null,euQ:"",zType:"all",zDet:"hl",zDetOpen:true,fzMenu:false,catQ:"",euStat:"all",euShop:"all",euBlk:{},euMenu:false,euPw:""};
   save(){try{localStorage.setItem(LS,JSON.stringify({tab:this.state.tab,theme:this.state.theme,asideW:this.state.asideW,ui:this.state.ui}))}catch(e){}}
-  theme(){return this.state.theme??this.props.theme??"dark";}
+  theme(){return this.state.theme??this.props.theme??"light";}
   tab(){return this.state.tab??this.props.startTab??"uvod";}
-  ui(){return this.state.ui??"fresh";}
+  ui(){return this.state.ui??"old";}
   componentDidUpdate(pp){if(pp.theme!==this.props.theme&&this.props.theme)this.setState({theme:this.props.theme},()=>this.save());if(pp.startTab!==this.props.startTab&&this.props.startTab)this.setState({tab:this.props.startTab},()=>this.save());}
   euVals(){const st=this.state,q=st.euQ.trim().toLowerCase();
     const vis=EU.filter(r=>{if(!q)return true;const m=[r.login,r.mail,r.pu,r.firma].some(s=>s.toLowerCase().includes(q));return st.ck.euInv?!m:m;});
