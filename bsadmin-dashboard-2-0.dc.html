@@ -805,36 +805,6 @@ main[data-theme="light"],aside[data-theme="light"]{--c-logo-d:none;--c-logo-l:bl
         </sc-for>
       </div>
       <button onClick="{{ resetView }}" title="Vrátí Novinky a fronty úloh do sidebaru a obnoví 4 hlavní karty ve výchozím pořadí a velikosti" style="all:unset;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:7px;height:32px;border-radius:4px 9px 9px 9px;corner-shape:squircle;border:1px solid rgba(229,55,47,0.4);background:rgba(229,55,47,0.1);color:#F4F1EA;font-size:12px;font-weight:600" style-hover="background:rgba(229,55,47,0.22)"><bs-icon name="refresh" level="1" size="14" style="display:flex"></bs-icon>Reset zobrazení</button>
-      <div style="height:1px;background:rgba(236,232,222,0.07);margin:6px 0 4px"></div>
-      <span style="font-size:11px;font-weight:500;color:#6E747C;letter-spacing:0.06em;text-transform:uppercase;padding:0 2px">Hloubka · elevace</span>
-      <div style="display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:3px;padding:3px;border-radius:4px 10px 10px 10px;corner-shape:squircle;background:#12161B;border:1px solid rgba(236,232,222,0.07)">
-        <sc-for list="{{ elevOpts }}" as="ev" hint-placeholder-count="4">
-          <button onClick="{{ ev.select }}" style="all:unset;cursor:pointer;display:flex;flex-direction:column;align-items:center;gap:6px;padding:8px 4px 7px;border-radius:7px;background:{{ ev.bg }};text-align:center" style-hover="background:#232931">
-            <span style="width:22px;height:14px;border-radius:4px;background:#2A3038;box-shadow:{{ ev.demo }}"></span>
-            <span style="display:flex;flex-direction:column;gap:1px"><span style="font-size:12px;font-weight:600;color:{{ ev.color }};font-family:'Geist Mono',monospace">{{ ev.code }}</span><span style="font-size:10px;color:#8E939A">{{ ev.label }}</span></span>
-          </button>
-        </sc-for>
-      </div>
-      <div style="height:1px;background:rgba(236,232,222,0.07);margin:6px 0 4px"></div>
-      <span style="font-size:11px;font-weight:500;color:#6E747C;letter-spacing:0.06em;text-transform:uppercase;padding:0 2px">Graf</span>
-      <div style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:3px;padding:3px;border-radius:4px 10px 10px 10px;corner-shape:squircle;background:#12161B;border:1px solid rgba(236,232,222,0.07)">
-        <sc-for list="{{ chartVers }}" as="cv" hint-placeholder-count="2">
-          <button onClick="{{ cv.select }}" style="all:unset;cursor:pointer;display:flex;flex-direction:column;align-items:center;gap:2px;padding:7px 4px;border-radius:7px;background:{{ cv.bg }};text-align:center" style-hover="background:#232931">
-            <span style="font-size:12px;font-weight:600;color:{{ cv.color }};font-family:'Geist Mono',monospace">{{ cv.code }}</span>
-            <span style="font-size:10.5px;color:#8E939A">{{ cv.label }}</span>
-          </button>
-        </sc-for>
-      </div>
-      <div style="height:1px;background:rgba(236,232,222,0.07);margin:6px 0 4px"></div>
-      <span style="font-size:11px;font-weight:500;color:#6E747C;letter-spacing:0.06em;text-transform:uppercase;padding:0 2px">Ikonografie</span>
-      <div style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:3px;padding:3px;border-radius:4px 10px 10px 10px;corner-shape:squircle;background:#12161B;border:1px solid rgba(236,232,222,0.07)">
-        <sc-for list="{{ iconLevels }}" as="il" hint-placeholder-count="3">
-          <button onClick="{{ il.select }}" style="all:unset;cursor:pointer;display:flex;flex-direction:column;align-items:center;gap:2px;padding:7px 4px;border-radius:7px;background:{{ il.bg }};text-align:center" style-hover="background:#232931">
-            <span style="font-size:12px;font-weight:600;color:{{ il.color }};font-family:'Geist Mono',monospace">{{ il.code }}</span>
-            <span style="font-size:10.5px;color:#8E939A">{{ il.label }}</span>
-          </button>
-        </sc-for>
-      </div>
       <div style="display:flex;align-items:center;justify-content:space-between;gap:8px;padding:2px 2px 0">
         <span style="font-size:12px;color:#D9D5CC">Styl ikon</span>
         <div style="display:flex;padding:3px;border-radius:4px 9px 9px 9px;corner-shape:squircle;background:#12161B;border:1px solid rgba(236,232,222,0.07)">
@@ -921,7 +891,7 @@ const niceStep=x=>{const p=Math.pow(10,Math.floor(Math.log10(x)));const m=x/p;re
 
 class Component extends DCLogic {
   gridRef=React.createRef();
-  state={mv:(()=>{const d={news:null,queues:null,stack:null};try{const v=JSON.parse(localStorage.getItem("bsadmin-moved"));if(v)return {...d,...v};const n=JSON.parse(localStorage.getItem("bsadmin-news"));if(typeof n==="number")d.news={o:n,t:null};else if(n&&typeof n.o==="number")d.news=n;}catch(_){}return d;})(),dragK:null,newsHover:null,perm:(()=>{try{const v=JSON.parse(localStorage.getItem("bsadmin-perm"));if(Array.isArray(v)&&v.length===4&&[0,1,2,3].every(x=>v.includes(x)))return v;}catch(_){}return [0,1,2,3];})(),spans:loadLayout(),heights:(()=>{try{const v=JSON.parse(localStorage.getItem("bsadmin-heights"));return Array.isArray(v)&&v.length===4?v:[null,null,null,null]}catch(e){return [null,null,null,null]}})(),gridW:1400,drag:-1,scen:loadPres().scen||"pokles",presOpen:loadPres().open??true,period:"Tento týden",metric:"hodnota",cmp:"prev",hover:-1,vat:true,storno:true,sort:"value",dir:-1,hideZero:false,taskTab:"react",iconLevel:loadPres().icons??3,iconStyle:loadPres().istyle||"outline",chartV:loadPres().chart||"G1",widgets:loadWidgets(),addW:false,now:Date.now(),shopPeriod:"Tento týden",shopRange:null,dpOpen:false,dpA:null,dpB:null,dpHover:null,dpView:{y:2026,m:7},elev:loadPres().elev??2};
+  state={mv:(()=>{const d={news:null,queues:null,stack:null};try{const v=JSON.parse(localStorage.getItem("bsadmin-moved"));if(v)return {...d,...v};const n=JSON.parse(localStorage.getItem("bsadmin-news"));if(typeof n==="number")d.news={o:n,t:null};else if(n&&typeof n.o==="number")d.news=n;}catch(_){}return d;})(),dragK:null,newsHover:null,perm:(()=>{try{const v=JSON.parse(localStorage.getItem("bsadmin-perm"));if(Array.isArray(v)&&v.length===4&&[0,1,2,3].every(x=>v.includes(x)))return v;}catch(_){}return [0,1,2,3];})(),spans:loadLayout(),heights:(()=>{try{const v=JSON.parse(localStorage.getItem("bsadmin-heights"));return Array.isArray(v)&&v.length===4?v:[null,null,null,null]}catch(e){return [null,null,null,null]}})(),gridW:1400,drag:-1,scen:loadPres().scen||"pokles",presOpen:loadPres().open??true,period:"Tento týden",metric:"hodnota",cmp:"prev",hover:-1,vat:true,storno:true,sort:"value",dir:-1,hideZero:false,taskTab:"react",iconLevel:2,iconStyle:loadPres().istyle||"outline",chartV:"G1",widgets:loadWidgets(),addW:false,now:Date.now(),shopPeriod:"Tento týden",shopRange:null,dpOpen:false,dpA:null,dpB:null,dpHover:null,dpView:{y:2026,m:7},elev:3};
   seriesFor(key,shape,total,len){
     if(key==="prum")return shape.slice(0,len).map((v,i)=>total*(0.95+((v*7+i*13)%10)/100));
     const s5=shape.slice(0,5).reduce((a,b)=>a+b,0);return shape.slice(0,len).map(v=>v/s5*total);
