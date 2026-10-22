@@ -60,7 +60,7 @@ a:hover{color:#FF6259}
     <span style="flex:1"></span>
     <span title="Na eshop je napojeno více účetních jednotek" style="align-self:center;flex-shrink:0;display:flex;align-items:center;gap:6px;height:20px;padding:0 9px;border-radius:10px;background:#E5372F;color:#FBF9F4;font-size:11.5px;font-weight:600;white-space:nowrap"><bs-icon name="alert-triangle" level="1" size="12"></bs-icon>Více účetních jednotek napojených na eshop</span>
   </div>
-  <nav style="height:{{ navH }};display:flex;align-items:{{ navAl }};gap:{{ navGap }};padding:{{ navPad }};background:var(--nv-bg,color-mix(in oklab, #F8F8F8, var(--tint,#808080) var(--tintp,0%)));box-shadow:inset 0 -1px 0 var(--z-line,#2A3038);overflow-x:auto;scrollbar-width:none">
+  <nav style="height:{{ navH }};display:flex;align-items:{{ navAl }};gap:{{ navGap }};padding:{{ navPad }};background:var(--nv-bg,color-mix(in oklab, #F8F8F8, var(--tint,#808080) var(--tintp,0%)));box-shadow:inset 0 -1px 0 var(--z-line,#2A3038);overflow-x:auto;overflow-y:hidden;scrollbar-width:thin;scrollbar-color:#C4C7CC transparent;overscroll-behavior-x:contain" onWheel="{{ navWheel }}">
     <sc-for list="{{ tabs }}" as="t" hint-placeholder-count="7">
       <div onClick="{{ t.go }}" onMouseEnter="{{ t.enter }}" onMouseLeave="{{ t.leave }}" title="{{ t.title }}" style="flex-shrink:0;display:flex;align-items:center;gap:8px;height:{{ t.h }};padding:0 8px 0 14px;position:relative;z-index:1;border:1px solid {{ t.bd }};border-bottom:1px solid {{ t.bb }};border-radius:{{ t.rad }};background:{{ t.bg }};color:{{ t.color }};box-shadow:{{ t.sh }};font-size:13px;font-weight:{{ t.fw }};white-space:nowrap;cursor:{{ t.cursor }};user-select:none;transition:background .12s,color .12s">
         <bs-icon variant="outline" name="{{ t.icon }}" level="1" size="20" style="display:flex;color:{{ t.ic }}"></bs-icon>
@@ -1185,13 +1185,13 @@ const EU_N=[["STORMWARE s.r.o.","Jihlava","Za Prachárnou 4962/45","586 01","CZ"
 const EU=EU_N.map((r,i)=>{const s=(i*7919+13)%100000;const sk=r[4]==="SK";const mail=["info","office","obchod","objednavky","eshop"][i%5]+"@"+r[0].toLowerCase().normalize("NFD").replace(/[^a-z]/g,"").slice(0,10)+(sk?".sk":".cz");
   return {i,login:i===0?"info@stormware.cz":(s.toString(16)+"a1d07").slice(0,8)+"-"+(1000+s%9000),idp:i===0?1:17470+(s%140),pu:r[0],tel:sk?"0"+(33+i%9)+"/"+(5000+s%4000)+" "+(10+i):"+420 "+(499+i)+" "+(100+s%900)+" "+(100+i*3),mob:i%3?"0905 "+(100+s%900)+" "+(100+i*7):"",fax:i%4===1?"0918 "+(600+i)+" "+(100+s%800):"",mail,ico:String(25000000+s*137).slice(0,8),dic:i%3===0?"20"+(23+i%3)+String(s).slice(0,6):"",kb:i===0?"0300":"",ucet:i===0?"288603707":"",typ:i%4===0&&i>0?"prodejní":"",eshop:i===0?"EshopA cz":(sk?"EshopA hu":"EshopD ee"),jazyk:"",jm:r[5],firma:r[0],ulice:r[2],mesto:r[1],psc:r[3],zeme:i%11===3?"sk":""};});
 const EUCOLS=[["Login",120,"abc"],["ID Pohoda",70,"="],["Pohoda uživatel",130,"="],["",44,""],["Telefon",110,"abc"],["Mobil",100,"abc"],["Fax",100,"abc"],["E-mail",200,"abc"],["IČO",80,"abc"],["DIČ",80,"abc"],["Kontaktní osoba",110,"abc"],["Kód banky",76,"abc"],["Zablokováno",84,"☐"],["Číslo účtu",90,"abc"],["Administrátor",92,"☐"],["Typ cen",80,"="],["Eshop",90,"abc"],["Jazyk",60,"="],["Jméno",130,"abc"],["Firma",140,"abc"],["Ulice",140,"abc"],["Město",110,"abc"],["PSČ",60,"abc"],["Země",50,"abc"]];
-const LS="bsadmin-shell";
-const load=()=>{try{return JSON.parse(localStorage.getItem(LS))||{}}catch(e){return {}}};
+const LS="bsadmin-shell-v2";
+const load=()=>{try{const s=JSON.parse(localStorage.getItem(LS))||{};return {tab:s.tab??null,asideW:s.asideW??340}}catch(e){return {}}};
 
 class Component extends DCLogic {
   state={...{tab:null,theme:null,asideW:340},...load(),drag:false,tabHov:null,sel:5200,hov:null,q:"",lang:"CZ",zobr:"nazvy",lok:"nemenit",openRoot:true,openKD:true,cat:"Plachtové konstrukce",
     ck:{eshop:true,skryta:false,jenHl:false,invert:false,vc:false,sarze:false,archiv:false,sablona:false,internet:true,feed:false,odbyt:true,neakt:false,euInv:false,euAdmin:false},euSel:0,euHov:null,euQ:"",zType:"all",zDet:"hl",zDetOpen:true,fzMenu:false,catQ:"",euStat:"all",euShop:"all",euBlk:{},euMenu:false,euPw:""};
-  save(){try{localStorage.setItem(LS,JSON.stringify({tab:this.state.tab,theme:this.state.theme,asideW:this.state.asideW,ui:this.state.ui,tabSt:this.state.tabSt,tint:this.state.tint,tbMode:this.state.tbMode,nvMode:this.state.nvMode}))}catch(e){}}
+  save(){try{localStorage.setItem(LS,JSON.stringify({tab:this.state.tab,asideW:this.state.asideW}))}catch(e){}}
   theme(){return this.state.theme??this.props.theme??"light";}
   tab(){return this.state.tab??this.props.startTab??"uvod";}
   ui(){return this.state.ui??"fresh";}
@@ -1211,7 +1211,7 @@ class Component extends DCLogic {
       eu:{related:d.jm||"RelatedUser",regJm:"",dodJm:"",firma:d.firma,ulice:d.ulice,mesto:d.mesto,psc:d.psc}};}
   renderVals(){
     const st=this.state,th=this.theme(),tab=this.tab(),set=(o)=>this.setState(o,()=>this.save());
-    const TABS=[["uvod","Úvod","home",1],["zasoby","Zásoby","package",1],["ptd","Pokročilá transformace dat","arrows-exchange",0],["eu","Eshop uživatelé","users",1],["na","Nastavení aplikace","settings",1],["us","Uživatelské stránky","file-text",0],["nv","Nastavení vyhledávání","search",0],["imp","Import","download",1]];
+    const TABS=[["uvod","Úvod","home",1],["zasoby","Zásoby","package",1],["ek","Editor kategorií","sitemap",0],["ptd","Pokročilá transformace dat","arrows-exchange",0],["ai","AI nákupní asistent","sparkles",0],["or","Ovládání robotů","player-play",0],["nr","Nastavení robotů","adjustments",0],["nau","Nastavení automatických úloh","calendar-time",0],["eu","Eshop uživatelé","users",1],["bsk","Bonusy a slevové kupóny","discount",0],["na","Nastavení aplikace","settings",1],["us","Uživatelské stránky","file-text",0],["nv","Nastavení vyhledávání","search",0],["imp","Import","download",1]];
     const lightT=th==="light",fr=this.ui()==="fresh";
     const actBg=id=>id==="na"||(fr&&(id==="zasoby"||id==="eu"))?(lightT?"color-mix(in oklab, #F1F1F2, var(--tint,#808080) var(--tintp,0%))":"#0A0C0F"):"var(--z-bg,#0A0C0F)";
     const tb=(st.tabSt??"button")==="button",nvD=(st.nvMode??"light")==="dark";
@@ -1324,7 +1324,7 @@ class Component extends DCLogic {
     const pnl={pnlShow:tab!=="uvod",pnlOpen:tab!=="uvod"&&!!st.pnlOpen,pnlClosed:tab!=="uvod"&&!st.pnlOpen,openPnl:()=>this.setState({pnlOpen:true}),closePnl:()=>this.setState({pnlOpen:false}),
       pnlUi:pseg([["old","Old","layout-grid"],["fresh","Fresh","sparkles"]],this.ui(),v=>set({ui:v})),pnlTab:pseg([["classic","Classic","layout-list"],["button","Button","layout-grid"]],st.tabSt??"button",v=>set({tabSt:v})),pnlTheme:pseg([["dark","Tmavý","moon"],["light","Světlý","sun"]],th,v=>set({theme:v})),
       pnlTb:pseg([["light","Světlá","sun"],["dark","Tmavá","moon"]],st.tbMode??"dark",v=>set({tbMode:v})),pnlNv:pseg([["light","Světlé","sun"],["dark","Tmavé","moon"]],st.nvMode??"light",v=>set({nvMode:v}))};
-    return {...out,...pnl,...pimg,...msX,...ipX,...prX,...fdX,...fdT,...flt,...vp,...sq,...imp,...this.freshVals(out,{vis,sr,d,pro,tree,ck,q,th,set})};
+    return {...out,navWheel:e=>{const el=e.currentTarget;if(Math.abs(e.deltaY)>Math.abs(e.deltaX)&&el.scrollWidth>el.clientWidth){el.scrollLeft+=e.deltaY;}},...pnl,...pimg,...msX,...ipX,...prX,...fdX,...fdT,...flt,...vp,...sq,...imp,...this.freshVals(out,{vis,sr,d,pro,tree,ck,q,th,set})};
   }
   freshVals(o,{vis,sr,d,pro,tree,ck,q,th,set}){
     const st=this.state,A="var(--f-seg,#232931)",TX="var(--f-tx,#F4F1EA)",MU="var(--f-mut,#8E939A)",M2="var(--f-mut2,#6E747C)",RED="var(--f-red,#FF6259)";
