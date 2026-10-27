@@ -226,7 +226,7 @@ a:hover{color:#FF6259}
           </thead>
           <tbody>
             <sc-for list="{{ rows }}" as="r" hint-placeholder-count="18">
-              <tr onClick="{{ r.select }}" onMouseEnter="{{ r.enter }}" onMouseLeave="{{ r.leave }}" style="background:{{ r.bg }};cursor:default;outline:{{ r.ol }};outline-offset:-1px;box-shadow:{{ r.gl }};position:relative;z-index:{{ r.z }}">
+              <tr onClick="{{ r.select }}" onMouseEnter="{{ r.enter }}" onMouseLeave="{{ r.leave }}" style="background:{{ r.bg }};color:{{ r.tc }};cursor:default;outline:{{ r.ol }};outline-offset:-1px;box-shadow:{{ r.gl }};position:relative;z-index:{{ r.z }}">
                 <td style="position:sticky;left:0;z-index:1;height:21px;padding:0 6px;text-align:right;white-space:nowrap;background:{{ r.numBg }};color:{{ r.numColor }};font-weight:{{ r.numFw }};border-right:1px solid var(--z-line,#2A3038);border-bottom:1px solid var(--z-grid,#1C2128);box-shadow:{{ r.numSh }}">{{ r.num }}</td>
                 <sc-for list="{{ r.cells }}" as="c" hint-placeholder-count="12">
                   <td style="height:21px;padding:0 6px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;text-align:{{ c.al }};font-family:{{ c.ff }};background:{{ c.bg }};color:{{ c.c }};border-right:1px solid var(--z-grid,#1C2128);border-bottom:1px solid var(--z-grid,#1C2128)">{{ c.v }}</td>
@@ -417,7 +417,7 @@ a:hover{color:#FF6259}
         </thead>
         <tbody>
           <sc-for list="{{ euRows }}" as="r" hint-placeholder-count="20">
-            <tr onClick="{{ r.select }}" onMouseEnter="{{ r.enter }}" onMouseLeave="{{ r.leave }}" style="background:{{ r.bg }};outline:{{ r.ol }};outline-offset:-1px;box-shadow:{{ r.gl }};position:relative;z-index:{{ r.z }}">
+            <tr onClick="{{ r.select }}" onMouseEnter="{{ r.enter }}" onMouseLeave="{{ r.leave }}" style="background:{{ r.bg }};color:{{ r.tc }};outline:{{ r.ol }};outline-offset:-1px;box-shadow:{{ r.gl }};position:relative;z-index:{{ r.z }}">
               <td style="position:sticky;left:0;z-index:1;height:21px;padding:0 6px;text-align:right;white-space:nowrap;background:{{ r.numBg }};color:{{ r.numColor }};font-weight:{{ r.numFw }};border-right:1px solid var(--z-line,#2A3038);border-bottom:1px solid var(--z-grid,#1C2128);box-shadow:{{ r.numSh }}">{{ r.num }}</td>
               <sc-for list="{{ r.cells }}" as="c" hint-placeholder-count="24">
                 <td style="height:21px;padding:0 6px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;text-align:{{ c.al }};background:{{ c.bg }};color:{{ c.c }};font-weight:{{ c.fw }};border-right:1px solid var(--z-grid,#1C2128);border-bottom:1px solid var(--z-grid,#1C2128)"><sc-if value="{{ c.cb }}" hint-placeholder-val="{{ false }}"><span style="display:flex;justify-content:center"><span style="width:13px;height:13px;border:1px solid var(--z-line3,#3A414B);background:var(--z-in,#0D1014)"></span></span></sc-if>{{ c.v }}</td>
@@ -633,7 +633,7 @@ a:hover{color:#FF6259}
           </thead>
           <tbody>
             <sc-for list="{{ rows }}" as="r" hint-placeholder-count="18">
-              <tr onClick="{{ r.select }}" onMouseEnter="{{ r.enter }}" onMouseLeave="{{ r.leave }}" style="background:{{ r.bg }};cursor:default;outline:{{ r.ol }};outline-offset:-1px;box-shadow:{{ r.gl }};position:relative;z-index:{{ r.z }}">
+              <tr onClick="{{ r.select }}" onMouseEnter="{{ r.enter }}" onMouseLeave="{{ r.leave }}" style="background:{{ r.bg }};color:{{ r.tc }};cursor:default;outline:{{ r.ol }};outline-offset:-1px;box-shadow:{{ r.gl }};position:relative;z-index:{{ r.z }}">
                 <td style="position:sticky;left:0;z-index:1;height:21px;padding:0 6px;text-align:right;white-space:nowrap;background:{{ r.numBg }};color:{{ r.numColor }};font-weight:{{ r.numFw }};border-right:1px solid var(--z-line,#2A3038);border-bottom:1px solid var(--z-grid,#1C2128);box-shadow:{{ r.numSh }}">{{ r.num }}</td>
                 <sc-for list="{{ r.cells }}" as="c" hint-placeholder-count="12">
                   <td style="height:21px;padding:0 6px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;text-align:{{ c.al }};font-family:{{ c.ff }};background:{{ c.bg }};color:{{ c.c }};border-right:1px solid var(--z-grid,#1C2128);border-bottom:1px solid var(--z-grid,#1C2128)">{{ c.v }}</td>
@@ -949,7 +949,7 @@ a:hover{color:#FF6259}
         </thead>
         <tbody>
           <sc-for list="{{ euRows }}" as="r" hint-placeholder-count="20">
-            <tr onClick="{{ r.select }}" onMouseEnter="{{ r.enter }}" onMouseLeave="{{ r.leave }}" style="background:{{ r.bg }};outline:{{ r.ol }};outline-offset:-1px;box-shadow:{{ r.gl }};position:relative;z-index:{{ r.z }}">
+            <tr onClick="{{ r.select }}" onMouseEnter="{{ r.enter }}" onMouseLeave="{{ r.leave }}" style="background:{{ r.bg }};color:{{ r.tc }};outline:{{ r.ol }};outline-offset:-1px;box-shadow:{{ r.gl }};position:relative;z-index:{{ r.z }}">
               <td style="position:sticky;left:0;z-index:1;height:21px;padding:0 6px;text-align:right;white-space:nowrap;background:{{ r.numBg }};color:{{ r.numColor }};font-weight:{{ r.numFw }};border-right:1px solid var(--z-line,#2A3038);border-bottom:1px solid var(--z-grid,#1C2128);box-shadow:{{ r.numSh }}">{{ r.num }}</td>
               <sc-for list="{{ r.cells }}" as="c" hint-placeholder-count="24">
                 <td style="height:21px;padding:0 6px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;text-align:{{ c.al }};background:{{ c.bg }};color:{{ c.c }};font-weight:{{ c.fw }};border-right:1px solid var(--z-grid,#1C2128);border-bottom:1px solid var(--z-grid,#1C2128)"><sc-if value="{{ c.cb }}" hint-placeholder-val="{{ false }}"><span style="display:flex;justify-content:center"><span style="width:13px;height:13px;border-radius:4px;border:1px solid var(--z-line3,#3A414B);background:var(--z-in,#0D1014)"></span></span></sc-if>{{ c.v }}</td>
@@ -1253,13 +1253,13 @@ class Component extends DCLogic {
     const vis=EU.filter(r=>{if(!q)return true;const m=[r.login,r.mail,r.pu,r.firma].some(s=>s.toLowerCase().includes(q));return st.ck.euInv?!m:m;});
     const C=(v,o={})=>({v,al:o.al||"left",bg:o.bg||"transparent",c:o.c||"inherit",fw:o.fw||400,cb:!!o.cb});
     const G="var(--z-mst,#1A3B26)";
-    const euRows=vis.map((r,k)=>{const sel=st.euSel===r.i,hov=st.euHov===r.i&&!sel;const base=sel?"var(--z-sel,#4B2321)":"var(--z-panel,#11151A)";
-      return {num:sel?"▸ "+(k+1):k+1,numColor:sel?"var(--z-red,#FF6259)":"var(--z-mut,#8E939A)",numFw:sel?700:400,numSh:sel?"inset 3px 0 0 var(--acc,#E5372F)":"none",
-        bg:hov?"#FFFFFF":base,numBg:hov?"#FFFFFF":"var(--z-head,#161A20)",ol:hov?"1px solid color-mix(in oklab, var(--acc,#E5372F) 55%, transparent)":"none",gl:hov?"0 0 0 3px color-mix(in srgb, var(--acc,#E5372F) 14%, transparent), 0 2px 10px color-mix(in srgb, var(--acc,#E5372F) 18%, transparent)":"none",z:hov?4:0,
+    const euRows=vis.map((r,k)=>{const sel=st.euSel===r.i,hov=st.euHov===r.i&&!sel;const base=sel?"#1F232A":"var(--z-panel,#11151A)";
+      return {num:sel?"▸ "+(k+1):k+1,numColor:sel?"#FFFFFF":"var(--z-mut,#8E939A)",numFw:sel?700:400,numSh:sel?"inset 3px 0 0 var(--acc2,#FF1F2E)":"none",tc:sel?"#F4F1EA":"inherit",
+        bg:hov?"#FFFFFF":base,numBg:sel?"#1F232A":hov?"#FFFFFF":"var(--z-head,#161A20)",ol:hov?"1px solid color-mix(in oklab, var(--acc,#E5372F) 55%, transparent)":"none",gl:hov?"0 0 0 3px color-mix(in srgb, var(--acc,#E5372F) 14%, transparent), 0 2px 10px color-mix(in srgb, var(--acc,#E5372F) 18%, transparent)":"none",z:hov?4:0,
         cells:[C(r.login,sel?{bg:"var(--acc,#E5372F)",c:"#FFFFFF",fw:600}:{}),C(r.idp.toLocaleString("cs-CZ"),{al:"right"}),C(r.pu,{bg:G}),C("Změnit",{bg:G,c:"var(--z-info,#5B9BF0)",fw:500}),C(r.tel),C(r.mob),C(r.fax),C(r.mail),C(r.ico),C(r.dic),C(""),C(r.kb),C("",{cb:1}),C(r.ucet),C("",{cb:1}),C(r.typ),C(r.eshop),C(r.jazyk),C(r.jm),C(r.firma),C(r.ulice),C(r.mesto),C(r.psc),C(r.zeme)],
         select:()=>this.setState({euSel:r.i}),enter:()=>this.setState({euHov:r.i}),leave:()=>this.setState(s=>s.euHov===r.i?{euHov:null}:null)};});
     const d=EU[st.euSel]||EU[0];
-    return {euCols:EUCOLS.map(([title,w,flt])=>({title,w:w+"px",flt})),euRows,euNoRows:!euRows.length,euCnt:vis.length,euQ:st.euQ,
+    return {euCols:EUCOLS.map(([title,w,flt])=>({title,w:w+"px",flt})),euRows:(euRows.forEach(r=>{if(r.tc!=="inherit")r.cells.forEach(c=>{if(c.bg==="transparent")c.c="inherit";})}),euRows),euNoRows:!euRows.length,euCnt:vis.length,euQ:st.euQ,
       onEuQ:(e)=>this.setState({euQ:e.target.value}),clearEuQ:()=>this.setState({euQ:""}),euClearColor:st.euQ?"var(--z-text,#F4F1EA)":"var(--z-dis,#4E545C)",
       eu:{related:d.jm||"RelatedUser",regJm:"",dodJm:"",firma:d.firma,ulice:d.ulice,mesto:d.mesto,psc:d.psc}};}
   renderVals(){
@@ -1282,11 +1282,11 @@ class Component extends DCLogic {
     const vis=ROWS.filter(r=>{if(!q)return true;const m=[r.name,r.ean,r.kod,r.obj,String(r.id)].some(s=>s.toLowerCase().includes(q));return st.ck.invert?!m:m;});
     const rows=vis.map((r,k)=>{const sel=st.sel===r.n,hov=st.hov===r.n&&!sel;
       const b0=r.t==="v"?"var(--z-var,#2F2A16)":r.t==="m"?"var(--z-mst,#1A3B26)":"var(--z-panel,#11151A)";
-      const base=sel?"var(--z-sel,#4B2321)":k%2?`color-mix(in oklab, ${b0} 94%, var(--z-text,#F4F1EA))`:b0;
+      const base=sel?"#1F232A":k%2?`color-mix(in oklab, ${b0} 94%, var(--z-text,#F4F1EA))`:b0;
       const C=(v,al="left",ff="inherit",c="inherit")=>({v,al,ff,c,bg:"transparent"});
       const ean=C(r.ean);if(sel){ean.bg="var(--acc,#E5372F)";ean.c="#FFFFFF";}
-      return {num:sel?"▸ "+r.n:r.n,numColor:sel?"var(--z-red,#FF6259)":"var(--z-mut,#8E939A)",numFw:sel?700:400,numSh:sel?"inset 3px 0 0 var(--acc,#E5372F)":"none",
-        bg:hov?"#FFFFFF":base,numBg:hov?"#FFFFFF":"var(--z-head,#161A20)",ol:hov?"1px solid color-mix(in oklab, var(--acc,#E5372F) 55%, transparent)":"none",gl:hov?"0 0 0 3px color-mix(in srgb, var(--acc,#E5372F) 14%, transparent), 0 2px 10px color-mix(in srgb, var(--acc,#E5372F) 18%, transparent)":"none",z:hov?4:0,
+      return {num:sel?"▸ "+r.n:r.n,numColor:sel?"#FFFFFF":"var(--z-mut,#8E939A)",numFw:sel?700:400,numSh:sel?"inset 3px 0 0 var(--acc2,#FF1F2E)":"none",tc:sel?"#F4F1EA":"inherit",
+        bg:hov?"#FFFFFF":base,numBg:sel?"#1F232A":hov?"#FFFFFF":"var(--z-head,#161A20)",ol:hov?"1px solid color-mix(in oklab, var(--acc,#E5372F) 55%, transparent)":"none",gl:hov?"0 0 0 3px color-mix(in srgb, var(--acc,#E5372F) 14%, transparent), 0 2px 10px color-mix(in srgb, var(--acc,#E5372F) 18%, transparent)":"none",z:hov?4:0,
         cells:[C(fid(r.id),"right"),C(fid(r.idv),"right"),C(r.flags,"left","'Geist Mono',monospace","var(--z-mut,#8E939A)"),C(r.name),C(r.name.slice(0,40)),C("0"),ean,C(r.obj),C(""),C(r.kod),C(""),C(fmt(r.nak*1.6),"right"),C(fmt(r.nak),"right"),C(String((r.id*13)%240),"right"),C(String((r.id*7)%12),"right"),C((r.id*13)%240>0?"Skladem":"Na objednávku","left","inherit",(r.id*13)%240>0?"var(--z-green,#7FD3A4)":"var(--z-mut,#8E939A)"),C(fmt(((r.id*11)%900)/100+0.1,2),"right"),C(r.t==="v"||r.t==="m"?"ALSAP s.r.o.":"TEMA PROFIL"),C(((r.id%27)+1)+". "+((r.id%9)+1)+". 2026 "+String(8+r.id%10).padStart(2,"0")+":"+String(r.id%60).padStart(2,"0"),"left","'Geist Mono',monospace","var(--z-text2,#C9C5BC)")],
         select:()=>this.setState({sel:r.n}),enter:()=>this.setState({hov:r.n}),leave:()=>this.setState(s=>s.hov===r.n?{hov:null}:null)};});
     const sr=ROWS.find(r=>r.n===st.sel)||ROWS[8];
@@ -1299,7 +1299,7 @@ class Component extends DCLogic {
     const lastF=tree.map((n,i)=>{for(let j=i+1;j<tree.length;j++){if(tree[j].d<n.d)return true;if(tree[j].d===n.d)return false;}return true;});const anc=[];
     const guidesOf=tree.map((n,i)=>{anc[n.d]=lastF[i];anc.length=n.d+1;const G=[];if(!n.d)return G;const X=k=>(6+k*16+7)+"px";for(let j=1;j<n.d;j++)if(!anc[j])G.push({l:X(j-1),t:"0",w:"1px",h:"100%"});G.push({l:X(n.d-1),t:"0",w:"1px",h:lastF[i]?"50%":"100%"});G.push({l:X(n.d-1),t:"50%",w:n.kids?"9px":"21px",h:"1px"});return G;});
     const treeV=tree.map((n,ti)=>{const sel=n.cat&&st.cat===n.label,hv=st.trHov===ti&&!sel&&!n.dis;return {enter:()=>this.setState({trHov:ti}),leave:()=>this.setState(s=>s.trHov===ti?{trHov:null}:null),ol:hv?"1px solid color-mix(in oklab, var(--acc,#E5372F) 55%, transparent)":"none",gl:hv?"0 0 0 3px color-mix(in srgb, var(--acc,#E5372F) 14%, transparent), 0 2px 10px color-mix(in srgb, var(--acc,#E5372F) 18%, transparent)":"none",z:hv?4:0,guides:guidesOf[ti],hasDot:!!n.dot,dot:n.dot||"transparent",dotTip:n.dot==="#e5372f"?"Neaktivní":"Aktivní",tip:n.dis?"Sklad je neaktivní":"",op:n.dis?"0.45":"1",cur:n.dis?"not-allowed":"pointer",c:{flags:"",eshop:"",pr:"",name:"",kod:"",id:"",um:"",st:"",...(n.c||{})},label:n.label,icon:n.icon,pad:(6+n.d*16)+"px",chevVis:n.kids?"visible":"hidden",rot:n.open?"90deg":"0deg",
-      fw:sel?600:n.fw,color:sel?"var(--z-seltx,#000000)":(n.color||"var(--z-text,#F4F1EA)"),ic:sel?"var(--z-seltx,#000000)":(n.ic||"var(--z-mut,#8E939A)"),bg:sel?"var(--z-sel,#4B2321)":hv?"#FFFFFF":"transparent",
+      fw:sel?600:n.fw,color:sel?"#F4F1EA":(n.color||"var(--z-text,#F4F1EA)"),ic:sel?"#C9CCD1":(n.ic||"var(--z-mut,#8E939A)"),bg:sel?"#1F232A":hv?"#FFFFFF":"transparent",
       toggle:(e)=>{e.stopPropagation();n.toggle&&n.toggle();},select:()=>{if(n.cat)this.setState({cat:n.label});else n.toggle&&n.toggle();}};});
     const ck={};Object.keys(st.ck).forEach(k=>{const on=!!st.ck[k];ck[k]={on,bg:on?"var(--acc,#E5372F)":"var(--z-in,#0D1014)",bd:on?"var(--acc,#E5372F)":"var(--z-line3,#3A414B)",t:()=>this.setState(s=>({ck:{...s.ck,[k]:!s.ck[k]}}))};});
     const radio=(opts,key)=>opts.map(([v,l])=>({label:l,dot:st[key]===v?"var(--acc,#E5372F)":"transparent",select:()=>this.setState({[key]:v})}));
@@ -1320,7 +1320,7 @@ class Component extends DCLogic {
       langCode:st.lang,langFlagBg:"url(./assets/flags/"+st.lang.toLowerCase()+".png) center/16px no-repeat",zobrOpts:radio([["nazvy","Názvy členění"],["vetve","Větve"]],"zobr"),lokOpts:radio([["nemenit","neměnit"],["doplnit","doplnit"],["prepsat","přepsat"]],"lok"),
       tree:treeV,ck,q:st.q,onQ:(e)=>this.setState({q:e.target.value}),clearQ:()=>this.setState({q:""}),clearColor:st.q?"var(--z-text,#F4F1EA)":"var(--z-dis,#4E545C)",
       catPath:"Sklad KD\\"+st.cat,placePath:"[hlavní karta] - Sklad KD\\"+st.cat,cntLabel:(q?vis.length:5461)+"/5461",selKind:sr.t==="m"?"master":sr.t==="v"?"varianta":"produkt",
-      cols:COLS.map(([title,w,al,flt])=>({title,w:w+"px",flt})),rows,noRows:rows.length===0,d,
+      cols:COLS.map(([title,w,al,flt])=>({title,w:w+"px",flt})),rows:(rows.forEach(r=>{if(r.tc!=="inherit")r.cells.forEach(c=>{if(c.bg==="transparent")c.c="inherit";})}),rows),noRows:rows.length===0,d,
       akce:[["device-floppy","Uložit","Uloží změny v kartě produktu."],["square-plus","Vytvořit produkt","Založí nový prázdný produkt v aktuální kategorii."],["box-multiple-plus","Hromadné založení","Založí více produktů najednou – např. z kombinací parametrů nebo ze seznamu."],["trash","Přesunout do koše","Přesune vybraný produkt do koše, lze jej později obnovit."],["trash-x","Trvale odstranit","Nevratně smaže produkt včetně variant.","var(--z-red,var(--acc,#E5372F))",null,1],["trash-restore","Obnovit z koše","Vrátí produkt z koše zpět do katalogu."],["file-search","Detail produktu","Otevře kompletní přehled produktu (sklady, objednávky, historie)."],["world-www","Zobrazit na webu","Otevře produktovou stránku v e-shopu v nové záložce."],["chart-line","Historie cen","Zobrazí graf a přehled změn nákupních i prodejních cen."]].map(([icon,title,desc,color,size,dng],i)=>{const dis=icon==="box-multiple-plus";return {icon,title,desc:dis?desc+" (Nedostupné pro vybraný produkt.)":desc,dis,cur:dis?"not-allowed":"pointer",op:dis?"0.4":"1",size:size||20,color:st.tip===i&&!dng&&!dis?"var(--z-hbt,var(--z-text,#F4F1EA))":(color||"var(--z-text2,#C9C5BC)"),bd:"var(--z-line,#2A3038)",bg:st.tip===i&&!dis?"var(--z-hb,var(--z-btnh,#1F252D))":"var(--z-btn,#161A20)",tip:st.tip===i,enter:()=>this.setState({tip:i}),leave:()=>this.setState(s=>s.tip===i?{tip:null}:null),click:dng?()=>this.setState({mdOpen:true,tip:null}):null}}),
       priceRows:[["Partner € [EUR]",25.1,0.58,59.12],["Velkoobchod",1,12,48.2],["Eshop SK € [EUR]",24.6,0,60],["Eshop HU Ft [HUF]",0.0645,0,60],["Eshop PL zł [PLN]",5.82,0,60],["Montážní firmy",1,8,52.4]].map(([name,k,sl,m])=>{const b=pro*(1-sl/100)/k;const dd=k>20?3:k<1?0:2;return {name,b:fmt(b,dd),s:fmt(b*1.21,dd),sl:fmt(sl)+" %",m:fmt(m)+" %"};}),e1:["ALU-SV číslo:","ALU-SV název:","Certifikace:","Délka profilu:","Materiál:","Povrch:","Hmotnost/m:","Barva:","Norma:"]};
     const pseg=(opts,cur,fn)=>opts.map(([v,l,ic])=>({label:l,icon:ic,bg:cur===v?"#232931":"transparent",color:cur===v?"#F4F1EA":"#8E939A",select:()=>fn(v)}));
