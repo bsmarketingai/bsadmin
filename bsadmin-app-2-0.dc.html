@@ -69,7 +69,7 @@ a:hover{color:#FF6259}
     <sc-for list="{{ tabs }}" as="t" hint-placeholder-count="7">
       <div onClick="{{ t.go }}" onMouseEnter="{{ t.enter }}" onMouseLeave="{{ t.leave }}" title="{{ t.title }}" style="flex-shrink:0;display:flex;align-items:center;gap:8px;height:{{ t.h }};padding:0 8px 0 14px;position:relative;z-index:1;border:1px solid {{ t.bd }};border-bottom:1px solid {{ t.bb }};border-radius:{{ t.rad }};background:{{ t.bg }};color:{{ t.color }};box-shadow:{{ t.sh }};font-size:calc(13px * var(--fs,1));font-weight:{{ t.fw }};white-space:nowrap;cursor:{{ t.cursor }};user-select:none;transition:background .12s,color .12s">
         <bs-icon variant="outline" name="{{ t.icon }}" level="1" size="20" style="display:flex;color:{{ t.ic }}"></bs-icon>
-        <span>{{ t.label }}</span>
+        <span style="font-weight:700">{{ t.label }}</span>
         <sc-if value="{{ t.closable }}" hint-placeholder-val="{{ true }}">
           <span onClick="{{ t.close }}" title="Zavřít záložku" style="width:20px;height:20px;display:flex;align-items:center;justify-content:center;border-radius:4px;color:{{ t.xc }}" style-hover="background:var(--z-hb,var(--z-btnh,#1F252D));color:var(--z-hbr,var(--z-red,#FF6259))"><bs-icon variant="outline" name="x" level="1" size="14" style="display:flex"></bs-icon></span>
         </sc-if>
